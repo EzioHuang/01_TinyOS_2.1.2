@@ -1,0 +1,59 @@
+<?xml version="1.0" ?><component abstract="" loc="42:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430CounterC.nc" nicename="tos.chips.msp430.timer.Msp430CounterC" qname="Msp430CounterC" safe="">
+      <documentation loc="33:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430CounterC.nc">
+        <short>
+ Msp430Counter is a generic component that wraps the MSP430 HPL timers into a
+ TinyOS Counter.</short>
+        <long>
+ Msp430Counter is a generic component that wraps the MSP430 HPL timers into a
+ TinyOS Counter.
+
+ @author Cory Sharp &lt;cssharp@eecs.berkeley.edu&gt;
+ @see  Please refer to TEP 102 for more information about this component and its
+          intended use.
+</long>
+      </documentation>
+      <parameters>
+        <typedef loc="42:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430CounterC.nc" name="frequency_tag" ref="0x7f0e3187da50">
+          <component-ref nicename="tos.chips.msp430.timer.Msp430CounterC" qname="Msp430CounterC"/>
+          <type-var alignment="U:" size="U:"><typedef-ref name="frequency_tag" ref="0x7f0e3187da50" scoped=""/></type-var>
+        </typedef>
+      </parameters>
+      <module/>
+    <specification><interface loc="45:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430CounterC.nc" name="Msp430Timer" provided="0" ref="0x7f0e31877980">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430CounterC" qname="Msp430CounterC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Msp430Timer" ref="0x7f0e31877980" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Timer" qname="Msp430Timer"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="clear" ref="0x7f0e31877d00" scoped=""/>
+        <function-ref name="setClockSource" ref="0x7f0e31875020" scoped=""/>
+        <function-ref name="enableEvents" ref="0x7f0e318751b0" scoped=""/>
+        <function-ref name="get" ref="0x7f0e31875340" scoped=""/>
+        <function-ref name="disableEvents" ref="0x7f0e318754d0" scoped=""/>
+        <function-ref name="clearOverflow" ref="0x7f0e31875660" scoped=""/>
+        <function-ref name="getMode" ref="0x7f0e318757f0" scoped=""/>
+        <function-ref name="isOverflowPending" ref="0x7f0e31875980" scoped=""/>
+        <function-ref name="overflow" ref="0x7f0e31875b10" scoped=""/>
+        <function-ref name="setMode" ref="0x7f0e31875ca0" scoped=""/>
+        <function-ref name="setInputDivider" ref="0x7f0e31875e30" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="44:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430CounterC.nc" name="Counter" provided="1" ref="0x7f0e31879760">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430CounterC" qname="Msp430CounterC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Counter" ref="0x7f0e31879760" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.lib.timer.Counter" qname="Counter"/>
+        <arguments>
+          <type-var alignment="U:" size="U:"><typedef-ref name="frequency_tag" ref="0x7f0e3187da50" scoped=""/></type-var>
+          <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+            <typename><typedef-ref name="uint16_t" ref="0x7f0e32ba9520"/></typename>
+          </type-int>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="get" ref="0x7f0e318785b0" scoped=""/>
+        <function-ref name="clearOverflow" ref="0x7f0e31877020" scoped=""/>
+        <function-ref name="isOverflowPending" ref="0x7f0e31878a70" scoped=""/>
+        <function-ref name="overflow" ref="0x7f0e318774e0" scoped=""/>
+      </interface-functions>
+    </interface></specification><referenced/></component>

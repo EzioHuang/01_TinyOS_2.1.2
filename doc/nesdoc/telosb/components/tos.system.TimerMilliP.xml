@@ -1,0 +1,178 @@
+<?xml version="1.0" ?><component loc="48:/home/ezio/tinyos-main-read-only/tos/system/TimerMilliP.nc" nicename="tos.system.TimerMilliP" qname="TimerMilliP">
+      <documentation loc="34:/home/ezio/tinyos-main-read-only/tos/system/TimerMilliP.nc">
+        <short>
+ Components should never wire to this component.</short>
+        <long>
+ Components should never wire to this component. This is the
+ underlying configuration of virtualized millisecond timers. 
+ It auto-wires wires the timer
+ implementation (TimerC) to the boot sequence and exports the
+ various Timer interfaces.
+
+ @author Philip Levis
+ @author Cory Sharp
+ @date   May 16 2005
+</long>
+      </documentation>
+      <configuration/>
+      <wiring>
+        <wire loc="54:/home/ezio/tinyos-main-read-only/tos/system/TimerMilliP.nc">
+          <from><interface-ref name="TimerMilli" ref="0x7f0e31910610" scoped=""/></from>
+          <to><interface-ref name="TimerMilli" ref="0x7f0e319061d0" scoped=""/></to>
+        </wire>
+        <wire loc="53:/home/ezio/tinyos-main-read-only/tos/system/TimerMilliP.nc">
+          <from><interface-ref name="SoftwareInit" ref="0x7f0e31d91da0" scoped=""/></from>
+          <to><interface-ref name="Init" ref="0x7f0e31908400" scoped=""/></to>
+        </wire>
+      </wiring>
+    <specification><interface loc="49:/home/ezio/tinyos-main-read-only/tos/system/TimerMilliP.nc" name="TimerMilli" provided="1" ref="0x7f0e31910610">
+      <component-ref nicename="tos.system.TimerMilliP" qname="TimerMilliP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="TimerMilli" ref="0x7f0e31910610" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.lib.timer.Timer" qname="Timer"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0x7f0e31d92ea0"/>
+            <typename><typedef-ref name="TMilli" ref="0x7f0e31bb8240"/></typename>
+          </type-tag>
+        </arguments>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="uint8_t" ref="0x7f0e32ba9160"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="getNow" ref="0x7f0e3190cc40" scoped=""/>
+        <function-ref name="fired" ref="0x7f0e3190e1e0" scoped=""/>
+        <function-ref name="startPeriodicAt" ref="0x7f0e3190c020" scoped=""/>
+        <function-ref name="isOneShot" ref="0x7f0e3190eae0" scoped=""/>
+        <function-ref name="getdt" ref="0x7f0e3190b590" scoped=""/>
+        <function-ref name="gett0" ref="0x7f0e3190b110" scoped=""/>
+        <function-ref name="isRunning" ref="0x7f0e3190e660" scoped=""/>
+        <function-ref name="startPeriodic" ref="0x7f0e3190f390" scoped=""/>
+        <function-ref name="startOneShotAt" ref="0x7f0e3190c630" scoped=""/>
+        <function-ref name="startOneShot" ref="0x7f0e3190f860" scoped=""/>
+        <function-ref name="stop" ref="0x7f0e3190fd30" scoped=""/>
+      </interface-functions>
+    </interface></specification><referenced><interface loc="46:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/HilTimerMilliC.nc" name="TimerMilli" provided="1" ref="0x7f0e319061d0">
+      <component-ref nicename="tos.chips.msp430.timer.HilTimerMilliC" qname="HilTimerMilliC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="TimerMilli" ref="0x7f0e319061d0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.lib.timer.Timer" qname="Timer"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0x7f0e31d92ea0"/>
+            <typename><typedef-ref name="TMilli" ref="0x7f0e31bb8240"/></typename>
+          </type-tag>
+        </arguments>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="uint8_t" ref="0x7f0e32ba9160"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="getNow" ref="0x7f0e31903630" scoped=""/>
+        <function-ref name="fired" ref="0x7f0e31905c30" scoped=""/>
+        <function-ref name="startPeriodicAt" ref="0x7f0e319049d0" scoped=""/>
+        <function-ref name="isOneShot" ref="0x7f0e31904550" scoped=""/>
+        <function-ref name="getdt" ref="0x7f0e31901020" scoped=""/>
+        <function-ref name="gett0" ref="0x7f0e31903ab0" scoped=""/>
+        <function-ref name="isRunning" ref="0x7f0e319040d0" scoped=""/>
+        <function-ref name="startPeriodic" ref="0x7f0e31906dc0" scoped=""/>
+        <function-ref name="startOneShotAt" ref="0x7f0e31903020" scoped=""/>
+        <function-ref name="startOneShot" ref="0x7f0e319052e0" scoped=""/>
+        <function-ref name="stop" ref="0x7f0e319057b0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="58:/home/ezio/tinyos-main-read-only/tos/system/MainC.nc" name="SoftwareInit" provided="0" ref="0x7f0e31d91da0">
+      <component-ref nicename="tos.system.MainC" qname="MainC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="SoftwareInit" ref="0x7f0e31d91da0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Init" qname="Init"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="init" ref="0x7f0e31d90180" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="45:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/HilTimerMilliC.nc" name="Init" provided="1" ref="0x7f0e31908400">
+      <component-ref nicename="tos.chips.msp430.timer.HilTimerMilliC" qname="HilTimerMilliC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Init" ref="0x7f0e31908400" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Init" qname="Init"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="init" ref="0x7f0e31908780" scoped=""/>
+      </interface-functions>
+    </interface><component loc="43:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/HilTimerMilliC.nc" nicename="tos.chips.msp430.timer.HilTimerMilliC" qname="HilTimerMilliC">
+      <documentation loc="33:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/HilTimerMilliC.nc">
+        <short>
+ HilTimerMilliC provides a parameterized interface to a virtualized
+ millisecond timer.</short>
+        <long>
+ HilTimerMilliC provides a parameterized interface to a virtualized
+ millisecond timer.  TimerMilliC in tos/system/ uses this component to
+ allocate new timers.
+
+ @author Cory Sharp &lt;cssharp@eecs.berkeley.edu&gt;
+ @see  Please refer to TEP 102 for more information about this component and its
+          intended use.
+</long>
+      </documentation>
+      <configuration/>
+      <wiring>
+        <wire loc="58:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/HilTimerMilliC.nc">
+          <from><interface-ref name="TimerMilli" ref="0x7f0e319061d0" scoped=""/></from>
+          <to><interface-ref name="Timer" ref="0x7f0e3178f150" scoped=""/></to>
+        </wire>
+        <wire loc="59:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/HilTimerMilliC.nc">
+          <from><interface-ref name="LocalTime" ref="0x7f0e318fea80" scoped=""/></from>
+          <to><interface-ref name="LocalTime" ref="0x7f0e31781830" scoped=""/></to>
+        </wire>
+        <wire loc="57:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/HilTimerMilliC.nc">
+          <from><interface-ref name="Init" ref="0x7f0e31908400" scoped=""/></from>
+          <to><interface-ref name="Init" ref="0x7f0e3180b020" scoped=""/></to>
+        </wire>
+        <wire loc="61:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/HilTimerMilliC.nc">
+          <from><interface-ref name="TimerFrom" ref="0x7f0e3178a640" scoped=""/></from>
+          <to><interface-ref name="Timer" ref="0x7f0e317df2f0" scoped=""/></to>
+        </wire>
+        <wire loc="62:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/HilTimerMilliC.nc">
+          <from><interface-ref name="Alarm" ref="0x7f0e317d9850" scoped=""/></from>
+          <to><interface-ref name="Alarm" ref="0x7f0e3180b870" scoped=""/></to>
+        </wire>
+        <wire loc="63:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/HilTimerMilliC.nc">
+          <from><interface-ref name="Counter" ref="0x7f0e31780b30" scoped=""/></from>
+          <to><interface-ref name="Counter" ref="0x7f0e31885900" scoped=""/></to>
+        </wire>
+      </wiring>
+    </component><component loc="56:/home/ezio/tinyos-main-read-only/tos/system/MainC.nc" nicename="tos.system.MainC" qname="MainC">
+      <documentation loc="45:/home/ezio/tinyos-main-read-only/tos/system/MainC.nc">
+        <short>
+ MainC is the system interface the TinyOS boot sequence.</short>
+        <long>
+ MainC is the system interface the TinyOS boot sequence. It wires the
+ boot sequence implementation to the scheduler and hardware resources.
+
+ @author Philip Levis
+ @date   August 6 2005
+ @see    TEP 107: Boot Sequence
+</long>
+      </documentation>
+      <configuration/>
+      <wiring>
+        <wire loc="72:/home/ezio/tinyos-main-read-only/tos/system/MainC.nc">
+          <from><interface-ref name="Boot" ref="0x7f0e31d8f8b0" scoped=""/></from>
+          <to><interface-ref name="Boot" ref="0x7f0e31bd1590" scoped=""/></to>
+        </wire>
+        <wire loc="67:/home/ezio/tinyos-main-read-only/tos/system/MainC.nc">
+          <from><interface-ref name="Scheduler" ref="0x7f0e31bd1c00" scoped=""/></from>
+          <to><interface-ref name="Scheduler" ref="0x7f0e3221e3a0" scoped=""/></to>
+        </wire>
+        <wire loc="68:/home/ezio/tinyos-main-read-only/tos/system/MainC.nc">
+          <from><interface-ref name="PlatformInit" ref="0x7f0e31bc46c0" scoped=""/></from>
+          <to><interface-ref name="Init" ref="0x7f0e31d90db0" scoped=""/></to>
+        </wire>
+        <wire loc="71:/home/ezio/tinyos-main-read-only/tos/system/MainC.nc">
+          <from><interface-ref name="SoftwareInit" ref="0x7f0e31bc4dc0" scoped=""/></from>
+          <to><interface-ref name="SoftwareInit" ref="0x7f0e31d91da0" scoped=""/></to>
+        </wire>
+      </wiring>
+    </component></referenced></component>

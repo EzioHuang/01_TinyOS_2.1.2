@@ -1,0 +1,2097 @@
+Script started on ven 01 lug 2016 15:14:48 CEST
+Setting up for TinyOS 2.1.2 Repository Version
+]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only[00m$ gcc -v
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 5.3.1-14ubuntu2.1' --with-bugurl=file:///usr/share/doc/gcc-5/README.Bugs --enable-languages=c,ada,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-5 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-5-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-5-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-5-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 5.3.1 20160413 (Ubuntu 5.3.1-14ubuntu2.1) 
+]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only[00m$ gcc[K[K++ -v
+Using built-in specs.
+COLLECT_GCC=g++
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 5.3.1-14ubuntu2.1' --with-bugurl=file:///usr/share/doc/gcc-5/README.Bugs --enable-languages=c,ada,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-5 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-5-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-5-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-5-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 5.3.1 20160413 (Ubuntu 5.3.1-14ubuntu2.1) 
+]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only[00m$ gcc --version
+gcc (Ubuntu 5.3.1-14ubuntu2.1) 5.3.1 20160413
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only[00m$ g++ --version
+g++ (Ubuntu 5.3.1-14ubuntu2.1) 5.3.1 20160413
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only[00m$ cd /usr/bin/
+]0;ezio@ezio-VirtualBox: /usr/bin[01;32mezio@ezio-VirtualBox[00m:[01;34m/usr/bin[00m$ ls -l
+total 226252
+-rwxr-xr-x 1 root root      51920 feb 18 14:37 [0m[01;32m[[0m
+lrwxrwxrwx 1 root root          8 giu 29 10:21 [01;36m2to3[0m -> [01;32m2to3-2.7[0m
+-rwxr-xr-x 1 root root         96 apr 17 19:15 [01;32m2to3-2.7[0m
+-rwxr-xr-x 1 root root         96 mar 31 13:49 [01;32m2to3-3.5[0m
+-rwxr-xr-x 1 root root      10392 gen 31 00:14 [01;32m411toppm[0m
+-rwxr-xr-x 1 root root      19208 apr 15 02:06 [01;32ma11y-profile-manager-indicator[0m
+-rwxr-xr-x 1 root root      22696 apr 13 04:23 [01;32maa-enabled[0m
+lrwxrwxrwx 1 root root         25 giu 29 11:20 [01;36maclocal[0m -> [01;32m/etc/alternatives/aclocal[0m
+-rwxr-xr-x 1 root root      36792 mar 30 01:57 [01;32maclocal-1.15[0m
+-rwxr-xr-x 1 root root      19064 apr 15 02:04 [01;32maconnect[0m
+-rwxr-xr-x 1 root root      15072 apr  9 00:36 [01;32macpi_listen[0m
+-rwxr-xr-x 1 root root     194288 mar  2 12:40 [01;32mactivity-log-manager[0m
+-rwxr-xr-x 1 root root      10544 mar 13 23:29 [01;32macyclic[0m
+-rwxr-xr-x 1 root root       6356 mar 22 08:57 [01;32madd-apt-repository[0m
+-rwxr-xr-x 1 root root      18888 apr 13 18:51 [01;32maddpart[0m
+lrwxrwxrwx 1 root root         26 giu 29 10:21 [01;36maddr2line[0m -> [01;32mx86_64-linux-gnu-addr2line[0m
+-rwxr-xr-x 1 root root      35560 apr 15 02:04 [01;32malsabat[0m
+-rwxr-xr-x 1 root root      73224 apr 15 02:04 [01;32malsaloop[0m
+-rwxr-xr-x 1 root root      65496 apr 15 02:04 [01;32malsamixer[0m
+-rwxr-xr-x 1 root root      10504 apr 15 02:04 [01;32malsatplg[0m
+-rwxr-xr-x 1 root root      15104 apr 15 02:04 [01;32malsaucm[0m
+-rwxr-xr-x 1 root root      19064 apr 15 02:04 [01;32mamidi[0m
+-rwxr-xr-x 1 root root      52728 apr 15 02:04 [01;32mamixer[0m
+-rwxr-xr-x 1 root root       2668 nov 17  2014 [01;32mamuFormat.sh[0m
+lrwxrwxrwx 1 root root         25 giu 29 10:21 [01;36manimate[0m -> [01;32m/etc/alternatives/animate[0m
+lrwxrwxrwx 1 root root         57 giu  1 21:14 [01;36manimate-im6[0m -> [01;32m../lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16/animate[0m[K
+-rwxr-xr-x 1 root root       5680 gen 31 00:13 [01;32manytopnm[0m
+-rwxr-xr-x 1 root root        276 gen 10  2014 [01;32mapg[0m
+-rwxr-xr-x 1 root root      31488 gen 10  2014 [01;32mapgbfm[0m
+-rwxr-xr-x 1 root root      64984 apr 15 02:04 [01;32maplay[0m
+-rwxr-xr-x 1 root root      23216 apr 15 02:04 [01;32maplaymidi[0m
+lrwxrwxrwx 1 root root         49 giu 29 11:26 [01;36mapm[0m -> [01;32m/opt/atom/resources/app/apm/node_modules/.bin/apm[0m
+lrwxrwxrwx 1 root root         30 giu 29 11:24 [01;36mappletviewer[0m -> [01;32m/etc/alternatives/appletviewer[0m
+-rwxr-xr-x 1 root root       2555 apr 14 05:16 [01;32mapport-bug[0m
+-rwxr-xr-x 1 root root      12566 apr 14 05:19 [01;32mapport-cli[0m
+lrwxrwxrwx 1 root root         10 giu 29 10:21 [01;36mapport-collect[0m -> [01;32mapport-bug[0m
+-rwxr-xr-x 1 root root       1848 apr 14 05:19 [01;32mapport-unpack[0m
+-rwxr-xr-x 1 root root      10488 mag  6  2015 [01;32mappres[0m
+-rwxr-xr-x 1 root root      35920 apr 18 17:57 [01;32mappstreamcli[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:21 [01;36mapropos[0m -> [01;32mwhatis[0m
+-rwxr-xr-x 1 root root      14376 apr 14 09:45 [01;32mapt[0m
+lrwxrwxrwx 1 root root         18 giu 29 10:21 [01;36mapt-add-repository[0m -> [01;32madd-apt-repository[0m
+-rwxr-xr-x 1 root root      80000 apr 14 09:45 [01;32mapt-cache[0m
+-rwxr-xr-x 1 root root      22656 apr 14 09:45 [01;32mapt-cdrom[0m
+-rwxr-xr-x 1 root root      18480 apr 14 09:45 [01;32mapt-config[0m
+-rwxr-xr-x 1 root root       1040 ott 12  2015 [01;32maptdcon[0m
+-rwxr-xr-x 1 root root      22664 apr 14 09:45 [01;32mapt-extracttemplates[0m
+-rwxr-xr-x 1 root root     231552 apr 14 09:45 [01;32mapt-ftparchive[0m
+-rwxr-xr-x 1 root root      43128 apr 14 09:45 [01;32mapt-get[0m
+-rwxr-xr-x 1 root root      20771 apr 14 09:42 [01;32mapt-key[0m
+-rwxr-xr-x 1 root root      47232 apr 14 09:45 [01;32mapt-mark[0m
+-rwxr-xr-x 1 root root      26680 apr 14 09:45 [01;32mapt-sortpkgs[0m
+-rwxr-xr-x 1 root root        273 dic 16  2015 [01;32mapturl[0m
+-rwxr-xr-x 1 root root       1544 feb 16 13:07 [01;32mapturl-gtk[0m
+lrwxrwxrwx 1 root root         19 giu 29 10:21 [01;36mar[0m -> [01;32mx86_64-linux-gnu-ar[0m
+-rwxr-xr-x 1 root root      31440 feb 18 14:37 [01;32march[0m
+lrwxrwxrwx 1 root root          5 giu 29 10:21 [01;36marecord[0m -> [01;32maplay[0m
+-rwxr-xr-x 1 root root      23272 apr 15 02:04 [01;32marecordmidi[0m
+-rwxr-xr-x 1 root root      10520 apr  7 13:48 [01;32marm2hpdl[0m
+-rwxr-xr-x 1 root root      18920 mag  7  2014 [01;32marping[0m
+lrwxrwxrwx 1 root root         19 giu 29 10:21 [01;36mas[0m -> [01;32mx86_64-linux-gnu-as[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32masciitopgm[0m
+-rwxr-xr-x 1 root root      18928 apr 15 02:04 [01;32maseqdump[0m
+-rwxr-xr-x 1 root root      19040 apr 15 02:04 [01;32maseqnet[0m
+-rwxr-xr-x 1 root root     147256 feb  7 11:05 [01;32maspell[0m
+-rwxr-xr-x 1 root root       2044 feb  7 11:05 [01;32maspell-import[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:21 [01;36massistant[0m -> [01;32mqtchooser[0m
+-rwxr-xr-x 1 root root      26784 gen 31 00:14 [01;32matktopbm[0m
+-rwxr-xr-x 1 root root      10568 feb 10 14:42 [01;32matobm[0m
+-rwxr-xr-x 1 root root       2717 giu  7 12:16 [01;32matom[0m
+-rwxr-xr-x 1 root root      14768 ott 23  2015 [01;32mautoconf[0m
+-rwxr-xr-x 1 root root       8536 ott 23  2015 [01;32mautoheader[0m
+-rwxr-xr-x 1 root root      32671 ott 23  2015 [01;32mautom4te[0m
+lrwxrwxrwx 1 root root         26 giu 29 11:20 [01;36mautomake[0m -> [01;32m/etc/alternatives/automake[0m
+-rwxr-xr-x 1 root root     253209 mar 30 01:57 [01;32mautomake-1.15[0m
+-rwxr-xr-x 1 root root      21163 ott 23  2015 [01;32mautoreconf[0m
+-rwxr-xr-x 1 root root      17125 ott 23  2015 [01;32mautoscan[0m
+-rwxr-xr-x 1 root root      33874 ott 23  2015 [01;32mautoupdate[0m
+-rwxr-xr-x 1 root root      27296 nov 24  2015 [01;32mavahi-browse[0m
+lrwxrwxrwx 1 root root         12 giu 29 10:21 [01;36mavahi-browse-domains[0m -> [01;32mavahi-browse[0m
+-rwxr-xr-x 1 root root      18968 nov 24  2015 [01;32mavahi-publish[0m
+lrwxrwxrwx 1 root root         13 giu 29 10:21 [01;36mavahi-publish-address[0m -> [01;32mavahi-publish[0m
+lrwxrwxrwx 1 root root         13 giu 29 10:21 [01;36mavahi-publish-service[0m -> [01;32mavahi-publish[0m
+-rwxr-xr-x 1 root root      14792 nov 24  2015 [01;32mavahi-resolve[0m
+lrwxrwxrwx 1 root root         13 giu 29 10:21 [01;36mavahi-resolve-address[0m -> [01;32mavahi-resolve[0m
+lrwxrwxrwx 1 root root         13 giu 29 10:21 [01;36mavahi-resolve-host-name[0m -> [01;32mavahi-resolve[0m
+-rwxr-xr-x 1 root root      14728 nov 24  2015 [01;32mavahi-set-host-name[0m
+-rwxr-xr-x 1 root root    2506632 lug 26  2011 [01;32mavr-addr2line[0m
+-rwxr-xr-x 1 root root    2453468 lug 26  2011 [01;32mavr-ar[0m
+-rwxr-xr-x 1 root root    3354084 lug 26  2011 [01;32mavr-as[0m
+-rwxr-xr-x 2 root root     411850 ago  3  2011 [01;32mavr-c++[0m
+-rwxr-xr-x 1 root root    2468197 lug 26  2011 [01;32mavr-c++filt[0m
+-rwxr-xr-x 1 root root     411231 ago  3  2011 [01;32mavr-cpp[0m
+-rwxr-xr-x 1 root root     912413 ago 19  2011 [01;32mavrdude[0m
+-rwxr-xr-x 2 root root     411850 ago  3  2011 [01;32mavr-g++[0m
+-rwxr-xr-x 2 root root     408464 ago  3  2011 [01;32mavr-gcc[0m
+-rwxr-xr-x 2 root root     408464 ago  3  2011 [01;32mavr-gcc-4.1.2[0m
+-rwxr-xr-x 1 root root      16060 ago  3  2011 [01;32mavr-gccbug[0m
+-rwxr-xr-x 1 root root      92474 ago  3  2011 [01;32mavr-gcov[0m
+-rwxr-xr-x 1 root root    3584106 lug 26  2011 [01;32mavr-ld[0m
+-rwxr-xr-x 1 root root       1707 lug 26  2011 [01;32mavr-man[0m
+-rwxr-xr-x 1 root root    2549508 lug 26  2011 [01;32mavr-nm[0m
+-rwxr-xr-x 1 root root    3234800 lug 26  2011 [01;32mavr-objcopy[0m
+-rwxr-xr-x 1 root root    3492477 lug 26  2011 [01;32mavr-objdump[0m
+-rwxr-xr-x 1 root root    2453467 lug 26  2011 [01;32mavr-ranlib[0m
+-rwxr-xr-x 1 root root     600682 lug 26  2011 [01;32mavr-readelf[0m
+-rwxr-xr-x 1 root root    2351967 lug 26  2011 [01;32mavr-size[0m
+-rwxr-xr-x 1 root root    2322008 lug 26  2011 [01;32mavr-strings[0m
+-rwxr-xr-x 1 root root    3234831 lug 26  2011 [01;32mavr-strip[0m
+lrwxrwxrwx 1 root root         21 giu 29 10:21 [01;36mawk[0m -> [01;32m/etc/alternatives/awk[0m
+-rwxr-xr-x 1 root root     190184 ott 27  2015 [01;32mbaobab[0m
+-rwxr-xr-x 1 root root      39664 feb 18 14:37 [01;32mbase32[0m
+-rwxr-xr-x 1 root root      39664 feb 18 14:37 [01;32mbase64[0m
+-rwxr-xr-x 1 root root      31408 feb 18 14:37 [01;32mbasename[0m
+-rwxr-xr-x 1 root root       6946 set  1  2015 [01;32mbashbug[0m
+-rwxr-xr-x 1 root root      85232 dic 11  2014 [01;32mbc[0m
+-rwxr-xr-x 1 root root     192792 mar  1 16:33 [01;32mbccmd[0m
+-rwxr-xr-x 1 root root      14800 mar 13 23:29 [01;32mbcomps[0m
+-rwxr-xr-x 1 root root      10456 mag  6  2015 [01;32mbdftopcf[0m
+-rwxr-xr-x 1 root root      10472 mag  6  2015 [01;32mbdftruncate[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32mbioradtopgm[0m
+-rwxr-xr-x 1 root root     389984 ott 23  2015 [01;32mbison[0m
+-rwxr-xr-x 1 root root         41 ott 23  2015 [01;32mbison.yacc[0m
+-rwxr-xr-x 1 root root      92984 feb 10 14:42 [01;32mbitmap[0m
+-rwxr-xr-x 1 root root      34888 mar  1 16:33 [01;32mbluemoon[0m
+-rwxr-xr-x 1 root root     137512 mar  1 16:33 [01;32mbluetoothctl[0m
+-rwxr-xr-x 1 root root      28080 gen 28 17:59 [01;32mbluetooth-sendto[0m
+-rwxr-xr-x 1 root root      36088 apr 14 00:27 [01;32mbluetooth-wizard[0m
+-rwxr-xr-x 1 root root      14552 gen 31 00:14 [01;32mbmptopnm[0m
+lrwxrwxrwx 1 root root          8 giu 29 10:21 [01;36mbmptoppm[0m -> [01;32mbmptopnm[0m
+-rwxr-xr-x 1 root root      10520 feb 10 14:42 [01;32mbmtoa[0m
+-rwxr-xr-x 1 root root      76224 apr 12 12:34 [01;32mbootctl[0m
+-rwxr-xr-x 1 root root     215488 apr 11 08:03 [01;32mbrltty-ctb[0m
+-rwxr-xr-x 1 root root     166208 apr 11 08:03 [01;32mbrltty-trtxt[0m
+-rwxr-xr-x 1 root root     192616 apr 11 08:03 [01;32mbrltty-ttb[0m
+-rwxr-xr-x 1 root root     117920 mar 24 21:48 [01;32mbroadwayd[0m
+-rwxr-xr-x 1 root root      10360 gen 31 00:14 [01;32mbrushtopbm[0m
+-rwxr-xr-x 1 root root      10520 mar  1 12:43 [01;32mbsd-from[0m
+-rwxr-sr-x 1 root tty       14752 mar  1 12:43 [30;43mbsd-write[0m
+-rwxr-xr-x 1 root root      26696 mar  1 16:33 [01;32mbtattach[0m
+-rwxr-xr-x 1 root root     264280 mar  1 16:33 [01;32mbtmgmt[0m
+-rwxr-xr-x 1 root root     589784 mar  1 16:33 [01;32mbtmon[0m
+-rwxr-xr-x 1 root root     371928 apr 12 12:34 [01;32mbusctl[0m
+lrwxrwxrwx 1 root root         21 giu 29 10:21 [01;36mc++[0m -> [01;32m/etc/alternatives/c++[0m
+-rwxr-xr-x 1 root root      36607 mar 13 12:54 [01;32mc2ph[0m
+lrwxrwxrwx 1 root root         21 giu 29 10:21 [01;36mc89[0m -> [01;32m/etc/alternatives/c89[0m
+-rwxr-xr-x 1 root root        428 mag  7  2006 [01;32mc89-gcc[0m
+lrwxrwxrwx 1 root root         21 giu 29 10:21 [01;36mc99[0m -> [01;32m/etc/alternatives/c99[0m
+-rwxr-xr-x 1 root root        454 apr 11  2011 [01;32mc99-gcc[0m
+lrwxrwxrwx 1 root root          4 giu 29 10:21 [01;36mcal[0m -> [01;32mncal[0m
+-rwxr-xr-x 1 root root      27848 mar  1 12:43 [01;32mcalendar[0m
+-rwxr-xr-x 1 root root      23960 ago  6  2014 [01;32mcalibrate_ppa[0m
+-rwxr-xr-x 1 root root      10488 gen 14 03:34 [01;32mcanberra-gtk-play[0m
+-rwxr-xr-x 1 root root      14328 mar 25 18:42 [01;32mcancel[0m
+lrwxrwxrwx 1 root root          3 giu 29 10:21 [01;36mcaptoinfo[0m -> [01;32mtic[0m
+-rwxr-xr-x 1 root root       3327 apr 15 00:10 [01;32mcatchsegv[0m
+-rwxr-xr-x 1 root root      35288 nov  7  2015 [01;32mcatman[0m
+-rwxr-xr-x 1 root root        853 ott 30  2015 [01;32mcautious-launcher[0m
+lrwxrwxrwx 1 root root         20 giu 29 10:21 [01;36mcc[0m -> [01;32m/etc/alternatives/cc[0m
+lrwxrwxrwx 1 root root         14 apr  6 04:48 [01;36mccache-swig[0m -> [01;32mccache-swig3.0[0m
+-rwxr-xr-x 1 root root      47920 apr  6 04:48 [01;32mccache-swig3.0[0m
+-rwxr-xr-x 1 root root      23088 mar 13 23:29 [01;32mccomps[0m
+-rwxr-xr-x 1 root root      18424 nov  6  2015 [01;32mcd-create-profile[0m
+-rwxr-xr-x 1 root root      22520 nov  6  2015 [01;32mcd-fix-profile[0m
+-rwxr-xr-x 1 root root      10232 nov  6  2015 [01;32mcd-iccdump[0m
+-rwxr-xr-x 1 root root      18424 nov  6  2015 [01;32mcd-it8[0m
+lrwxrwxrwx 1 root root         24 giu 29 10:21 [01;36mc++filt[0m -> [01;32mx86_64-linux-gnu-c++filt[0m
+lrwxrwxrwx 1 root root         10 giu 29 10:21 [01;36mchacl[0m -> [01;32m/bin/chacl[0m
+-rwxr-sr-x 1 root shadow    62336 mar 29 11:25 [30;43mchage[0m
+lrwxrwxrwx 1 root root         11 giu 29 10:21 [01;36mchardet3[0m -> [01;32mchardetect3[0m
+-rwxr-xr-x 1 root root        309 feb 10 18:12 [01;32mchardetect3[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:21 [01;36mcharmap[0m -> [01;32mgucharmap[0m
+-rwxr-xr-x 1 root root      10592 ott 30  2015 [01;32mchattr[0m
+-rwxr-xr-x 1 root root      64432 feb 18 14:37 [01;32mchcon[0m
+-rwxr-xr-x 1 root root       2771 apr 14 07:04 [01;32mcheck-language-support[0m
+-rwxr-xr-x 1 root root     255504 apr  4 17:43 [01;32mcheese[0m
+-rwsr-xr-x 1 root root      49584 mar 29 11:25 [37;41mchfn[0m
+-rwxr-xr-x 1 root root      27312 apr 13 18:51 [01;32mchrt[0m
+-rwsr-xr-x 1 root root      40432 mar 29 11:25 [37;41mchsh[0m
+-rwxr-xr-x 1 root root     136760 mar  1 16:33 [01;32mciptool[0m
+lrwxrwxrwx 1 root root          3 mar 13 23:29 [01;36mcirco[0m -> [01;32mdot[0m
+-rwxr-xr-x 1 root root     147651 apr 20 03:11 [01;32mckbcomp[0m
+-rwxr-xr-x 1 root root      31408 feb 18 14:37 [01;32mcksum[0m
+-rwxr-xr-x 1 root root       6224 feb 19 09:22 [01;32mclear[0m
+-rwxr-xr-x 1 root root      10456 set  1  2015 [01;32mclear_console[0m
+-rwxr-xr-x 1 root root    2924488 mar 13 23:29 [01;32mcluster[0m
+-rwxr-xr-x 1 root root      43696 dic 27  2015 [01;32mcmp[0m
+-rwxr-xr-x 1 root root      10376 gen 31 00:14 [01;32mcmuwmtopbm[0m
+-rwxr-xr-x 1 root root      10480 set 16  2015 [01;32mcodepage[0m
+-rwxr-xr-x 1 root root      10504 mar  1 12:43 [01;32mcol[0m
+-rwxr-xr-x 1 root root      10472 mar  1 12:43 [01;32mcolcrt[0m
+-rwxr-xr-x 1 root root      51192 nov  6  2015 [01;32mcolormgr[0m
+-rwxr-xr-x 1 root root      10464 mar  1 12:43 [01;32mcolrm[0m
+-rwxr-xr-x 1 root root      14712 mar  1 12:43 [01;32mcolumn[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:21 [01;36mcombinediff[0m -> [01;32minterdiff[0m
+-rwxr-xr-x 1 root root      35536 feb 18 14:37 [01;32mcomm[0m
+lrwxrwxrwx 1 root root         25 giu 29 10:21 [01;36mcompare[0m -> [01;32m/etc/alternatives/compare[0m
+lrwxrwxrwx 1 root root         57 giu  1 21:14 [01;36mcompare-im6[0m -> [01;32m../lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16/compare[0m[K
+-rwxr-xr-x 1 root root      14848 apr 15 07:47 [01;32mcompiz[0m
+-rwxr-xr-x 1 root root       3040 apr 15 07:30 [01;32mcompiz-decorator[0m
+lrwxrwxrwx 1 root root         11 giu 29 10:21 [01;36mcompose[0m -> [01;32mrun-mailcap[0m
+lrwxrwxrwx 1 root root         27 giu 29 10:21 [01;36mcomposite[0m -> [01;32m/etc/alternatives/composite[0m
+lrwxrwxrwx 1 root root         59 giu  1 21:14 [01;36mcomposite-im6[0m -> [01;32m../lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16/composite[0m[K
+lrwxrwxrwx 1 root root         25 giu 29 10:21 [01;36mconjure[0m -> [01;32m/etc/alternatives/conjure[0m
+lrwxrwxrwx 1 root root         57 giu  1 21:14 [01;36mconjure-im6[0m -> [01;32m../lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16/conjure[0m[K
+lrwxrwxrwx 1 root root         30 giu 29 11:24 [01;36mControlPanel[0m -> [01;32m/etc/alternatives/ControlPanel[0m
+lrwxrwxrwx 1 root root         25 giu 29 10:21 [01;36mconvert[0m -> [01;32m/etc/alternatives/convert[0m
+lrwxrwxrwx 1 root root         57 giu  1 21:14 [01;36mconvert-im6[0m -> [01;32m../lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16/convert[0m[K
+-rwxr-xr-x 1 root root      12792 mar 13 12:54 [01;32mcorelist[0m
+-rwxr-xr-x 1 root root       7427 mar 13 12:54 [01;32mcpan[0m
+-rwxr-xr-x 1 root root       7448 mar 13 12:54 [01;32mcpan5.22-x86_64-linux-gnu[0m
+lrwxrwxrwx 1 root root          5 giu 29 10:21 [01;36mcpp[0m -> [01;32mcpp-5[0m
+-rwxr-xr-x 1 root root     915704 mag 12 19:32 [01;32mcpp-5[0m
+-rwxr-xr-x 1 root root       1043 gen  3 00:14 [01;32mcrc32[0m
+-rwxr-xr-x 1 root root        558 apr 16 22:01 [01;32mcreatefontdatachunk[0m
+-rwxr-xr-x 1 root root     131800 feb  1 13:56 [01;32mcredentials-preferences[0m
+-rwxr-xr-x 1 root root       5231 mag  2 19:03 [01;32mc_rehash[0m
+-rwxr-sr-x 1 root crontab   36080 apr  5 23:59 [30;43mcrontab[0m
+-rwxr-xr-x 1 root root      47984 feb 18 14:37 [01;32mcsplit[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:21 [01;36mctstat[0m -> [01;32mlnstat[0m
+-rwxr-xr-x 1 root root      22880 feb 18 06:33 [01;32mcups-calibrate[0m
+-rwxr-xr-x 1 root root      14328 mar 25 18:42 [01;32mcupstestdsc[0m
+-rwxr-xr-x 1 root root      55368 mar 25 18:42 [01;32mcupstestppd[0m
+-rwxr-xr-x 1 root root     190408 feb 18 09:18 [01;32mcurl[0m
+-rwxr-xr-x 1 root root      39728 feb 18 14:37 [01;32mcut[0m
+-rwxr-xr-x 1 root root      14656 apr  7 11:24 [01;32mcvt[0m
+-rwxr-xr-x 1 root root      10224 apr  1 18:41 [01;32mdbus-cleanup-sockets[0m
+-rwxr-xr-x 1 root root     224208 apr  1 18:41 [01;32mdbus-daemon[0m
+-rwxr-xr-x 1 root root      26616 apr  1 18:41 [01;32mdbus-launch[0m
+-rwxr-xr-x 1 root root      22520 apr  1 18:41 [01;32mdbus-monitor[0m
+-rwxr-xr-x 1 root root      10224 apr  1 18:41 [01;32mdbus-run-session[0m
+-rwxr-xr-x 1 root root      22512 apr  1 18:41 [01;32mdbus-send[0m
+-rwxr-xr-x 1 root root      14320 apr  1 18:41 [01;32mdbus-update-activation-environment[0m
+-rwxr-xr-x 1 root root      10224 apr  1 18:41 [01;32mdbus-uuidgen[0m
+-rwxr-xr-x 1 root root      47560 dic 11  2014 [01;32mdc[0m
+-rwxr-xr-x 1 root root      44168 mag 27  2015 [01;32mdconf[0m
+-rwxr-xr-x 1 root root      10488 set 16  2015 [01;32mdeallocvt[0m
+-rwxr-xr-x 1 root root       2859 nov 10  2015 [01;32mdebconf[0m
+-rwxr-xr-x 1 root root      11541 nov 10  2015 [01;32mdebconf-apt-progress[0m
+-rwxr-xr-x 1 root root        608 nov 10  2015 [01;32mdebconf-communicate[0m
+-rwxr-xr-x 1 root root       1719 nov 10  2015 [01;32mdebconf-copydb[0m
+-rwxr-xr-x 1 root root        647 nov 10  2015 [01;32mdebconf-escape[0m
+-rwxr-xr-x 1 root root       2935 nov 10  2015 [01;32mdebconf-set-selections[0m
+-rwxr-xr-x 1 root root       1827 nov 10  2015 [01;32mdebconf-show[0m
+-rwxr-xr-x 1 root root      18426 feb 29 13:24 [01;32mdeb-systemd-helper[0m
+-rwxr-xr-x 1 root root       4477 feb 29 13:24 [01;32mdeb-systemd-invoke[0m
+-rwxr-xr-x 1 root root       1351 mag  6  2015 [01;32mdehtmldiff[0m
+-rwxr-xr-x 1 root root     173272 apr  7 21:49 [01;32mdeja-dup[0m
+-rwxr-xr-x 1 root root      44616 apr  7 21:49 [01;32mdeja-dup-preferences[0m
+-rwxr-xr-x 1 root root      18888 apr 13 18:51 [01;32mdelpart[0m
+lrwxrwxrwx 1 1002    1001      24 ago  7  2008 [01;36mdeputy[0m -> [01;32m../lib/deputy/bin/deputy[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:21 [01;36mdesigner[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root         20 giu 29 10:21 [01;36mdesktop-file-edit[0m -> [01;32mdesktop-file-install[0m
+-rwxr-xr-x 1 root root      74720 apr  4 20:39 [01;32mdesktop-file-install[0m
+-rwxr-xr-x 1 root root      66568 apr  4 20:39 [01;32mdesktop-file-validate[0m
+-rwxr-xr-x 1 root root     159832 nov 24  2014 [01;32mdevdump[0m
+-rwxr-xr-x 1 root root      40080 apr 14 21:33 [01;32mdfu-tool[0m
+-rwxr-xr-x 1 root root       1365 ott 23  2015 [01;32mdh_autotools-dev_restoreconfig[0m
+-rwxr-xr-x 1 root root       1379 ott 23  2015 [01;32mdh_autotools-dev_updateconfig[0m
+-rwxr-xr-x 1 root root       2550 ago 18  2015 [01;32mdh_bash-completion[0m
+-rwxr-xr-x 1 root root       4108 mar 11  2015 [01;32mdh_dkms[0m
+-rwxr-xr-x 1 root root       9664 nov  7  2012 [01;32mdh_installxmlcatalogs[0m
+-rwxr-xr-x 1 root root       1983 apr  9 10:49 [01;32mdh_numpy[0m
+lrwxrwxrwx 1 root root         26 giu 29 10:21 [01;36mdh_pypy[0m -> [01;32m../share/dh-python/dh_pypy[0m
+-rwxr-xr-x 1 root root       1056 dic 10  2015 [01;32mdh_python2[0m
+lrwxrwxrwx 1 root root         29 giu 29 10:21 [01;36mdh_python3[0m -> [01;32m../share/dh-python/dh_python3[0m
+-rwxr-xr-x 1 root root     126032 dic 27  2015 [01;32mdiff[0m
+-rwxr-xr-x 1 root root      56176 dic 27  2015 [01;32mdiff3[0m
+-rwxr-xr-x 1 root root      10544 mar 13 23:29 [01;32mdiffimg[0m
+-rwxr-xr-x 1 root root      39504 feb  8 00:14 [01;32mdiffstat[0m
+-rwxr-xr-x 1 root root     104544 apr 14 10:10 [01;32mdig[0m
+-rwxr-xr-x 1 root root      14840 mar 13 23:29 [01;32mdijkstra[0m
+-rwxr-xr-x 1 root root      39640 feb 18 14:37 [01;32mdircolors[0m
+-rwxr-xr-x 1 root root     368840 apr  8 12:14 [01;32mdirmngr[0m
+-rwxr-xr-x 1 root root      96904 apr  8 12:14 [01;32mdirmngr-client[0m
+-rwxr-xr-x 1 root root      31408 feb 18 14:37 [01;32mdirname[0m
+-rwxr-xr-x 1 root root      17143 nov 26  2006 [01;32mdirsplit[0m
+lrwxrwxrwx 1 root root         25 giu 29 10:21 [01;36mdisplay[0m -> [01;32m/etc/alternatives/display[0m
+lrwxrwxrwx 1 root root         57 giu  1 21:14 [01;36mdisplay-im6[0m -> [01;32m../lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16/display[0m[K
+-rwxr-xr-x 1 root root      18944 apr  5 08:28 [01;32mdm-tool[0m
+-rwxr-xr-x 1 root root       6590 apr 16 06:17 [01;32mdo-release-upgrade[0m
+-rwxr-xr-x 1 root root      10544 mar 13 23:29 [01;32mdot[0m
+lrwxrwxrwx 1 root root          6 mar 13 23:29 [01;36mdot2gxl[0m -> [01;32mgxl2gv[0m
+-rwxr-xr-x 1 root root      10680 mar 13 23:29 [01;32mdot_builtins[0m
+-rwxr-xr-x 1 root root       2085 mar 13 23:29 [01;32mdotty[0m
+-rwxr-xr-x 1 root root     278264 gen 12 22:39 [01;32mdpkg[0m
+-rwxr-xr-x 1 root root      12623 gen 12 22:39 [01;32mdpkg-architecture[0m
+-rwxr-xr-x 1 root root       6217 gen 12 22:39 [01;32mdpkg-buildflags[0m
+-rwxr-xr-x 1 root root      23032 gen 12 22:39 [01;32mdpkg-buildpackage[0m
+-rwxr-xr-x 1 root root       7503 gen 12 22:39 [01;32mdpkg-checkbuilddeps[0m
+-rwxr-xr-x 1 root root     134520 gen 12 22:39 [01;32mdpkg-deb[0m
+-rwxr-xr-x 1 root root       2770 gen 12 22:39 [01;32mdpkg-distaddfile[0m
+-rwxr-xr-x 1 root root     138648 gen 12 22:39 [01;32mdpkg-divert[0m
+-rwxr-xr-x 1 root root      17870 gen 12 22:39 [01;32mdpkg-genchanges[0m
+-rwxr-xr-x 1 root root      14249 gen 12 22:39 [01;32mdpkg-gencontrol[0m
+-rwxr-xr-x 1 root root      10637 gen 12 22:39 [01;32mdpkg-gensymbols[0m
+-rwxr-xr-x 1 root root       6629 apr  7 18:55 [01;32mdpkg-log-summary[0m
+-rwxr-xr-x 1 root root      17765 gen 12 22:39 [01;32mdpkg-maintscript-helper[0m
+-rwxr-xr-x 1 root root       8538 gen 12 22:39 [01;32mdpkg-mergechangelogs[0m
+-rwxr-xr-x 1 root root       6789 gen 12 22:39 [01;32mdpkg-name[0m
+-rwxr-xr-x 1 root root       4545 gen 12 22:39 [01;32mdpkg-parsechangelog[0m
+-rwxr-xr-x 1 root root     146872 gen 12 22:39 [01;32mdpkg-query[0m
+-rwxr-xr-x 1 root root       8409 gen 12 22:39 [01;32mdpkg-scanpackages[0m
+-rwxr-xr-x 1 root root       9152 gen 12 22:39 [01;32mdpkg-scansources[0m
+-rwxr-xr-x 1 root root      29572 gen 12 22:39 [01;32mdpkg-shlibdeps[0m
+-rwxr-xr-x 1 root root      20332 gen 12 22:39 [01;32mdpkg-source[0m
+-rwxr-xr-x 1 root root     109712 gen 12 22:39 [01;32mdpkg-split[0m
+-rwxr-xr-x 1 root root      60496 gen 12 22:39 [01;32mdpkg-statoverride[0m
+-rwxr-xr-x 1 root root      72672 gen 12 22:39 [01;32mdpkg-trigger[0m
+-rwxr-xr-x 1 root root       3262 gen 12 22:39 [01;32mdpkg-vendor[0m
+-rwxr-xr-x 1 root root     122032 feb 18 14:37 [01;32mdu[0m
+lrwxrwxrwx 1 root root         13 giu 29 10:21 [01;36mdumpkeys[0m -> [01;32m/bin/dumpkeys[0m
+-rwxr-xr-x 1 root root       1023 feb 29 11:49 [01;32mdvipdf[0m
+lrwxrwxrwx 1 root root         20 giu 29 10:21 [01;36mdwp[0m -> [01;32mx86_64-linux-gnu-dwp[0m
+-rwxr-xr-x 1 root root    2826160 mar 13 23:29 [01;32medgepaint[0m
+lrwxrwxrwx 1 root root         11 giu 29 10:21 [01;36medit[0m -> [01;32mrun-mailcap[0m
+-rwxr-xr-x 1 root root       2060 mag  6  2015 [01;32meditdiff[0m
+lrwxrwxrwx 1 root root         24 giu 29 10:21 [01;36meditor[0m -> [01;32m/etc/alternatives/editor[0m
+-rwxr-xr-x 1 root root      58872 mag  6  2015 [01;32meditres[0m
+-rwxr-xr-x 1 root root      31408 feb 25  2014 [01;32meject[0m
+lrwxrwxrwx 1 root root         24 giu 29 10:21 [01;36melfedit[0m -> [01;32mx86_64-linux-gnu-elfedit[0m
+-rwxr-xr-x 1 root root      39863 mar 13 12:54 [01;32menc2xs[0m
+-rwxr-xr-x 1 root root       3028 mar 13 12:54 [01;32mencguess[0m
+-rwxr-xr-x 1 root root      18504 apr  5 15:33 [01;32menchant[0m
+-rwxr-xr-x 1 root root      10232 apr  5 15:33 [01;32menchant-lsmod[0m
+-rwxr-xr-x 1 root root       1508 apr 16 22:01 [01;32menhancer[0m
+-rwxr-xr-x 1 root root      31408 feb 18 14:37 [01;32menv[0m
+-rwxr-xr-x 1 root root      35336 feb 10 13:13 [01;32menvsubst[0m
+-rwxr-xr-x 1 root root      10568 mar 10 05:16 [01;32meog[0m
+-rwxr-xr-x 1 root root        639 feb 29 11:49 [01;32meps2eps[0m
+-rwxr-xr-x 1 root root     185536 gen 29 06:15 [01;32meqn[0m
+-rwxr-xr-x 1 root root      10408 mag  7  2014 [01;32mesc-m[0m
+-rwxr-xr-x 1 root root     416912 mar  8 22:53 [01;32mevince[0m
+-rwxr-xr-x 1 root root      51416 mar  8 22:53 [01;32mevince-previewer[0m
+-rwxr-xr-x 1 root root      14424 mar  8 22:53 [01;32mevince-thumbnailer[0m
+lrwxrwxrwx 1 root root         20 giu 29 10:21 [01;36mex[0m -> [01;32m/etc/alternatives/ex[0m
+-rwxr-xr-x 1 root root      31472 feb 18 14:37 [01;32mexpand[0m
+-rwxr-sr-x 1 root shadow    22768 mar 29 11:25 [30;43mexpiry[0m
+-rwxr-xr-x 1 root root       2439 apr 16 22:01 [01;32mexplode[0m
+-rwxr-xr-x 1 root root      43760 feb 18 14:37 [01;32mexpr[0m
+lrwxrwxrwx 1 root root         26 giu 29 11:24 [01;36mextcheck[0m -> [01;32m/etc/alternatives/extcheck[0m
+-rwxr-xr-x 1 root root      14504 gen 31 00:14 [01;32meyuvtoppm[0m
+-rwxr-xr-x 1 root root        757 apr 17 01:08 [01;32mf2py[0m
+-rwxr-xr-x 1 root root        760 apr 17 01:08 [01;32mf2py2.7[0m
+-rwxr-xr-x 1 root root      72464 feb 18 14:37 [01;32mfactor[0m
+-rwxr-xr-x 1 root root      18688 mar 29 11:25 [01;32mfaillog[0m
+-rwxr-xr-x 1 root root      27160 nov 24  2014 [01;32mfaked-sysv[0m
+-rwxr-xr-x 1 root root      27216 nov 24  2014 [01;32mfaked-tcp[0m
+lrwxrwxrwx 1 root root         26 giu 29 10:21 [01;36mfakeroot[0m -> [01;32m/etc/alternatives/fakeroot[0m
+-rwxr-xr-x 1 root root       3855 nov 24  2014 [01;32mfakeroot-sysv[0m
+-rwxr-xr-x 1 root root       3850 nov 24  2014 [01;32mfakeroot-tcp[0m
+-rwxr-xr-x 1 root root      23104 apr 13 18:51 [01;32mfallocate[0m
+-rwxr-xr-x 1 root root      14856 apr  6 17:52 [01;32mfc-cache[0m
+-rwxr-xr-x 1 root root      14792 apr  6 17:52 [01;32mfc-cat[0m
+-rwxr-xr-x 1 root root      10568 apr  6 17:52 [01;32mfc-list[0m
+-rwxr-xr-x 1 root root      10632 apr  6 17:52 [01;32mfc-match[0m
+-rwxr-xr-x 1 root root      10568 apr  6 17:52 [01;32mfc-pattern[0m
+-rwxr-xr-x 1 root root      10536 apr  6 17:52 [01;32mfc-query[0m
+-rwxr-xr-x 1 root root      10584 apr  6 17:52 [01;32mfc-scan[0m
+-rwxr-xr-x 1 root root      10592 apr  6 17:52 [01;32mfc-validate[0m
+lrwxrwxrwx 1 root root          3 mar 13 23:29 [01;36mfdp[0m -> [01;32mdot[0m
+-rwxr-xr-x 1 root root     113672 gen 31 00:14 [01;32mfiascotopnm[0m
+-rwxr-xr-x 1 root root      19088 nov 20  2015 [01;32mfile[0m
+-rwxr-xr-x 1 root root      18816 mar 25 18:49 [01;32mfile2brl[0m
+-rwxr-xr-x 1 root root       3172 giu  5  2015 [01;32mfile-rename[0m
+-rwxr-xr-x 1 root root     488248 ott 12  2015 [01;32mfile-roller[0m
+-rwxr-xr-x 1 root root      44880 mag  6  2015 [01;32mfilterdiff[0m
+-rwxr-xr-x 1 root root     221768 feb  8 00:18 [01;32mfind[0m
+lrwxrwxrwx 1 root root         25 giu  6 14:52 [01;36mfirefox[0m -> [01;32m../lib/firefox/firefox.sh[0m
+-rwxr-xr-x 1 root root      14504 gen 31 00:14 [01;32mfitstopnm[0m
+-rwxr-xr-x 1 root root       1870 mag  6  2015 [01;32mfixcvsdiff[0m
+-rwxr-xr-x 1 root root       8369 nov 17  2015 [01;32mfix-qdf[0m
+-rwxr-xr-x 1 root root     319000 feb 28 13:36 [01;32mflex[0m
+lrwxrwxrwx 1 root root          4 feb 28 13:36 [01;36mflex++[0m -> [01;32mflex[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:21 [01;36mflipdiff[0m -> [01;32minterdiff[0m
+-rwxr-xr-x 1 root root      27352 apr 13 18:51 [01;32mflock[0m
+-rwxr-xr-x 1 root root      39632 feb 18 14:37 [01;32mfmt[0m
+-rwxr-xr-x 1 root root      35536 feb 18 14:37 [01;32mfold[0m
+-rwxr-xr-x 1 root root        311 feb 29 11:49 [01;32mfont2c[0m
+-rwxr-xr-x 1 root root      35256 mag  6  2015 [01;32mfonttosfnt[0m
+-rwxr-xr-x 1 root root      33136 apr  7 13:48 [01;32mfoo2hbpl2[0m
+-rwxr-xr-x 1 root root      18343 apr  7 13:48 [01;32mfoo2hbpl2-wrapper[0m
+-rwxr-xr-x 1 root root      36208 apr  7 13:48 [01;32mfoo2hiperc[0m
+-rwxr-xr-x 1 root root      18541 apr  7 13:48 [01;32mfoo2hiperc-wrapper[0m
+-rwxr-xr-x 1 root root      36464 apr  7 13:48 [01;32mfoo2hp[0m
+-rwxr-xr-x 1 root root      19204 apr  7 13:48 [01;32mfoo2hp2600-wrapper[0m
+-rwxr-xr-x 1 root root      33200 apr  7 13:48 [01;32mfoo2lava[0m
+-rwxr-xr-x 1 root root      20083 apr  7 13:48 [01;32mfoo2lava-wrapper[0m
+-rwxr-xr-x 1 root root      36368 apr  7 13:48 [01;32mfoo2oak[0m
+-rwxr-xr-x 1 root root      17871 apr  7 13:48 [01;32mfoo2oak-wrapper[0m
+-rwxr-xr-x 1 root root      36240 apr  7 13:48 [01;32mfoo2qpdl[0m
+-rwxr-xr-x 1 root root      19514 apr  7 13:48 [01;32mfoo2qpdl-wrapper[0m
+-rwxr-xr-x 1 root root      32112 apr  7 13:48 [01;32mfoo2slx[0m
+-rwxr-xr-x 1 root root      17603 apr  7 13:48 [01;32mfoo2slx-wrapper[0m
+-rwxr-xr-x 1 root root      32112 apr  7 13:48 [01;32mfoo2xqx[0m
+-rwxr-xr-x 1 root root      17572 apr  7 13:48 [01;32mfoo2xqx-wrapper[0m
+-rwxr-xr-x 1 root root      37264 apr  7 13:48 [01;32mfoo2zjs[0m
+lrwxrwxrwx 1 root root          5 giu 29 10:21 [01;36mfoo2zjs-icc2ps[0m -> [01;32mpsicc[0m
+-rwxr-xr-x 1 root root       2997 apr  7 13:48 [01;32mfoo2zjs-pstops[0m
+-rwxr-xr-x 1 root root      25824 apr  7 13:48 [01;32mfoo2zjs-wrapper[0m
+lrwxrwxrwx 1 root root         31 giu 29 10:21 [01;36mfoomatic-rip[0m -> [01;32m../lib/cups/filter/foomatic-rip[0m
+-rwxr-xr-x 1 root root      18808 gen 13 12:48 [01;32mfree[0m
+lrwxrwxrwx 1 root root         22 giu 29 10:21 [01;36mfrom[0m -> [01;32m/etc/alternatives/from[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32mfstopgm[0m
+lrwxrwxrwx 1 root root         21 giu 29 10:21 [01;36mftp[0m -> [01;32m/etc/alternatives/ftp[0m
+-rwxr-xr-x 1 root root      22864 nov 20  2015 [01;32mfunzip[0m
+-rwxr-xr-x 1 root root      14328 mar 20 20:29 [01;32mfwupdate[0m
+-rwxr-xr-x 1 root root      61040 apr 14 21:33 [01;32mfwupdmgr[0m
+lrwxrwxrwx 1 root root          5 giu 29 10:21 [01;36mg++[0m -> [01;32mg++-5[0m
+-rwxr-xr-x 1 root root      13560 gen 31 00:14 [01;32mg3topbm[0m
+-rwxr-xr-x 1 root root     919800 mag 12 19:45 [01;32mg++-5[0m
+-rwxr-xr-x 1 root root      10240 set 18  2015 [01;32mgamma4scanimage[0m
+-rwxr-xr-x 1 root root      19008 apr 10 22:51 [01;32mgapplication[0m
+-rwxr-xr-x 1 root root     232160 mar  1 16:33 [01;32mgatttool[0m
+-rwxr-xr-x 1 root root      14736 mar 13 23:29 [01;32mgc[0m
+-rwxr-xr-x 1 root root      10696 feb  3 17:00 [01;32mgcalccmd[0m
+lrwxrwxrwx 1 root root          5 giu 29 10:21 [01;36mgcc[0m -> [01;32mgcc-5[0m
+-rwxr-xr-x 1 root root     915704 mag 12 20:06 [01;32mgcc-5[0m
+lrwxrwxrwx 1 root root          8 giu 29 10:21 [01;36mgcc-ar[0m -> [01;32mgcc-ar-5[0m
+-rwxr-xr-x 1 root root      31136 mag 12 20:06 [01;32mgcc-ar-5[0m
+lrwxrwxrwx 1 root root          8 giu 29 10:21 [01;36mgcc-nm[0m -> [01;32mgcc-nm-5[0m
+-rwxr-xr-x 1 root root      31136 mag 12 20:06 [01;32mgcc-nm-5[0m
+lrwxrwxrwx 1 root root         12 giu 29 10:21 [01;36mgcc-ranlib[0m -> [01;32mgcc-ranlib-5[0m
+-rwxr-xr-x 1 root root      31136 mag 12 20:06 [01;32mgcc-ranlib-5[0m
+-rwxr-xr-x 1 root root      56648 nov 27  2015 [01;32mgconf-merge-tree[0m
+lrwxrwxrwx 1 root root         11 giu 29 10:21 [01;36mgconftool[0m -> [01;32mgconftool-2[0m
+-rwxr-xr-x 1 root root      60672 nov 27  2015 [01;32mgconftool-2[0m
+-rwxr-xr-x 1 root root       2945 feb 24 18:40 [01;32mgcore[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:21 [01;36mgcov[0m -> [01;32mgcov-5[0m
+-rwxr-xr-x 1 root root     474968 mag 12 20:06 [01;32mgcov-5[0m
+lrwxrwxrwx 1 root root         11 giu 29 10:22 [01;36mgcov-tool[0m -> [01;32mgcov-tool-5[0m
+-rwxr-xr-x 1 root root     462640 mag 12 20:06 [01;32mgcov-tool-5[0m
+-rwxr-xr-x 1 root root      10672 ott 23  2015 [01;32mgcr-viewer[0m
+-rwxr-xr-x 1 root root    6542312 feb 24 18:58 [01;32mgdb[0m
+-rwxr-xr-x 1 root root       1995 feb 24 18:58 [01;32mgdb-add-index[0m
+-rwxr-xr-x 1 root root     418336 feb 24 18:58 [01;32mgdbserver[0m
+-rwxr-xr-x 1 root root        126 feb 24 18:58 [01;32mgdbtui[0m
+-rwxr-xr-x 1 root root      35768 apr 10 22:51 [01;32mgdbus[0m
+-rwxr-xr-x 1 root root       9228 feb 16 16:29 [01;32mgdialog[0m
+-rwxr-xr-x 1 root root      10536 mar  4 00:42 [01;32mgedit[0m
+lrwxrwxrwx 1 root root          8 giu 29 10:22 [01;36mgemtopbm[0m -> [01;32mgemtopnm[0m
+-rwxr-xr-x 1 root root      10416 gen 31 00:14 [01;32mgemtopnm[0m
+-rwxr-xr-x 1 root root      23168 apr 15 00:19 [01;32mgencat[0m
+-rwxr-xr-x 1 root root     601360 nov 24  2014 [01;32mgenisoimage[0m
+lrwxrwxrwx 1 root root          3 giu 29 10:22 [01;36mgeqn[0m -> [01;32meqn[0m
+lrwxrwxrwx 1 root root         11 giu 29 10:21 [01;36mGET[0m -> [01;32mlwp-request[0m
+-rwxr-xr-x 1 root root      22944 apr 15 00:19 [01;32mgetconf[0m
+-rwxr-xr-x 1 root root       6210 nov 24  2014 [01;32mgeteltorito[0m
+-rwxr-xr-x 1 root root      27960 apr 15 00:19 [01;32mgetent[0m
+lrwxrwxrwx 1 root root         12 giu 29 10:22 [01;36mgetfacl[0m -> [01;32m/bin/getfacl[0m
+-rwxr-xr-x 1 root root      10488 set 16  2015 [01;32mgetkeycodes[0m
+-rwxr-xr-x 1 root root      14776 apr 13 18:51 [01;32mgetopt[0m
+-rwxr-xr-x 1 root root      35312 feb 10 13:13 [01;32mgettext[0m
+-rwxr-xr-x 1 root root      43751 feb 10 13:13 [01;32mgettextize[0m
+-rwxr-xr-x 1 root root       4624 feb 10 13:13 [01;32mgettext.sh[0m
+lrwxrwxrwx 1 root root          2 giu 29 10:22 [01;36mghostscript[0m -> [01;32mgs[0m
+-rwxr-xr-x 1 root root        642 apr 16 22:01 [01;32mgifmaker[0m
+-rwxr-xr-x 1 root root      18648 gen 31 00:14 [01;32mgiftopnm[0m
+lrwxrwxrwx 1 root root         12 giu 29 10:22 [01;36mginstall-info[0m -> [01;32minstall-info[0m
+lrwxrwxrwx 1 root root         49 giu 29 10:22 [01;36mgio-querymodules[0m -> [01;32m../lib/x86_64-linux-gnu/glib-2.0/gio-querymodules[0m[K
+-rwxr-xr-x 1 root root      14680 apr  7 13:48 [01;32mgipddecode[0m
+-rwxr-xr-x 1 root root      10736 gen 28 15:15 [01;32mgkbd-keyboard-display[0m
+lrwxrwxrwx 1 root root         55 giu 29 10:22 [01;36mglib-compile-resources[0m -> [01;32m../lib/x86_64-linux-gnu/glib-2.0/glib-compile-resources[0m[K
+lrwxrwxrwx 1 root root         53 giu 29 10:22 [01;36mglib-compile-schemas[0m -> [01;32m../lib/x86_64-linux-gnu/glib-2.0/glib-compile-schemas[0m[K
+-rwxr-xr-x 1 root root      39672 mar 13 23:29 [01;32mgml2gv[0m
+-rwxr-xr-x 1 root root     407744 feb  3 17:00 [01;32mgnome-calculator[0m
+-rwxr-xr-x 1 root root     373808 apr 18 13:42 [01;32mgnome-calendar[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mgnome-character-map[0m -> [01;32mgucharmap[0m
+-rwxr-xr-x 1 root root      40544 dic  1  2015 [01;32mgnome-disk-image-mounter[0m
+-rwxr-xr-x 1 root root     521504 dic  1  2015 [01;32mgnome-disks[0m
+-rwxr-xr-x 1 root root      19208 apr 20 12:31 [01;32mgnome-file-share-properties[0m
+-rwxr-xr-x 1 root root      62320 nov  2  2015 [01;32mgnome-font-viewer[0m
+lrwxrwxrwx 1 root root          4 giu 29 10:22 [01;36mgnome-help[0m -> [01;32myelp[0m
+lrwxrwxrwx 1 root root         15 giu 29 10:22 [01;36mgnome-keyring[0m -> [01;32mgnome-keyring-3[0m
+-rwxr-xr-x 1 root root      15144 nov  1  2015 [01;32mgnome-keyring-3[0m
+-rwxr-xr-x 1 root root    1014224 nov  1  2015 [01;32mgnome-keyring-daemon[0m
+-rwxr-xr-x 1 root root       1444 apr 14 07:04 [01;32mgnome-language-selector[0m
+-rwxr-xr-x 1 root root      69600 nov  4  2015 [01;32mgnome-power-statistics[0m
+-rwxr-xr-x 1 root root     136368 gen  4 15:28 [01;32mgnome-screensaver[0m
+-rwxr-xr-x 1 root root      15176 gen  4 15:28 [01;32mgnome-screensaver-command[0m
+-rwxr-xr-x 1 root root      83488 nov  2  2015 [01;32mgnome-screenshot[0m
+-rwxr-xr-x 1 root root        333 nov 12  2015 [01;32mgnome-session[0m
+-rwxr-xr-x 1 root root      10592 nov 12  2015 [01;32mgnome-session-inhibit[0m
+-rwxr-xr-x 1 root root      65608 nov 12  2015 [01;32mgnome-session-properties[0m
+-rwxr-xr-x 1 root root      10848 nov 12  2015 [01;32mgnome-session-quit[0m
+-rwxr-xr-x 1 root root     635408 apr 20 15:54 [01;32mgnome-software[0m
+-rwxr-xr-x 1 root root     121552 ott 19  2015 [01;32mgnome-system-log[0m
+-rwxr-xr-x 1 root root        255 apr 13  2013 [01;32mgnome-system-log-pkexec[0m
+-rwxr-xr-x 1 root root     331264 nov 12  2015 [01;32mgnome-system-monitor[0m
+-rwxr-xr-x 1 root root       3368 mar 15 19:05 [01;32mgnome-terminal[0m
+-rwxr-xr-x 1 root root      81928 mar 15 19:05 [01;32mgnome-terminal.real[0m
+-rwxr-xr-x 1 root root       1394 mar 15 19:00 [01;32mgnome-terminal.wrapper[0m
+lrwxrwxrwx 1 root root         35 giu 29 10:22 [01;36mgnome-text-editor[0m -> [01;32m/etc/alternatives/gnome-text-editor[0m
+-rwxr-xr-x 1 root root      23312 nov  2  2015 [01;32mgnome-thumbnail-font[0m
+lrwxrwxrwx 1 root root         35 giu 29 10:22 [01;36mgnome-www-browser[0m -> [01;32m/etc/alternatives/gnome-www-browser[0m
+lrwxrwxrwx 1 root root          7 giu 29 10:22 [01;36mgold[0m -> [01;32mld.gold[0m
+-rwxr-xr-x 1 root root      10368 gen 31 00:14 [01;32mgouldtoppm[0m
+-rwsr-xr-x 1 root root      75304 mar 29 11:25 [37;41mgpasswd[0m
+-rwxr-xr-x 1 root root    1008632 feb 12 14:08 [01;32mgpg[0m
+-rwxr-xr-x 1 root root     917032 apr  8 12:14 [01;32mgpg2[0m
+-rwxr-xr-x 1 root root     352872 apr  8 12:14 [01;32mgpg-agent[0m
+-rwxr-xr-x 1 root root     139720 apr  8 12:14 [01;32mgpgconf[0m
+-rwxr-xr-x 1 root root     142056 apr  8 12:14 [01;32mgpg-connect-agent[0m
+-rwxr-xr-x 1 root root      26696 apr  8 12:14 [01;32mgpgparsemail[0m
+-rwxr-xr-x 1 root root      60296 feb 12 14:08 [01;32mgpgsplit[0m
+-rwxr-xr-x 1 root root     372488 feb 12 14:08 [01;32mgpgv[0m
+-rwxr-xr-x 1 root root       3303 feb 12 14:08 [01;32mgpg-zip[0m
+lrwxrwxrwx 1 root root          3 giu 29 10:22 [01;36mgpic[0m -> [01;32mpic[0m
+lrwxrwxrwx 1 root root         22 giu 29 10:22 [01;36mgprof[0m -> [01;32mx86_64-linux-gnu-gprof[0m
+-rwxr-xr-x 1 root root      73336 apr 12 12:18 [01;32mgpu-manager[0m
+-rwxr-xr-x 1 root root      19104 mar 13 23:29 [01;32mgraphml2gv[0m
+lrwxrwxrwx 1 root root         10 giu 29 10:22 [01;36mgrepdiff[0m -> [01;32mfilterdiff[0m
+-rwxr-xr-x 1 root root      18984 apr 10 22:51 [01;32mgresource[0m
+-rwxr-xr-x 1 root root     103744 gen 29 06:15 [01;32mgroff[0m
+-rwxr-xr-x 1 root root       2780 gen 29 06:14 [01;32mgrog[0m
+-rwxr-xr-x 1 root root     165600 gen 29 06:15 [01;32mgrops[0m
+-rwxr-xr-x 1 root root     120160 gen 29 06:15 [01;32mgrotty[0m
+-rwxr-xr-x 1 root root      31440 feb 18 14:37 [01;32mgroups[0m
+-rwxr-xr-x 1 root root     234272 apr 16 00:02 [01;32mgrub-editenv[0m
+-rwxr-xr-x 1 root root     647616 apr 16 00:02 [01;32mgrub-file[0m
+-rwxr-xr-x 1 root root     780816 apr 16 00:02 [01;32mgrub-fstest[0m
+-rwxr-xr-x 1 root root     229984 apr 16 00:02 [01;32mgrub-glue-efi[0m
+-rwxr-xr-x 1 root root       1681 apr 16 00:00 [01;32mgrub-kbdcomp[0m
+-rwxr-xr-x 1 root root     205464 apr 16 00:02 [01;32mgrub-menulst2cfg[0m
+-rwxr-xr-x 1 root root     255264 apr 16 00:02 [01;32mgrub-mkfont[0m
+-rwxr-xr-x 1 root root     317120 apr 16 00:02 [01;32mgrub-mkimage[0m
+-rwxr-xr-x 1 root root     234400 apr 16 00:02 [01;32mgrub-mklayout[0m
+-rwxr-xr-x 1 root root     358800 apr 16 00:02 [01;32mgrub-mknetdir[0m
+-rwxr-xr-x 1 root root     234472 apr 16 00:02 [01;32mgrub-mkpasswd-pbkdf2[0m
+-rwxr-xr-x 1 root root     229696 apr 16 00:02 [01;32mgrub-mkrelpath[0m
+-rwxr-xr-x 1 root root     801824 apr 16 00:02 [01;32mgrub-mkrescue[0m
+-rwxr-xr-x 1 root root     432872 apr 16 00:02 [01;32mgrub-mkstandalone[0m
+-rwxr-xr-x 1 root root     595056 apr 16 00:02 [01;32mgrub-mount[0m
+lrwxrwxrwx 1 root root         34 giu 29 10:22 [01;36mgrub-ntldr-img[0m -> [01;32m../lib/grub/i386-pc/grub-ntldr-img[0m
+-rwxr-xr-x 1 root root     664616 apr 16 00:02 [01;32mgrub-render-label[0m
+-rwxr-xr-x 1 root root     254408 apr 16 00:02 [01;32mgrub-script-check[0m
+-rwxr-xr-x 1 root root     611896 apr 16 00:02 [01;32mgrub-syslinux2cfg[0m
+-rwxr-xr-x 1 root root      10456 feb 29 11:49 [01;32mgs[0m
+-rwxr-xr-x 1 root root        350 feb 29 11:49 [01;32mgsbj[0m
+-rwxr-xr-x 1 root root        352 feb 29 11:49 [01;32mgsdj[0m
+-rwxr-xr-x 1 root root        352 feb 29 11:49 [01;32mgsdj500[0m
+-rwxr-xr-x 1 root root      23216 apr 10 22:51 [01;32mgsettings[0m
+-rwxr-xr-x 1 root root      23464 nov 27  2015 [01;32mgsettings-data-convert[0m
+-rwxr-xr-x 1 root root      41811 nov 27  2015 [01;32mgsettings-schema-convert[0m
+-rwxr-xr-x 1 root root        353 feb 29 11:49 [01;32mgslj[0m
+-rwxr-xr-x 1 root root        350 feb 29 11:49 [01;32mgslp[0m
+-rwxr-xr-x 1 root root        277 feb 29 11:49 [01;32mgsnd[0m
+-rwxr-xr-x 1 root root      14976 mar 25 20:24 [01;32mgst-device-monitor-1.0[0m
+-rwxr-xr-x 1 root root      23512 mar 25 20:24 [01;32mgst-discoverer-1.0[0m
+-rwxr-xr-x 1 root root      40288 mar 25 18:53 [01;32mgst-inspect-1.0[0m
+-rwxr-xr-x 1 root root       1020 mar 16 16:40 [01;32mgst-install[0m
+-rwxr-xr-x 1 root root      31880 mar 25 18:53 [01;32mgst-launch-1.0[0m
+-rwxr-xr-x 1 root root      35904 mar 25 20:24 [01;32mgst-play-1.0[0m
+lrwxrwxrwx 1 root root         41 giu 29 10:22 [01;36mgstreamer-codec-install[0m -> [01;32m/etc/alternatives/gstreamer-codec-install[0m[K
+-rwxr-xr-x 1 root root      14856 mar 25 18:53 [01;32mgst-typefind-1.0[0m
+lrwxrwxrwx 1 root root          3 giu 29 10:22 [01;36mgtbl[0m -> [01;32mtbl[0m
+-rwxr-xr-x 1 root root      14616 apr  7 11:24 [01;32mgtf[0m
+-rwxr-xr-x 1 root root      19112 mar 24 21:48 [01;32mgtk-builder-tool[0m
+-rwxr-xr-x 1 root root      10744 mar 24 21:48 [01;32mgtk-launch[0m
+lrwxrwxrwx 1 root root         57 giu 29 10:22 [01;36mgtk-update-icon-cache[0m -> [01;32m../lib/x86_64-linux-gnu/libgtk2.0-0/gtk-update-icon-cache[0m[K
+lrwxrwxrwx 1 root root         60 giu 29 10:22 [01;36mgtk-update-icon-cache-3.0[0m -> [01;32m../lib/x86_64-linux-gnu/libgtk-3-0/gtk-update-icon-cache-3.0[0m[K
+-rwxr-xr-x 1 root root     162296 apr 15 07:47 [01;32mgtk-window-decorator[0m
+-rwxr-xr-x 1 root root      74448 gen 28 03:50 [01;32mgucharmap[0m
+-rwxr-xr-x 1 root root      18864 mar 13 23:29 [01;32mgv2gml[0m
+lrwxrwxrwx 1 root root          6 mar 13 23:29 [01;36mgv2gxl[0m -> [01;32mgxl2gv[0m
+-rwxr-xr-x 1 root root      29328 mar 13 23:29 [01;32mgvcolor[0m
+-rwxr-xr-x 1 root root      10792 apr 14 21:32 [01;32mgvfs-cat[0m
+-rwxr-xr-x 1 root root      11064 apr 14 21:32 [01;32mgvfs-copy[0m
+-rwxr-xr-x 1 root root      15192 apr 14 21:32 [01;32mgvfs-info[0m
+-rwxr-xr-x 1 root root        884 apr 14 21:31 [01;32mgvfs-less[0m
+-rwxr-xr-x 1 root root      15384 apr 14 21:32 [01;32mgvfs-ls[0m
+-rwxr-xr-x 1 root root      10840 apr 14 21:32 [01;32mgvfs-mime[0m
+-rwxr-xr-x 1 root root      10760 apr 14 21:32 [01;32mgvfs-mkdir[0m
+-rwxr-xr-x 1 root root      10760 apr 14 21:32 [01;32mgvfs-monitor-dir[0m
+-rwxr-xr-x 1 root root      10760 apr 14 21:32 [01;32mgvfs-monitor-file[0m
+-rwxr-xr-x 1 root root      31824 apr 14 21:32 [01;32mgvfs-mount[0m
+-rwxr-xr-x 1 root root      11016 apr 14 21:32 [01;32mgvfs-move[0m
+-rwxr-xr-x 1 root root      10888 apr 14 21:32 [01;32mgvfs-open[0m
+-rwxr-xr-x 1 root root      10712 apr 14 21:32 [01;32mgvfs-rename[0m
+-rwxr-xr-x 1 root root      10760 apr 14 21:32 [01;32mgvfs-rm[0m
+-rwxr-xr-x 1 root root      11080 apr 14 21:32 [01;32mgvfs-save[0m
+-rwxr-xr-x 1 root root      10848 apr 14 21:32 [01;32mgvfs-set-attribute[0m
+-rwxr-xr-x 1 root root      10872 apr 14 21:32 [01;32mgvfs-trash[0m
+-rwxr-xr-x 1 root root      15032 apr 14 21:32 [01;32mgvfs-tree[0m
+-rwxr-xr-x 1 root root      18672 mar 13 23:29 [01;32mgvgen[0m
+-rwxr-xr-x 1 root root    2928584 mar 13 23:29 [01;32mgvmap[0m
+-rwxr-xr-x 1 root root       2190 mar 13 23:29 [01;32mgvmap.sh[0m
+-rwxr-xr-x 1 root root      23376 mar 13 23:29 [01;32mgvpack[0m
+-rwxr-xr-x 1 root root       6288 mar 13 23:29 [01;32mgvpr[0m
+lrwxrwxrwx 1 root root          6 mar 13 23:29 [01;36mgxl2dot[0m -> [01;32mgxl2gv[0m
+-rwxr-xr-x 1 root root      35792 mar 13 23:29 [01;32mgxl2gv[0m
+-rwxr-xr-x 1 root root      29162 mar 13 12:54 [01;32mh2ph[0m
+-rwxr-xr-x 1 root root      60775 mar 13 12:54 [01;32mh2xs[0m
+-rwxr-xr-x 1 root root      15026 gen  6 12:11 [01;32mhardening-check[0m
+-rwxr-xr-x 1 root root      27056 apr  7 13:48 [01;32mhbpldecode[0m
+-rwxr-xr-x 1 root root     133016 mar  1 16:33 [01;32mhciattach[0m
+-rwxr-xr-x 1 root root     138776 mar  1 16:33 [01;32mhcitool[0m
+lrwxrwxrwx 1 root root          7 giu 29 10:22 [01;36mhd[0m -> [01;32mhexdump[0m
+-rwxr-xr-x 1 root root      39664 feb 18 14:37 [01;32mhead[0m
+lrwxrwxrwx 1 root root         11 giu 29 10:21 [01;36mHEAD[0m -> [01;32mlwp-request[0m
+-rwxr-xr-x 1 root root       2514 apr  8 13:39 [01;32mhelpztags[0m
+-rwxr-xr-x 1 root root      14408 mar  1 16:33 [01;32mhex2hcd[0m
+-rwxr-xr-x 1 root root      31232 mar  1 12:43 [01;32mhexdump[0m
+-rwxr-xr-x 1 root root      18840 apr  7 13:48 [01;32mhipercdecode[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32mhipstopgm[0m
+-rwxr-xr-x 1 root root      88440 apr 14 10:10 [01;32mhost[0m
+-rwxr-xr-x 1 root root      27280 feb 18 14:37 [01;32mhostid[0m
+-rwxr-xr-x 1 root root     294096 apr 12 12:34 [01;32mhostnamectl[0m
+lrwxrwxrwx 1 root root         23 giu 29 10:22 [01;36mhp-align[0m -> [01;32m../share/hplip/align.py[0m
+lrwxrwxrwx 1 root root         23 giu 29 10:22 [01;36mhp-check[0m -> [01;32m../share/hplip/check.py[0m
+lrwxrwxrwx 1 root root         23 giu 29 10:22 [01;36mhp-clean[0m -> [01;32m../share/hplip/clean.py[0m
+lrwxrwxrwx 1 root root         26 giu 29 10:22 [01;36mhp-colorcal[0m -> [01;32m../share/hplip/colorcal.py[0m
+lrwxrwxrwx 1 root root         36 giu 29 10:22 [01;36mhp-config_usb_printer[0m -> [01;32m../share/hplip/config_usb_printer.py[0m[K
+lrwxrwxrwx 1 root root         24 giu 29 10:22 [01;36mhp-doctor[0m -> [01;32m../share/hplip/doctor.py[0m
+lrwxrwxrwx 1 root root         26 giu 29 10:22 [01;36mhp-firmware[0m -> [01;32m../share/hplip/firmware.py[0m
+lrwxrwxrwx 1 root root         22 giu 29 10:22 [01;36mhp-info[0m -> [01;32m../share/hplip/info.py[0m
+lrwxrwxrwx 1 root root         24 giu 29 10:22 [01;36mhp-levels[0m -> [01;32m../share/hplip/levels.py[0m
+lrwxrwxrwx 1 root root         28 giu 29 10:22 [01;36mhp-logcapture[0m -> [01;32m../share/hplip/logcapture.py[0m
+lrwxrwxrwx 1 root root         25 giu 29 10:22 [01;36mhp-makeuri[0m -> [01;32m../share/hplip/makeuri.py[0m
+lrwxrwxrwx 1 root root         27 giu 29 10:22 [01;36mhp-pkservice[0m -> [01;32m../share/hplip/pkservice.py[0m
+lrwxrwxrwx 1 root root         24 giu 29 10:22 [01;36mhp-plugin[0m -> [01;32m../share/hplip/plugin.py[0m
+-rwxr-xr-x 1 root root        719 mar 29 08:59 [01;32mhp-plugin-ubuntu[0m
+lrwxrwxrwx 1 root root         23 giu 29 10:22 [01;36mhp-probe[0m -> [01;32m../share/hplip/probe.py[0m
+lrwxrwxrwx 1 root root         23 giu 29 10:22 [01;36mhp-query[0m -> [01;32m../share/hplip/query.py[0m
+lrwxrwxrwx 1 root root         22 giu 29 10:22 [01;36mhp-scan[0m -> [01;32m../share/hplip/scan.py[0m
+lrwxrwxrwx 1 root root         23 giu 29 10:22 [01;36mhp-setup[0m -> [01;32m../share/hplip/setup.py[0m
+lrwxrwxrwx 1 root root         26 giu 29 10:22 [01;36mhp-testpage[0m -> [01;32m../share/hplip/testpage.py[0m
+lrwxrwxrwx 1 root root         26 giu 29 10:22 [01;36mhp-timedate[0m -> [01;32m../share/hplip/timedate.py[0m
+lrwxrwxrwx 1 root root          7 giu 29 10:22 [01;36mi386[0m -> [01;32msetarch[0m
+lrwxrwxrwx 1 root root         34 giu 29 10:23 [01;36mi686-linux-gnu-pkg-config[0m -> [01;32m/usr/share/pkg-config-crosswrapper[0m[K
+-rwxr-xr-x 1 root root      27536 gen 19 14:49 [01;32mibus[0m
+-rwxr-xr-x 1 root root     164152 gen 19 14:49 [01;32mibus-daemon[0m
+-rwxr-xr-x 1 root root       1147 gen 19 14:48 [01;32mibus-setup[0m
+-rwxr-xr-x 1 root root       1141 lug 22  2015 [01;32mibus-table-createdb[0m
+-rwxr-xr-x 1 root root      31264 feb 27 10:09 [01;32miceauth[0m
+-rwxr-xr-x 1 root root      45880 feb 10 14:42 [01;32mico[0m
+-rwxr-xr-x 1 root root      10400 gen 31 00:14 [01;32micontopbm[0m
+-rwxr-xr-x 1 root root      60416 apr 15 00:19 [01;32miconv[0m
+-rwxr-xr-x 1 root root      39760 feb 18 14:37 [01;32mid[0m
+lrwxrwxrwx 1 root root         26 giu 29 10:22 [01;36midentify[0m -> [01;32m/etc/alternatives/identify[0m
+lrwxrwxrwx 1 root root         58 giu  1 21:14 [01;36midentify-im6[0m -> [01;32m../lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16/identify[0m[K
+lrwxrwxrwx 1 root root         22 giu 29 11:24 [01;36midlj[0m -> [01;32m/etc/alternatives/idlj[0m
+-rwxr-xr-x 1 root root      18848 apr 15 02:04 [01;32miecset[0m
+-rwxr-xr-x 1 root root       4130 ott 23  2015 [01;32mifnames[0m
+-rwxr-xr-x 1 root root     115176 mar 11 13:59 [01;32migt_stats[0m
+-rwxr-xr-x 1 root root      31544 apr 26  2014 [01;32mijs_pxljr[0m
+-rwxr-xr-x 1 root root      80184 gen 31 00:14 [01;32milbmtoppm[0m
+-rwxr-xr-x 1 root root       1241 gen 31 00:13 [01;32mimagetops[0m
+-rwxr-xr-x 1 root root      10811 mar 26 04:56 [01;32mim-config[0m
+-rwxr-xr-x 1 root root      10400 gen 31 00:14 [01;32mimgtoppm[0m
+-rwxr-xr-x 1 root root       1030 mar 21  2015 [01;32mim-launch[0m
+lrwxrwxrwx 1 root root         24 giu 29 10:22 [01;36mimport[0m -> [01;32m/etc/alternatives/import[0m
+lrwxrwxrwx 1 root root         56 giu  1 21:14 [01;36mimport-im6[0m -> [01;32m../lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16/import[0m[K
+-rwxr-xr-x 1 root root     219896 mar 12 10:46 [01;32minfo[0m
+lrwxrwxrwx 1 root root         29 giu 29 10:22 [01;36minfobrowser[0m -> [01;32m/etc/alternatives/infobrowser[0m
+-rwxr-xr-x 1 root root      55880 feb 19 09:22 [01;32minfocmp[0m
+lrwxrwxrwx 1 root root          3 giu 29 10:22 [01;36minfotocap[0m -> [01;32mtic[0m
+-rwxr-xr-x 1 root root       6922 feb 29 16:15 [01;32minit-checkconf[0m
+-rwxr-xr-x 1 root root      18725 feb 29 16:15 [01;32minitctl2dot[0m
+-rwxr-xr-x 1 root root      22184 gen 10 06:17 [01;32minputattach[0m
+-rwxr-xr-x 1 root root     138840 feb 18 14:37 [01;32minstall[0m
+-rwxr-xr-x 1 root root      44768 mar 12 10:46 [01;32minstall-info[0m
+-rwxr-xr-x 1 root root         95 mar  8 02:15 [01;32minstall-printerdriver[0m
+-rwxr-xr-x 1 root root       4332 mar 13 12:54 [01;32minstmodsh[0m
+-rwxr-xr-x 1 root root       1331 mar 11 13:59 [01;32mintel_aubdump[0m
+-rwxr-xr-x 1 root root     189928 mar 11 13:59 [01;32mintel_audio_dump[0m
+-rwxr-xr-x 1 root root     116200 mar 11 13:59 [01;32mintel_backlight[0m
+-rwxr-xr-x 1 root root      10528 mar 11 13:59 [01;32mintel_bios_dumper[0m
+-rwxr-xr-x 1 root root      31384 mar 11 13:59 [01;32mintel_bios_reader[0m
+-rwxr-xr-x 1 root root     111024 mar 11 13:59 [01;32mintel_display_crc[0m
+-rwxr-xr-x 1 root root     128488 mar 11 13:59 [01;32mintel_display_poller[0m
+-rwxr-xr-x 1 root root      10776 mar 11 13:59 [01;32mintel_dump_decode[0m
+-rwxr-xr-x 1 root root     139752 mar 11 13:59 [01;32mintel_error_decode[0m
+-rwxr-xr-x 1 root root     111048 mar 11 13:59 [01;32mintel_firmware_decode[0m
+-rwxr-xr-x 1 root root     116200 mar 11 13:59 [01;32mintel_forcewaked[0m
+-rwxr-xr-x 1 root root      10520 mar 11 13:59 [01;32mintel_framebuffer_dump[0m
+-rwxr-xr-x 1 root root     166880 mar 11 13:59 [01;32mintel-gen4asm[0m
+-rwxr-xr-x 1 root root      35216 mar 11 13:59 [01;32mintel-gen4disasm[0m
+-rwxr-xr-x 1 root root       2121 mar 11 13:59 [01;32mintel_gpu_abrt[0m
+-rwxr-xr-x 1 root root     115656 mar 11 13:59 [01;32mintel_gpu_frequency[0m
+-rwxr-xr-x 1 root root      69176 mar 11 13:59 [01;32mintel-gpu-overlay[0m
+-rwxr-xr-x 1 root root     116200 mar 11 13:59 [01;32mintel_gpu_time[0m
+-rwxr-xr-x 1 root root     140904 mar 11 13:59 [01;32mintel_gpu_top[0m
+-rwxr-xr-x 1 root root     111016 mar 11 13:59 [01;32mintel_gtt[0m
+-rwxr-xr-x 1 root root     128680 mar 11 13:59 [01;32mintel_infoframes[0m
+-rwxr-xr-x 1 root root     124488 mar 11 13:59 [01;32mintel_l3_parity[0m
+-rwxr-xr-x 1 root root     116232 mar 11 13:59 [01;32mintel_lid[0m
+-rwxr-xr-x 1 root root      14776 mar 11 13:59 [01;32mintel_opregion_decode[0m
+-rwxr-xr-x 1 root root     120392 mar 11 13:59 [01;32mintel_panel_fitter[0m
+-rwxr-xr-x 1 root root     211336 mar 11 13:59 [01;32mintel_perf_counters[0m
+-rwxr-xr-x 1 root root     182152 mar 11 13:59 [01;32mintel_reg[0m
+-rwxr-xr-x 1 root root     120296 mar 11 13:59 [01;32mintel_reg_checker[0m
+-rwxr-xr-x 1 root root     230504 mar 11 13:59 [01;32mintel_residency[0m
+-rwxr-xr-x 1 root root     119336 mar 11 13:59 [01;32mintel_sprite_on[0m
+-rwxr-xr-x 1 root root      10504 mar 11 13:59 [01;32mintel_stepping[0m
+-rwxr-xr-x 1 root root      64808 apr  5 12:35 [01;32mintel-virtual-output[0m
+-rwxr-xr-x 1 root root     128488 mar 11 13:59 [01;32mintel_watermark[0m
+-rwxr-xr-x 1 root root      48400 mag  6  2015 [01;32minterdiff[0m
+-rwxr-xr-x 1 root root      23128 apr 13 18:51 [01;32mionice[0m
+-rwxr-xr-x 1 root root      23232 apr 13 18:51 [01;32mipcmk[0m
+-rwxr-xr-x 1 root root      27176 apr 13 18:51 [01;32mipcrm[0m
+-rwxr-xr-x 1 root root      47832 apr 13 18:51 [01;32mipcs[0m
+-rwxr-xr-x 1 root root      19064 apr 13 10:40 [01;32mipod-read-sysinfo-extended[0m
+-rwxr-xr-x 1 root root      10552 apr 13 10:40 [01;32mipod-time-sync[0m
+lrwxrwxrwx 1 root root         19 giu 29 10:22 [01;36miptables-xml[0m -> [01;32m/sbin/xtables-multi[0m
+-rwxr-xr-x 1 root root      10584 gen 26 19:17 [01;32mischroot[0m
+-rwxr-xr-x 1 root root      18832 mar  3 12:47 [01;32misdv4-serial-debugger[0m
+-rwxr-xr-x 1 root root      18912 mar  3 12:47 [01;32misdv4-serial-inputattach[0m
+-rwxr-xr-x 1 root root     163928 nov 24  2014 [01;32misodump[0m
+-rwxr-xr-x 1 root root     327056 nov 24  2014 [01;32misoinfo[0m
+-rwxr-xr-x 1 root root     163864 nov 24  2014 [01;32misovfy[0m
+-rwxr-xr-x 1 root root       7222 ott 23  2015 [01;32mispell-wrapper[0m
+lrwxrwxrwx 1 root root         21 giu 29 11:24 [01;36mjar[0m -> [01;32m/etc/alternatives/jar[0m
+lrwxrwxrwx 1 root root         27 giu 29 11:24 [01;36mjarsigner[0m -> [01;32m/etc/alternatives/jarsigner[0m
+lrwxrwxrwx 1 root root         22 giu 29 11:24 [01;36mjava[0m -> [01;32m/etc/alternatives/java[0m
+lrwxrwxrwx 1 root root         23 giu 29 11:24 [01;36mjavac[0m -> [01;32m/etc/alternatives/javac[0m
+lrwxrwxrwx 1 root root         25 giu 29 11:24 [01;36mjavadoc[0m -> [01;32m/etc/alternatives/javadoc[0m
+lrwxrwxrwx 1 root root         32 giu 29 11:24 [01;36mjavafxpackager[0m -> [01;32m/etc/alternatives/javafxpackager[0m
+lrwxrwxrwx 1 root root         23 giu 29 11:24 [01;36mjavah[0m -> [01;32m/etc/alternatives/javah[0m
+lrwxrwxrwx 1 root root         23 giu 29 11:24 [01;36mjavap[0m -> [01;32m/etc/alternatives/javap[0m
+lrwxrwxrwx 1 root root         30 giu 29 11:24 [01;36mjavapackager[0m -> [01;32m/etc/alternatives/javapackager[0m
+lrwxrwxrwx 1 root root         24 giu 29 11:24 [01;36mjavaws[0m -> [01;32m/etc/alternatives/javaws[0m
+lrwxrwxrwx 1 root root         22 giu 29 11:24 [01;36mjcmd[0m -> [01;32m/etc/alternatives/jcmd[0m
+lrwxrwxrwx 1 root root         26 giu 29 11:24 [01;36mjconsole[0m -> [01;32m/etc/alternatives/jconsole[0m
+lrwxrwxrwx 1 root root         26 giu 29 11:24 [01;36mjcontrol[0m -> [01;32m/etc/alternatives/jcontrol[0m
+lrwxrwxrwx 1 root root         21 giu 29 11:24 [01;36mjdb[0m -> [01;32m/etc/alternatives/jdb[0m
+lrwxrwxrwx 1 root root         23 giu 29 11:24 [01;36mjdeps[0m -> [01;32m/etc/alternatives/jdeps[0m
+lrwxrwxrwx 1 root root         23 giu 29 11:24 [01;36mjexec[0m -> [01;32m/etc/alternatives/jexec[0m
+lrwxrwxrwx 1 root root         22 giu 29 11:24 [01;36mjhat[0m -> [01;32m/etc/alternatives/jhat[0m
+lrwxrwxrwx 1 root root         23 giu 29 11:24 [01;36mjinfo[0m -> [01;32m/etc/alternatives/jinfo[0m
+lrwxrwxrwx 1 root root         21 giu 29 11:24 [01;36mjjs[0m -> [01;32m/etc/alternatives/jjs[0m
+lrwxrwxrwx 1 root root         22 giu 29 11:24 [01;36mjmap[0m -> [01;32m/etc/alternatives/jmap[0m
+lrwxrwxrwx 1 root root         21 giu 29 11:24 [01;36mjmc[0m -> [01;32m/etc/alternatives/jmc[0m
+-rwxr-xr-x 1 root root      47888 feb 18 14:37 [01;32mjoin[0m
+-rwxr-xr-x 1 root root      27024 gen 31 00:14 [01;32mjpegtopnm[0m
+-rwxr-xr-x 1 root root      31600 nov 17  2014 [01;32mjpgicc[0m
+lrwxrwxrwx 1 root root         21 giu 29 11:24 [01;36mjps[0m -> [01;32m/etc/alternatives/jps[0m
+lrwxrwxrwx 1 root root         28 giu 29 11:24 [01;36mjrunscript[0m -> [01;32m/etc/alternatives/jrunscript[0m
+lrwxrwxrwx 1 root root         27 giu 29 11:24 [01;36mjsadebugd[0m -> [01;32m/etc/alternatives/jsadebugd[0m
+-rwxr-xr-x 1 root root       3918 mar 13 12:54 [01;32mjson_pp[0m
+lrwxrwxrwx 1 root root         24 giu 29 11:24 [01;36mjstack[0m -> [01;32m/etc/alternatives/jstack[0m
+lrwxrwxrwx 1 root root         23 giu 29 11:24 [01;36mjstat[0m -> [01;32m/etc/alternatives/jstat[0m
+lrwxrwxrwx 1 root root         24 giu 29 11:24 [01;36mjstatd[0m -> [01;32m/etc/alternatives/jstatd[0m
+lrwxrwxrwx 1 root root         27 giu 29 11:24 [01;36mjvisualvm[0m -> [01;32m/etc/alternatives/jvisualvm[0m
+-rwxr-xr-x 1 root root        288 gen  7 14:33 [01;32mjwt3[0m
+-rwxr-xr-x 1 root root      10504 set 16  2015 [01;32mkbdinfo[0m
+-rwxr-xr-x 1 root root     146056 apr  8 12:14 [01;32mkbxutil[0m
+-rwxr-xr-x 1 root root      10232 mar 10 18:52 [01;32mkerneloops-submit[0m
+lrwxrwxrwx 1 root root         25 giu 29 11:24 [01;36mkeytool[0m -> [01;32m/etc/alternatives/keytool[0m
+-rwxr-xr-x 1 root root      23736 feb  7 14:37 [01;32mkillall[0m
+-rwxr-xr-x 1 root root       3759 feb 17 19:16 [01;32mkoi8rxterm[0m
+-rwxr-xr-x 1 root root      94024 mar  1 16:33 [01;32ml2ping[0m
+-rwxr-xr-x 1 root root     106568 mar  1 16:33 [01;32ml2test[0m
+-rwxr-xr-x 1 root root      39768 apr 13 18:51 [01;32mlast[0m
+lrwxrwxrwx 1 root root          4 giu 29 10:22 [01;36mlastb[0m -> [01;32mlast[0m
+-rwxr-xr-x 1 root root      14368 mar 29 11:25 [01;32mlastlog[0m
+-rwxr-xr-x 1 root root      18832 apr  7 13:48 [01;32mlavadecode[0m
+-rwxr-xr-x 1 root root       7786 mar 16 21:58 [01;32mlcf[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mlconvert[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root         19 giu 29 10:22 [01;36mld[0m -> [01;32mx86_64-linux-gnu-ld[0m
+lrwxrwxrwx 1 root root         23 giu 29 10:22 [01;36mld.bfd[0m -> [01;32mx86_64-linux-gnu-ld.bfd[0m
+-rwxr-xr-x 1 root root       5420 apr 15 00:10 [01;32mldd[0m
+lrwxrwxrwx 1 root root         24 giu 29 10:22 [01;36mld.gold[0m -> [01;32mx86_64-linux-gnu-ld.gold[0m
+-rwxr-xr-x 1 root root      10408 gen 31 00:14 [01;32mleaftoppm[0m
+-rwxr-xr-x 1 root root     273800 mar 13 23:29 [01;32mlefty[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mless[0m -> [01;32m/bin/less[0m
+lrwxrwxrwx 1 root root         13 giu 29 10:22 [01;36mlessecho[0m -> [01;32m/bin/lessecho[0m
+lrwxrwxrwx 1 root root         13 giu 29 10:22 [01;36mlessfile[0m -> [01;32m/bin/lessfile[0m
+lrwxrwxrwx 1 root root         12 giu 29 10:22 [01;36mlesskey[0m -> [01;32m/bin/lesskey[0m
+lrwxrwxrwx 1 root root         13 giu 29 10:22 [01;36mlesspipe[0m -> [01;32m/bin/lesspipe[0m
+lrwxrwxrwx 1 root root          4 feb 28 13:36 [01;36mlex[0m -> [01;32mflex[0m
+-rwxr-xr-x 1 root root      92744 nov  7  2015 [01;32mlexgrog[0m
+-rwxr-xr-x 1 root root      15719 mar 13 12:54 [01;32mlibnetcfg[0m
+lrwxrwxrwx 1 root root         34 giu 28 10:08 [01;36mlibreoffice[0m -> [01;32m../lib/libreoffice/program/soffice[0m
+-rwxr-xr-x 1 root root      10552 gen 22 12:10 [01;32mlibwacom-list-local-devices[0m
+-rwxr-xr-x 1 root root      10568 apr 13 18:51 [01;32mline[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mlinguist[0m -> [01;32mqtchooser[0m
+-rwxr-xr-x 1 root root      31376 feb 18 14:37 [01;32mlink[0m
+-rwxr-xr-x 1 root root      23136 nov 17  2014 [01;32mlinkicc[0m
+lrwxrwxrwx 1 root root         32 giu 29 10:22 [01;36mlintian[0m -> [01;32m../share/lintian/frontend/dplint[0m
+lrwxrwxrwx 1 root root         32 giu 29 10:22 [01;36mlintian-info[0m -> [01;32m../share/lintian/frontend/dplint[0m
+lrwxrwxrwx 1 root root         32 giu 29 10:22 [01;36mlintian-lab-tool[0m -> [01;32m../share/lintian/frontend/dplint[0m
+lrwxrwxrwx 1 root root          7 giu 29 10:22 [01;36mlinux32[0m -> [01;32msetarch[0m
+lrwxrwxrwx 1 root root          7 giu 29 10:22 [01;36mlinux64[0m -> [01;32msetarch[0m
+-rwxr-xr-x 1 root root       1577 gen 20  2011 [01;32mlinux-boot-prober[0m
+-rwxr-xr-x 1 root root       2696 ago  5  2015 [01;32mlinux-version[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32mlispmtopgm[0m
+-rwxr-xr-x 1 root root      11032 mag  6  2015 [01;32mlistres[0m
+-rwxr-xr-x 1 root root       1547 mar 13 23:29 [01;32mlneato[0m
+-rwxr-xr-x 1 root root      19128 apr  5 14:16 [01;32mlnstat[0m
+lrwxrwxrwx 1 root root         13 giu 29 10:22 [01;36mloadkeys[0m -> [01;32m/bin/loadkeys[0m
+-rwxr-xr-x 1 root root      27240 set 16  2015 [01;32mloadunimap[0m
+-rwxr-xr-x 1 root root         59 giu 28 08:12 [01;32mlocalc[0m
+-rwxr-xr-x 1 root root      38816 apr 15 00:19 [01;32mlocale[0m
+-rwxr-xr-x 1 root root     302304 apr 12 12:34 [01;32mlocalectl[0m
+-rwxr-xr-x 1 root root     323288 apr 15 00:19 [01;32mlocaledef[0m
+lrwxrwxrwx 1 root root         24 giu 29 10:22 [01;36mlocate[0m -> [30;43m/etc/alternatives/locate[0m
+-rwxr-xr-x 1 root root         59 giu 28 08:12 [01;32mlodraw[0m
+-rwxr-xr-x 1 root root         53 giu 28 08:12 [01;32mloffice[0m
+-rwxr-xr-x 1 root root         64 giu 28 08:12 [01;32mlofromtemplate[0m
+-rwxr-xr-x 1 root root      36200 apr 13 18:51 [01;32mlogger[0m
+-rwxr-xr-x 1 root root      27312 feb 18 14:37 [01;32mlogname[0m
+-rwxr-xr-x 1 root root         62 giu 28 08:12 [01;32mloimpress[0m
+-rwxr-xr-x 1 root root         59 giu 28 08:12 [01;32mlomath[0m
+-rwxr-xr-x 1 root root      10552 mar  1 12:43 [01;32mlook[0m
+-rwxr-xr-x 1 root root       2763 mar  1 12:43 [01;32mlorder[0m
+-rwxr-xr-x 1 root root         58 giu 28 08:12 [01;32mloweb[0m
+-rwxr-xr-x 1 root root         61 giu 28 08:12 [01;32mlowriter[0m
+-rwxr-xr-x 1 root root      18424 mar 25 18:42 [01;32mlp[0m
+-rwxr-xr-x 1 root root      14408 mar 25 18:42 [01;32mlpoptions[0m
+-rwxr-xr-x 1 root root      14408 mar 25 18:42 [01;32mlpq[0m
+-rwxr-xr-x 1 root root      14328 mar 25 18:42 [01;32mlpr[0m
+-rwxr-xr-x 1 root root      10232 mar 25 18:42 [01;32mlprm[0m
+-rwxr-xr-x 1 root root      43824 dic  8  2015 [01;32mlp_solve[0m
+-rwxr-xr-x 1 root root      31008 mar 25 18:42 [01;32mlpstat[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mlrelease[0m -> [01;32mqtchooser[0m
+-rwxr-xr-x 1 root root      10576 ott 30  2015 [01;32mlsattr[0m
+-rwxr-xr-x 1 root root       3638 ago 26  2015 [01;32mlsb_release[0m
+-rwxr-xr-x 1 root root      56440 apr 13 18:51 [01;32mlscpu[0m
+lrwxrwxrwx 1 root root         10 giu 29 10:22 [01;36mlsdiff[0m -> [01;32mfilterdiff[0m
+-rwxr-xr-x 1 root root     639168 ott 14  2015 [01;32mlshw[0m
+-rwxr-xr-x 1 root root       2486 ago 17  2015 [01;32mlsinitramfs[0m
+-rwxr-xr-x 1 root root      60416 apr 13 18:51 [01;32mlsipc[0m
+-rwxr-xr-x 1 root root      31832 apr 13 18:51 [01;32mlslocks[0m
+-rwxr-xr-x 1 root root      52376 apr 13 18:51 [01;32mlslogins[0m
+-rwxr-xr-x 1 root root     163224 ott 28  2015 [01;32mlsof[0m
+-rwxr-xr-x 1 root root      73968 feb  4 21:59 [01;32mlspci[0m
+-rwxr-xr-x 1 root root       1081 giu 25  2014 [01;32mlspgpot[0m
+-rwxr-xr-x 1 root root     105128 ott 23  2015 [01;32mlsusb[0m
+-rwxr-xr-x 1 root root     305408 apr 12 07:48 [01;32mltrace[0m
+-rwxr-xr-x 1 root root      41688 mag  6  2015 [01;32mluit[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mlupdate[0m -> [01;32mqtchooser[0m
+-rwxr-xr-x 1 root root       8635 dic  6  2015 [01;32mlwp-download[0m
+-rwxr-xr-x 1 root root       2797 dic  6  2015 [01;32mlwp-dump[0m
+-rwxr-xr-x 1 root root       2478 dic  6  2015 [01;32mlwp-mirror[0m
+-rwxr-xr-x 1 root root      15059 dic  6  2015 [01;32mlwp-request[0m
+-rwxr-xr-x 1 root root        419 feb 17 19:16 [01;32mlxterm[0m
+lrwxrwxrwx 1 root root          2 giu 29 10:22 [01;36mlz[0m -> [01;32muz[0m
+lrwxrwxrwx 1 root root         23 giu 29 10:22 [01;36mlzcat[0m -> [01;32m/etc/alternatives/lzcat[0m
+lrwxrwxrwx 1 root root         23 giu 29 10:22 [01;36mlzcmp[0m -> [01;32m/etc/alternatives/lzcmp[0m
+lrwxrwxrwx 1 root root         24 giu 29 10:22 [01;36mlzdiff[0m -> [01;32m/etc/alternatives/lzdiff[0m
+lrwxrwxrwx 1 root root         25 giu 29 10:22 [01;36mlzegrep[0m -> [01;32m/etc/alternatives/lzegrep[0m
+lrwxrwxrwx 1 root root         25 giu 29 10:22 [01;36mlzfgrep[0m -> [01;32m/etc/alternatives/lzfgrep[0m
+lrwxrwxrwx 1 root root         24 giu 29 10:22 [01;36mlzgrep[0m -> [01;32m/etc/alternatives/lzgrep[0m
+lrwxrwxrwx 1 root root         24 giu 29 10:22 [01;36mlzless[0m -> [01;32m/etc/alternatives/lzless[0m
+lrwxrwxrwx 1 root root         22 giu 29 10:22 [01;36mlzma[0m -> [01;32m/etc/alternatives/lzma[0m
+-rwxr-xr-x 1 root root      10504 feb 12  2014 [01;32mlzmainfo[0m
+lrwxrwxrwx 1 root root         24 giu 29 10:22 [01;36mlzmore[0m -> [01;32m/etc/alternatives/lzmore[0m
+-rwxr-xr-x 1 root root     150688 dic 25  2015 [01;32mm4[0m
+-rwxr-xr-x 1 root root      10368 gen 31 00:14 [01;32mmacptopbm[0m
+-rwxr-xr-x 1 root root     207528 feb 15 12:13 [01;32mmake[0m
+-rwxr-xr-x 1 root root       4905 feb 15 12:10 [01;32mmake-first-existing-target[0m
+-rwxr-xr-x 1 root root     107008 nov  7  2015 [01;32mman[0m
+-rwxr-xr-x 1 root root     129760 nov  7  2015 [01;32mmandb[0m
+-rwxr-xr-x 1 root root      31200 nov  7  2015 [01;32mmanpath[0m
+-rwxr-xr-x 1 root root      19080 set 16  2015 [01;32mmapscrn[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmattrib[0m -> [01;32mmtools[0m
+-rwxr-xr-x 1 root root     117768 mar 24  2014 [01;32mmawk[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmbadblocks[0m -> [01;32mmtools[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmcat[0m -> [01;32mmtools[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmcd[0m -> [01;32mmtools[0m
+-rwxr-xr-x 1 root root       1679 nov 17  2014 [01;32mmcheck[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmclasserase[0m -> [01;32mmtools[0m
+-rwxr-xr-x 1 root root        847 nov 17  2014 [01;32mmcomp[0m
+-rwxr-xr-x 1 root root      27352 apr 13 18:51 [01;32mmcookie[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmcopy[0m -> [01;32mmtools[0m
+-rwxr-xr-x 1 root root      43792 feb 18 14:37 [01;32mmd5sum[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmd5sum.textutils[0m -> [01;32mmd5sum[0m
+-rwxr-xr-x 1 root root      10416 gen 31 00:14 [01;32mmdatopbm[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmdel[0m -> [01;32mmtools[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmdeltree[0m -> [01;32mmtools[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmdir[0m -> [01;32mmtools[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmdu[0m -> [01;32mmtools[0m
+-rwxr-xr-x 1 root root      10616 apr 13 18:51 [01;32mmesg[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmformat[0m -> [01;32mmtools[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32mmgrtopbm[0m
+-rwxr-xr-x 1 root root        514 lug 16  2014 [01;32mmig[0m
+-rwxr-xr-x 1 root root       8711 giu 27  2015 [01;32mmimeopen[0m
+-rwxr-xr-x 1 root root      12145 giu 27  2015 [01;32mmimetype[0m
+-rwxr-xr-x 1 root root      20120 mag  7  2014 [01;32mmin12xxw[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mminfo[0m -> [01;32mmtools[0m
+-rwxr-xr-x 1 root root      32319 gen 26 06:11 [01;32mminiterm.py[0m
+-rwxr-xr-x 1 root root      60368 feb 18 14:37 [01;32mmkfifo[0m
+-rwxr-xr-x 1 root root         65 mag  6  2015 [01;32mmkfontdir[0m
+-rwxr-xr-x 1 root root      31824 mag  6  2015 [01;32mmkfontscale[0m
+lrwxrwxrwx 1 root root         11 giu 29 10:22 [01;36mmkisofs[0m -> [01;32mgenisoimage[0m
+-rwxr-xr-x 1 root root      10576 nov 17  2014 [01;32mmkmanifest[0m
+-rwxr-xr-x 1 root root      16163 set 16  2015 [01;32mmk_modmap[0m
+-rwxr-xr-x 1 root root     178296 feb 24 12:33 [01;32mmksquashfs[0m
+-rwxr-xr-x 1 root root      23040 nov 24  2014 [01;32mmkzftree[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmlabel[0m -> [01;32mmtools[0m
+-rwxr-sr-x 1 root mlocate   39520 nov 18  2014 [30;43mmlocate[0m
+-rwxr-xr-x 1 root root      88776 mar 13 23:29 [01;32mmm2gv[0m
+-rwxr-xr-x 1 root root     145832 nov  4  2015 [01;32mmmcli[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmmd[0m -> [01;32mmtools[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmmount[0m -> [01;32mmtools[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmmove[0m -> [01;32mmtools[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mmoc[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root         25 giu 29 10:22 [01;36mmogrify[0m -> [01;32m/etc/alternatives/mogrify[0m
+lrwxrwxrwx 1 root root         57 giu  1 21:14 [01;36mmogrify-im6[0m -> [01;32m../lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16/mogrify[0m[K
+lrwxrwxrwx 1 root root         25 giu 29 10:22 [01;36mmontage[0m -> [01;32m/etc/alternatives/montage[0m
+lrwxrwxrwx 1 root root         57 giu  1 21:14 [01;36mmontage-im6[0m -> [01;32m../lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16/montage[0m[K
+-rwxr-xr-x 1 root root       7662 lug 16  2014 [01;32mmotelist[0m
+-rwxr-xr-x 1 root root      65456 dic  9  2014 [01;32mmousetweaks[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmpartition[0m -> [01;32mmtools[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmrd[0m -> [01;32mmtools[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmren[0m -> [01;32mmtools[0m
+-rwxr-xr-x 1 root root      10480 giu 20  2013 [01;32mmscompress[0m
+-rwxr-xr-x 1 root root      10480 giu 20  2013 [01;32mmsexpand[0m
+-rwxr-xr-x 1 root root      22880 feb 10 13:13 [01;32mmsgattrib[0m
+-rwxr-xr-x 1 root root      22872 feb 10 13:13 [01;32mmsgcat[0m
+-rwxr-xr-x 1 root root      22984 feb 10 13:13 [01;32mmsgcmp[0m
+-rwxr-xr-x 1 root root      18760 feb 10 13:13 [01;32mmsgcomm[0m
+-rwxr-xr-x 1 root root      18744 feb 10 13:13 [01;32mmsgconv[0m
+-rwxr-xr-x 1 root root      18744 feb 10 13:13 [01;32mmsgen[0m
+-rwxr-xr-x 1 root root      14680 feb 10 13:13 [01;32mmsgexec[0m
+-rwxr-xr-x 1 root root      27048 feb 10 13:13 [01;32mmsgfilter[0m
+-rwxr-xr-x 1 root root      77104 feb 10 13:13 [01;32mmsgfmt[0m
+-rwxr-xr-x 1 root root      35520 feb 10 13:13 [01;32mmsggrep[0m
+-rwxr-xr-x 1 root root      44104 feb 10 13:13 [01;32mmsginit[0m
+-rwxr-xr-x 1 root root      52520 feb 10 13:13 [01;32mmsgmerge[0m
+-rwxr-xr-x 1 root root      31256 feb 10 13:13 [01;32mmsgunfmt[0m
+-rwxr-xr-x 1 root root      18752 feb 10 13:13 [01;32mmsguniq[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmshortname[0m -> [01;32mmtools[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmshowfat[0m -> [01;32mmtools[0m
+-rwxr-xr-x 1 ezio ezio    2644544 ago 21  2011 [01;32mmsp430-addr2line[0m
+-rwxr-xr-x 1 ezio ezio    2796103 ago 21  2011 [01;32mmsp430-ar[0m
+-rwxr-xr-x 1 ezio ezio    3763473 ago 21  2011 [01;32mmsp430-as[0m
+-rwxr-xr-x 1 ezio ezio    2619857 ago 21  2011 [01;32mmsp430-c++filt[0m
+-rwxr-xr-x 1 ezio ezio     599910 ago 21  2011 [01;32mmsp430-cpp[0m
+-rwxr-xr-x 1 ezio ezio      72017 ago 21  2011 [01;32mmsp430-elfedit[0m
+-rwxr-xr-x 1 ezio ezio     593903 ago 21  2011 [01;32mmsp430-gcc[0m
+-rwxr-xr-x 1 ezio ezio     593903 ago 21  2011 [01;32mmsp430-gcc-4.5.3[0m
+-rwxr-xr-x 1 ezio ezio      15890 ago 21  2011 [01;32mmsp430-gccbug[0m
+-rwxr-xr-x 1 ezio ezio     117746 ago 21  2011 [01;32mmsp430-gcov[0m
+-rwxr-xr-x 1 ezio ezio    3072574 ago 21  2011 [01;32mmsp430-gprof[0m
+-rwxr-xr-x 1 ezio ezio    3615235 ago 21  2011 [01;32mmsp430-ld[0m
+-rwxr-xr-x 1 ezio ezio    3615235 ago 21  2011 [01;32mmsp430-ld.bfd[0m
+-rwxr-xr-x 1 ezio ezio    2685211 ago 21  2011 [01;32mmsp430-nm[0m
+-rwxr-xr-x 1 ezio ezio    3331564 ago 21  2011 [01;32mmsp430-objcopy[0m
+-rwxr-xr-x 1 ezio ezio    3607924 ago 21  2011 [01;32mmsp430-objdump[0m
+-rwxr-xr-x 1 ezio ezio    2796134 ago 21  2011 [01;32mmsp430-ranlib[0m
+-rwxr-xr-x 1 ezio ezio     730516 ago 21  2011 [01;32mmsp430-readelf[0m
+-rwxr-xr-x 1 ezio ezio    2673268 ago 21  2011 [01;32mmsp430-size[0m
+-rwxr-xr-x 1 ezio ezio    2648919 ago 21  2011 [01;32mmsp430-strings[0m
+-rwxr-xr-x 1 ezio ezio    3331555 ago 21  2011 [01;32mmsp430-strip[0m
+-rwxr-xr-x 1 root root     182784 nov 17  2014 [01;32mmtools[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmtoolstest[0m -> [01;32mmtools[0m
+-rwxr-xr-x 1 root root      79528 dic  8  2015 [01;32mmtr[0m
+-rwxr-xr-x 1 root root       6494 apr 15 00:09 [01;32mmtrace[0m
+-rwxr-xr-x 1 root root      10376 gen 31 00:14 [01;32mmtvtoppm[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmtype[0m -> [01;32mmtools[0m
+-rwxr-xr-x 1 root root        784 nov 17  2014 [01;32mmxtar[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mmzip[0m -> [01;32mmtools[0m
+-rwxr-xr-x 1 root root      27216 apr 13 18:51 [01;32mnamei[0m
+lrwxrwxrwx 1 root root         30 giu 29 11:24 [01;36mnative2ascii[0m -> [01;32m/etc/alternatives/native2ascii[0m
+-rwxr-xr-x 1 root root    1426400 mar 18 20:57 [01;32mnautilus[0m
+-rwxr-xr-x 1 root root      31632 mar 18 20:57 [01;32mnautilus-autorun-software[0m
+-rwxr-xr-x 1 root root      44744 mar 18 20:57 [01;32mnautilus-connect-server[0m
+-rwxr-xr-x 1 root root      14880 nov 18  2014 [01;32mnautilus-sendto[0m
+lrwxrwxrwx 1 root root         22 giu 29 10:22 [01;36mnawk[0m -> [01;32m/etc/alternatives/nawk[0m
+-rwxr-xr-x 1 root root      29840 mar  1 12:43 [01;32mncal[0m
+-rwxr-xr-x 1 root root       7371 lug 16  2014 [01;32mncc[0m
+-rwxr-xr-x 1 root root        514 lug 16  2014 [01;32mncg[0m
+lrwxrwxrwx 1 root root          3 mar 13 23:29 [01;36mneato[0m -> [01;32mdot[0m
+-rwxr-xr-x 1 root root      10368 gen 31 00:14 [01;32mneotoppm[0m
+-rwxr-xr-x 1 root root        908 gen 29 06:14 [01;32mneqn[0m
+-rwxr-xr-x 1 root root       6579 ago  8  2014 [01;32mnescc[0m
+-rwxr-xr-x 1 root root       6028 ago  8  2014 [01;32mnescc-mig[0m
+-rwxr-xr-x 1 root root       4845 ago  8  2014 [01;32mnescc-ncg[0m
+-rwxr-xr-x 1 root root        379 ago  8  2014 [01;32mnescc-wiring[0m
+-rwxr-xr-x 1 root root       5749 lug 16  2014 [01;32mnesdoc[0m
+-rwxr-xr-x 1 root root      89904 mag  6  2015 [01;32mnetkit-ftp[0m
+-rwsr-xr-x 1 root root      39904 mar 29 11:25 [37;41mnewgrp[0m
+-rwxr-xr-x 1 root root      35328 feb 10 13:13 [01;32mngettext[0m
+-rwxr-xr-x 1 root root      35536 feb 18 14:37 [01;32mnice[0m
+-rwxr-xr-x 1 root root      39760 feb 18 14:37 [01;32mnl[0m
+lrwxrwxrwx 1 root root         19 giu 29 10:22 [01;36mnm[0m -> [01;32mx86_64-linux-gnu-nm[0m
+-rwxr-xr-x 1 root root     283560 apr  9 01:22 [01;32mnm-applet[0m
+-rwxr-xr-x 1 root root     617688 apr 15 22:51 [01;32mnmcli[0m
+-rwxr-xr-x 1 root root     389448 apr  9 01:22 [01;32mnm-connection-editor[0m
+-rwxr-xr-x 1 root root      14792 apr 15 22:51 [01;32mnm-online[0m
+-rwxr-xr-x 1 root root     252920 apr 15 22:51 [01;32mnmtui[0m
+lrwxrwxrwx 1 root root          5 giu 29 10:22 [01;36mnmtui-connect[0m -> [01;32mnmtui[0m
+lrwxrwxrwx 1 root root          5 giu 29 10:22 [01;36mnmtui-edit[0m -> [01;32mnmtui[0m
+lrwxrwxrwx 1 root root          5 giu 29 10:22 [01;36mnmtui-hostname[0m -> [01;32mnmtui[0m
+-rwxr-xr-x 1 root root      31440 feb 18 14:37 [01;32mnohup[0m
+-rwxr-xr-x 1 root root      10544 mar 13 23:29 [01;32mnop[0m
+-rwxr-xr-x 1 root root      14720 feb 16  2015 [01;32mnotify-send[0m
+-rwxr-xr-x 1 root root      31440 feb 18 14:37 [01;32mnproc[0m
+-rwxr-xr-x 1 root root       3323 gen 29 06:14 [01;32mnroff[0m
+-rwxr-xr-x 1 root root      27520 apr 13 18:51 [01;32mnsenter[0m
+-rwxr-xr-x 1 root root      92368 apr 14 10:10 [01;32mnslookup[0m
+-rwxr-xr-x 1 root root      23008 apr  5 14:16 [01;32mnstat[0m
+-rwxr-xr-x 1 root root      63512 apr 14 10:10 [01;32mnsupdate[0m
+-rwxr-xr-x 1 root root      43128 feb 17 23:45 [01;32mntfsdecrypt[0m
+-rwxr-xr-x 1 root root      60272 feb 18 14:37 [01;32mnumfmt[0m
+-rwxr-xr-x 1 root root        270 apr 12 12:18 [01;32mnvidia-detector[0m
+-rwxr-xr-x 1 root root      18840 apr  7 13:48 [01;32moakdecode[0m
+-rwxr-xr-x 1 root root      92424 mar  1 16:33 [01;32mobexctl[0m
+lrwxrwxrwx 1 root root         24 giu 29 10:22 [01;36mobjcopy[0m -> [01;32mx86_64-linux-gnu-objcopy[0m
+lrwxrwxrwx 1 root root         24 giu 29 10:22 [01;36mobjdump[0m -> [01;32mx86_64-linux-gnu-objdump[0m
+-rwxr-xr-x 1 root root      20408 feb 10 14:42 [01;32moclock[0m
+-rwxr-xr-x 1 root root      68432 feb 18 14:37 [01;32mod[0m
+lrwxrwxrwx 1 root root         17 giu 29 10:22 [01;36mon_ac_power[0m -> [01;32m/sbin/on_ac_power[0m
+-rwxr-xr-x 1 root root       1275 apr 18 17:46 [01;32monboard[0m
+-rwxr-xr-x 1 root root        846 apr 18 17:46 [01;32monboard-settings[0m
+-rwxr-xr-x 1 root root        162 feb  1 13:56 [01;32monline-accounts-preferences[0m
+-rwxr-xr-x 1 root root     559072 mag  2 19:03 [01;32mopenssl[0m
+-rwxr-xr-x 1 root root      14728 apr  7 13:48 [01;32mopldecode[0m
+lrwxrwxrwx 1 root root         22 giu 29 11:24 [01;36morbd[0m -> [01;32m/etc/alternatives/orbd[0m
+-rwxr-xr-x 1 root root       8508 apr  8 02:57 [01;32morca[0m
+-rwxr-xr-x 1 root root         70 nov 10  2015 [01;32morca-dm-wrapper[0m
+lrwxrwxrwx 1 root root          3 mar 13 23:29 [01;36mosage[0m -> [01;32mdot[0m
+-rwxr-xr-x 1 root root       4596 mar 11 14:43 [01;32mos-prober[0m
+-rwxr-xr-x 1 root root      31464 dic 28  2015 [01;32mp11-kit[0m
+-rwxr-xr-x 1 root root      44160 mar 21 11:48 [01;32mpacat[0m
+lrwxrwxrwx 1 root root         25 giu 29 11:24 [01;36mpack200[0m -> [01;32m/etc/alternatives/pack200[0m
+-rwxr-xr-x 1 root root      14736 mar 21 11:48 [01;32mpacmd[0m
+-rwxr-xr-x 1 root root      60640 mar 21 11:48 [01;32mpactl[0m
+-rwxr-xr-x 1 root root       2259 mar 21 11:46 [01;32mpadsp[0m
+lrwxrwxrwx 1 root root         23 giu 29 10:22 [01;36mpager[0m -> [01;32m/etc/alternatives/pager[0m
+-rwxr-xr-x 1 root root       2108 apr 16 22:01 [01;32mpainter[0m
+-rwxr-xr-x 1 root root      18696 gen 31 00:14 [01;32mpalmtopnm[0m
+-rwxr-xr-x 1 root root      14512 gen 31 00:14 [01;32mpamcut[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32mpamdeinterlace[0m
+-rwxr-xr-x 1 root root      10416 gen 31 00:14 [01;32mpamdice[0m
+-rwxr-xr-x 1 root root      10392 gen 31 00:14 [01;32mpamfile[0m
+-rwxr-xr-x 1 root root      10400 gen 31 00:14 [01;32mpamoil[0m
+lrwxrwxrwx 1 root root          5 giu 29 10:22 [01;36mpamon[0m -> [01;32mpacat[0m
+-rwxr-xr-x 1 root root      10400 gen 31 00:14 [01;32mpamstack[0m
+-rwxr-xr-x 1 root root      10408 gen 31 00:14 [01;32mpamstretch[0m
+-rwxr-xr-x 1 root root       1343 gen 31 00:13 [01;32mpamstretch-gen[0m
+-rwxr-xr-x 1 root root      10608 nov  4  2015 [01;32mpaperconf[0m
+lrwxrwxrwx 1 root root          5 giu 29 10:22 [01;36mpaplay[0m -> [01;32mpacat[0m
+lrwxrwxrwx 1 root root          5 giu 29 10:22 [01;36mparec[0m -> [01;32mpacat[0m
+lrwxrwxrwx 1 root root          5 giu 29 10:22 [01;36mparecord[0m -> [01;32mpacat[0m
+-rwxr-xr-x 1 root root       8693 ott 23  2015 [01;32mparsechangelog[0m
+-rwxr-xr-x 1 root root      77448 apr 13 18:51 [01;32mpartx[0m
+-rwsr-xr-x 1 root root      54256 mar 29 11:25 [37;41mpasswd[0m
+-rwxr-xr-x 1 root root      31440 feb 18 14:37 [01;32mpaste[0m
+-rwxr-xr-x 1 root root      14848 mar 21 11:48 [01;32mpasuspender[0m
+-rwxr-xr-x 1 root root     154944 apr  3  2015 [01;32mpatch[0m
+lrwxrwxrwx 1 root root          3 mar 13 23:29 [01;36mpatchwork[0m -> [01;32mdot[0m
+-rwxr-xr-x 1 root root      31408 feb 18 14:37 [01;32mpathchk[0m
+-rwxr-xr-x 1 root root      14704 mar 21 11:48 [01;32mpax11publish[0m
+-rwxr-xr-x 1 root root      10400 gen 31 00:14 [01;32mpbmclean[0m
+-rwxr-xr-x 1 root root      10360 gen 31 00:14 [01;32mpbmlife[0m
+-rwxr-xr-x 1 root root      10360 gen 31 00:14 [01;32mpbmmake[0m
+-rwxr-xr-x 1 root root      10376 gen 31 00:14 [01;32mpbmmask[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32mpbmpage[0m
+-rwxr-xr-x 1 root root      10520 gen 31 00:14 [01;32mpbmpscale[0m
+-rwxr-xr-x 1 root root      10440 gen 31 00:14 [01;32mpbmreduce[0m
+-rwxr-xr-x 1 root root      10440 gen 31 00:14 [01;32mpbmtext[0m
+-rwxr-xr-x 1 root root      14600 gen 31 00:14 [01;32mpbmtextps[0m
+-rwxr-xr-x 1 root root      10392 gen 31 00:14 [01;32mpbmto10x[0m
+-rwxr-xr-x 1 root root      10648 gen 31 00:14 [01;32mpbmtoascii[0m
+-rwxr-xr-x 1 root root      10392 gen 31 00:14 [01;32mpbmtoatk[0m
+-rwxr-xr-x 1 root root      10352 gen 31 00:14 [01;32mpbmtobbnbg[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32mpbmtocmuwm[0m
+-rwxr-xr-x 1 root root      10344 gen 31 00:14 [01;32mpbmtoepsi[0m
+-rwxr-xr-x 1 root root       6248 gen 31 00:14 [01;32mpbmtoepson[0m
+-rwxr-xr-x 1 root root      13560 gen 31 00:14 [01;32mpbmtog3[0m
+-rwxr-xr-x 1 root root      10400 gen 31 00:14 [01;32mpbmtogem[0m
+-rwxr-xr-x 1 root root      10392 gen 31 00:14 [01;32mpbmtogo[0m
+-rwxr-xr-x 1 root root      10376 gen 31 00:14 [01;32mpbmtoicon[0m
+-rwxr-xr-x 1 root root      10440 gen 31 00:14 [01;32mpbmtolj[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32mpbmtomacp[0m
+-rwxr-xr-x 1 root root      10416 gen 31 00:14 [01;32mpbmtomda[0m
+-rwxr-xr-x 1 root root      10360 gen 31 00:14 [01;32mpbmtomgr[0m
+-rwxr-xr-x 1 root root      10408 gen 31 00:14 [01;32mpbmtonokia[0m
+-rwxr-xr-x 1 root root      10376 gen 31 00:14 [01;32mpbmtopgm[0m
+-rwxr-xr-x 1 root root      10368 gen 31 00:14 [01;32mpbmtopi3[0m
+-rwxr-xr-x 1 root root       6240 gen 31 00:14 [01;32mpbmtoplot[0m
+-rwxr-xr-x 1 root root      35064 gen 31 00:14 [01;32mpbmtoppa[0m
+-rwxr-xr-x 1 root root      12120 gen 31 00:14 [01;32mpbmtopsg3[0m
+-rwxr-xr-x 1 root root       6256 gen 31 00:14 [01;32mpbmtoptx[0m
+-rwxr-xr-x 1 root root      10344 gen 31 00:14 [01;32mpbmtowbmp[0m
+-rwxr-xr-x 1 root root      10392 gen 31 00:14 [01;32mpbmtox10bm[0m
+-rwxr-xr-x 1 root root      10392 gen 31 00:14 [01;32mpbmtoxbm[0m
+-rwxr-xr-x 1 root root      10360 gen 31 00:14 [01;32mpbmtoybm[0m
+-rwxr-xr-x 1 root root      10392 gen 31 00:14 [01;32mpbmtozinc[0m
+-rwxr-xr-x 1 root root      18544 gen 31 00:14 [01;32mpbmupc[0m
+-rwxr-xr-x 1 root root      14936 feb  4 21:59 [01;32mpcimodules[0m
+-rwxr-xr-x 1 root root      18624 gen 31 00:14 [01;32mpcxtoppm[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mpdb[0m -> [01;32mpdb2.7[0m
+lrwxrwxrwx 1 root root         23 giu 29 10:22 [01;36mpdb2.7[0m -> [01;32m../lib/python2.7/pdb.py[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mpdb3[0m -> [01;32mpdb3.5[0m
+lrwxrwxrwx 1 root root         23 giu 29 10:22 [01;36mpdb3.5[0m -> [01;32m../lib/python3.5/pdb.py[0m
+-rwxr-xr-x 1 root root        698 feb 29 11:49 [01;32mpdf2dsc[0m
+-rwxr-xr-x 1 root root        909 feb 29 11:49 [01;32mpdf2ps[0m
+-rwxr-xr-x 1 root root      14992 feb 26 17:48 [01;32mpdfdetach[0m
+-rwxr-xr-x 1 root root      14528 feb 26 17:48 [01;32mpdffonts[0m
+-rwxr-xr-x 1 root root      43200 feb 26 17:48 [01;32mpdfimages[0m
+-rwxr-xr-x 1 root root      26816 feb 26 17:48 [01;32mpdfinfo[0m
+-rwxr-xr-x 1 root root      14408 feb 26 17:48 [01;32mpdfseparate[0m
+-rwxr-xr-x 1 root root     116840 feb 26 17:48 [01;32mpdftocairo[0m
+-rwxr-xr-x 1 root root      84072 feb 26 17:48 [01;32mpdftohtml[0m
+-rwxr-xr-x 1 root root      18536 feb 26 17:48 [01;32mpdftoppm[0m
+-rwxr-xr-x 1 root root      18632 feb 26 17:48 [01;32mpdftops[0m
+-rwxr-xr-x 1 root root      30928 feb 26 17:48 [01;32mpdftotext[0m
+-rwxr-xr-x 1 root root      26696 feb 26 17:48 [01;32mpdfunite[0m
+-rwxr-xr-x 1 root root      10552 feb  7 14:37 [01;32mpeekfd[0m
+-rwxr-xr-x 1 root root    1907192 mar 13 12:54 [01;32mperl[0m
+-rwxr-xr-x 1 root root    1907192 mar 13 12:54 [01;32mperl5.22.1[0m
+-rwxr-xr-x 1 root root      10496 mar 13 12:54 [01;32mperl5.22-x86_64-linux-gnu[0m
+-rwxr-xr-x 1 root root      45355 mar 13 12:54 [01;32mperlbug[0m
+-rwxr-xr-x 1 root root        125 mar 13 12:54 [01;32mperldoc[0m
+-rwxr-xr-x 1 root root      10823 mar 13 12:54 [01;32mperlivp[0m
+-rwxr-xr-x 1 root root      45355 mar 13 12:54 [01;32mperlthanks[0m
+-rwxr-xr-x 1 root root        498 feb 29 11:49 [01;32mpf2afm[0m
+-rwxr-xr-x 1 root root        516 feb 29 11:49 [01;32mpfbtopfa[0m
+lrwxrwxrwx 1 root root         22 giu 29 10:22 [01;36mpftp[0m -> [01;32m/etc/alternatives/pftp[0m
+-rwxr-xr-x 1 root root      39840 apr 13 18:51 [01;32mpg[0m
+-rwxr-xr-x 1 root root       6256 gen 31 00:14 [01;32mpgmbentley[0m
+-rwxr-xr-x 1 root root      14584 gen 31 00:14 [01;32mpgmcrater[0m
+-rwxr-xr-x 1 root root      10376 gen 31 00:14 [01;32mpgmedge[0m
+-rwxr-xr-x 1 root root      10368 gen 31 00:14 [01;32mpgmenhance[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32mpgmhist[0m
+-rwxr-xr-x 1 root root      10360 gen 31 00:14 [01;32mpgmkernel[0m
+-rwxr-xr-x 1 root root      10376 gen 31 00:14 [01;32mpgmnoise[0m
+lrwxrwxrwx 1 root root          7 giu 29 10:22 [01;36mpgmnorm[0m -> [01;32mpnmnorm[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mpgmoil[0m -> [01;32mpamoil[0m
+-rwxr-xr-x 1 root root      10352 gen 31 00:14 [01;32mpgmramp[0m
+-rwxr-xr-x 1 root root      10360 gen 31 00:14 [01;32mpgmslice[0m
+-rwxr-xr-x 1 root root      26816 gen 31 00:14 [01;32mpgmtexture[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32mpgmtofs[0m
+-rwxr-xr-x 1 root root      10392 gen 31 00:14 [01;32mpgmtolispm[0m
+-rwxr-xr-x 1 root root      17048 gen 31 00:14 [01;32mpgmtopbm[0m
+-rwxr-xr-x 1 root root      10392 gen 31 00:14 [01;32mpgmtoppm[0m
+-rwxr-xr-x 1 root root      27280 gen 13 12:48 [01;32mpgrep[0m
+-rwxr-xr-x 1 root root       6264 gen 31 00:14 [01;32mpi1toppm[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32mpi3topbm[0m
+-rwxr-xr-x 1 root root     200736 gen 29 06:15 [01;32mpic[0m
+lrwxrwxrwx 1 root root         22 giu 29 10:22 [01;36mpico[0m -> [01;32m/etc/alternatives/pico[0m
+-rwxr-xr-x 1 root root       8319 mar 13 12:54 [01;32mpiconv[0m
+-rwxr-xr-x 1 root root       2359 apr 16 22:01 [01;32mpilconvert[0m
+-rwxr-xr-x 1 root root      15575 apr 16 22:01 [01;32mpildriver[0m
+-rwxr-xr-x 1 root root       2667 apr 16 22:01 [01;32mpilfile[0m
+-rwxr-xr-x 1 root root       1028 apr 16 22:01 [01;32mpilfont[0m
+-rwxr-xr-x 1 root root       2538 apr 16 22:01 [01;32mpilprint[0m
+lrwxrwxrwx 1 root root         26 giu 29 10:22 [01;36mpinentry[0m -> [01;32m/etc/alternatives/pinentry[0m
+-rwxr-xr-x 1 root root      61048 feb  6 18:16 [01;32mpinentry-gnome3[0m
+lrwxrwxrwx 1 root root         30 giu 29 10:22 [01;36mpinentry-x11[0m -> [01;32m/etc/alternatives/pinentry-x11[0m
+-rwxr-xr-x 1 root root      35696 feb 18 14:37 [01;32mpinky[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mpixeltool[0m -> [01;32mqtchooser[0m
+-rwxr-xr-x 1 root root      10464 gen 31 00:14 [01;32mpjtoppm[0m
+-rwxr-xr-x 1 root root      10640 gen 18 00:13 [01;32mpkaction[0m
+-rwxr-xr-x 1 root root      19104 gen 18 00:13 [01;32mpkcheck[0m
+-rwsr-xr-x 1 root root      23376 gen 18 00:13 [37;41mpkexec[0m
+-rwxr-xr-x 1 root root      47944 apr  6 16:03 [01;32mpkg-config[0m
+lrwxrwxrwx 1 root root          5 giu 29 10:22 [01;36mpkill[0m -> [01;32mpgrep[0m
+-rwxr-xr-x 1 root root      14784 gen 18 00:13 [01;32mpkttyagent[0m
+-rwxr-xr-x 1 root root       4531 mar 13 12:54 [01;32mpl2pm[0m
+-rwxr-xr-x 1 root root        324 gen 12 11:03 [01;32mplainbox-qml-shell[0m
+-rwxr-xr-x 1 root root        342 gen 12 11:03 [01;32mplainbox-trusted-launcher-1[0m
+-rwxr-xr-x 1 root root       2174 apr 16 22:01 [01;32mplayer[0m
+-rwxr-xr-x 1 root root      14944 apr 15 00:19 [01;32mpldd[0m
+-rwxr-xr-x 1 root root        146 gen 27 17:19 [01;32mplog[0m
+-rwxr-xr-x 1 root root      31344 gen 13 12:48 [01;32mpmap[0m
+-rwxr-xr-x 1 root root        981 feb 15 18:16 [01;32mpm-is-supported[0m
+-rwxr-xr-x 1 root root      23016 gen 31 00:14 [01;32mpngtopnm[0m
+-rwxr-xr-x 1 root root     628760 ago  6  2014 [01;32mpnm2ppa[0m
+-rwxr-xr-x 1 root root      10392 gen 31 00:14 [01;32mpnmalias[0m
+-rwxr-xr-x 1 root root      10392 gen 31 00:14 [01;32mpnmarith[0m
+-rwxr-xr-x 1 root root      10416 gen 31 00:14 [01;32mpnmcat[0m
+-rwxr-xr-x 1 root root      14568 gen 31 00:14 [01;32mpnmcolormap[0m
+-rwxr-xr-x 1 root root      10440 gen 31 00:14 [01;32mpnmcomp[0m
+-rwxr-xr-x 1 root root      39088 gen 31 00:14 [01;32mpnmconvol[0m
+-rwxr-xr-x 1 root root      10488 gen 31 00:14 [01;32mpnmcrop[0m
+-rwxr-xr-x 1 root root      14512 gen 31 00:14 [01;32mpnmcut[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32mpnmdepth[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32mpnmenlarge[0m
+-rwxr-xr-x 1 root root      10392 gen 31 00:14 [01;32mpnmfile[0m
+-rwxr-xr-x 1 root root      10440 gen 31 00:14 [01;32mpnmflip[0m
+-rwxr-xr-x 1 root root      10424 gen 31 00:14 [01;32mpnmgamma[0m
+-rwxr-xr-x 1 root root      10432 gen 31 00:14 [01;32mpnmhisteq[0m
+-rwxr-xr-x 1 root root      10416 gen 31 00:14 [01;32mpnmhistmap[0m
+-rwxr-xr-x 1 root root       4601 gen 31 00:13 [01;32mpnmindex[0m
+lrwxrwxrwx 1 root root         10 giu 29 10:22 [01;36mpnminterp[0m -> [01;32mpamstretch[0m
+lrwxrwxrwx 1 root root         14 giu 29 10:22 [01;36mpnminterp-gen[0m -> [01;32mpamstretch-gen[0m
+-rwxr-xr-x 1 root root       6272 gen 31 00:14 [01;32mpnminvert[0m
+-rwxr-xr-x 1 root root       1768 gen 31 00:13 [01;32mpnmmargin[0m
+-rwxr-xr-x 1 root root      14552 gen 31 00:14 [01;32mpnmmontage[0m
+-rwxr-xr-x 1 root root      18672 gen 31 00:14 [01;32mpnmnlfilt[0m
+lrwxrwxrwx 1 root root         13 giu 29 10:22 [01;36mpnmnoraw[0m -> [01;32mpnmtoplainpnm[0m
+-rwxr-xr-x 1 root root      10408 gen 31 00:14 [01;32mpnmnorm[0m
+-rwxr-xr-x 1 root root      10432 gen 31 00:14 [01;32mpnmpad[0m
+-rwxr-xr-x 1 root root      10400 gen 31 00:14 [01;32mpnmpaste[0m
+-rwxr-xr-x 1 root root      10376 gen 31 00:14 [01;32mpnmpsnr[0m
+-rwxr-xr-x 1 root root       3203 gen 31 00:13 [01;32mpnmquant[0m
+-rwxr-xr-x 1 root root      14624 gen 31 00:14 [01;32mpnmremap[0m
+-rwxr-xr-x 1 root root      14552 gen 31 00:14 [01;32mpnmrotate[0m
+-rwxr-xr-x 1 root root      18608 gen 31 00:14 [01;32mpnmscale[0m
+-rwxr-xr-x 1 root root      14512 gen 31 00:14 [01;32mpnmscalefixed[0m
+-rwxr-xr-x 1 root root      10416 gen 31 00:14 [01;32mpnmshear[0m
+-rwxr-xr-x 1 root root      10424 gen 31 00:14 [01;32mpnmsmooth[0m
+-rwxr-xr-x 1 root root      10464 gen 31 00:14 [01;32mpnmsplit[0m
+-rwxr-xr-x 1 root root      10368 gen 31 00:14 [01;32mpnmtile[0m
+-rwxr-xr-x 1 root root      14560 gen 31 00:14 [01;32mpnmtoddif[0m
+-rwxr-xr-x 1 root root     201208 gen 31 00:14 [01;32mpnmtofiasco[0m
+-rwxr-xr-x 1 root root      10368 gen 31 00:14 [01;32mpnmtofits[0m
+-rwxr-xr-x 1 root root      18808 gen 31 00:14 [01;32mpnmtojpeg[0m
+-rwxr-xr-x 1 root root      18672 gen 31 00:14 [01;32mpnmtopalm[0m
+-rwxr-xr-x 1 root root       6264 gen 31 00:14 [01;32mpnmtoplainpnm[0m
+-rwxr-xr-x 1 root root      31408 gen 31 00:14 [01;32mpnmtopng[0m
+-rwxr-xr-x 1 root root      18664 gen 31 00:14 [01;32mpnmtops[0m
+-rwxr-xr-x 1 root root      10432 gen 31 00:14 [01;32mpnmtorast[0m
+-rwxr-xr-x 1 root root      43656 gen 31 00:14 [01;32mpnmtorle[0m
+-rwxr-xr-x 1 root root      14528 gen 31 00:14 [01;32mpnmtosgi[0m
+-rwxr-xr-x 1 root root      10352 gen 31 00:14 [01;32mpnmtosir[0m
+-rwxr-xr-x 1 root root      18728 gen 31 00:14 [01;32mpnmtotiff[0m
+-rwxr-xr-x 1 root root      18680 gen 31 00:14 [01;32mpnmtotiffcmyk[0m
+-rwxr-xr-x 1 root root      10424 gen 31 00:14 [01;32mpnmtoxwd[0m
+-rwxr-xr-x 1 root root       4096 mar 13 12:54 [01;32mpod2html[0m
+-rwxr-xr-x 1 root root      13843 mar 13 12:54 [01;32mpod2man[0m
+-rwxr-xr-x 1 root root      11003 mar 13 12:54 [01;32mpod2text[0m
+-rwxr-xr-x 1 root root       3670 mar 13 12:54 [01;32mpod2usage[0m
+-rwxr-xr-x 1 root root       3699 mar 13 12:54 [01;32mpodchecker[0m
+-rwxr-xr-x 1 root root       2527 mar 13 12:54 [01;32mpodselect[0m
+-rwxr-xr-x 1 root root       2837 gen 27 17:19 [01;32mpoff[0m
+lrwxrwxrwx 1 root root         28 giu 29 11:24 [01;36mpolicytool[0m -> [01;32m/etc/alternatives/policytool[0m
+-rwxr-xr-x 1 root root       1362 gen 27 17:19 [01;32mpon[0m
+lrwxrwxrwx 1 root root         11 giu 29 10:21 [01;36mPOST[0m -> [01;32mlwp-request[0m
+-rwxr-xr-x 1 root root      18520 mar 25 18:42 [01;32mppdc[0m
+-rwxr-xr-x 1 root root      10328 mar 25 18:42 [01;32mppdhtml[0m
+-rwxr-xr-x 1 root root      10328 mar 25 18:42 [01;32mppdi[0m
+-rwxr-xr-x 1 root root      14408 mar 25 18:42 [01;32mppdmerge[0m
+-rwxr-xr-x 1 root root      10328 mar 25 18:42 [01;32mppdpo[0m
+-rwxr-xr-x 1 root root        404 feb 29 11:49 [01;32mpphs[0m
+-rwxr-xr-x 1 root root      14472 gen 31 00:14 [01;32mppm3d[0m
+-rwxr-xr-x 1 root root      10408 gen 31 00:14 [01;32mppmbrighten[0m
+-rwxr-xr-x 1 root root      10376 gen 31 00:14 [01;32mppmchange[0m
+-rwxr-xr-x 1 root root      22800 gen 31 00:14 [01;32mppmcie[0m
+-rwxr-xr-x 1 root root      10400 gen 31 00:14 [01;32mppmcolormask[0m
+-rwxr-xr-x 1 root root       6256 gen 31 00:14 [01;32mppmcolors[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32mppmdim[0m
+-rwxr-xr-x 1 root root      10392 gen 31 00:14 [01;32mppmdist[0m
+-rwxr-xr-x 1 root root      10432 gen 31 00:14 [01;32mppmdither[0m
+-rwxr-xr-x 1 root root      11661 gen 31 00:13 [01;32mppmfade[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32mppmflash[0m
+-rwxr-xr-x 1 root root      22768 gen 31 00:14 [01;32mppmforge[0m
+-rwxr-xr-x 1 root root      10376 gen 31 00:14 [01;32mppmhist[0m
+-rwxr-xr-x 1 root root      10432 gen 31 00:14 [01;32mppmlabel[0m
+-rwxr-xr-x 1 root root       6256 gen 31 00:14 [01;32mppmmake[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32mppmmix[0m
+lrwxrwxrwx 1 root root          7 giu 29 10:22 [01;36mppmnorm[0m -> [01;32mpnmnorm[0m
+-rwxr-xr-x 1 root root      10416 gen 31 00:14 [01;32mppmntsc[0m
+-rwxr-xr-x 1 root root      22784 gen 31 00:14 [01;32mppmpat[0m
+-rwxr-xr-x 1 root root      18680 gen 31 00:14 [01;32mppmquant[0m
+-rwxr-xr-x 1 root root       2072 gen 31 00:13 [01;32mppmquantall[0m
+-rwxr-xr-x 1 root root      14512 gen 31 00:14 [01;32mppmqvga[0m
+-rwxr-xr-x 1 root root       1706 gen 31 00:13 [01;32mppmrainbow[0m
+-rwxr-xr-x 1 root root      10368 gen 31 00:14 [01;32mppmrelief[0m
+-rwxr-xr-x 1 root root       6832 gen 31 00:13 [01;32mppmshadow[0m
+-rwxr-xr-x 1 root root      10416 gen 31 00:14 [01;32mppmshift[0m
+-rwxr-xr-x 1 root root      10400 gen 31 00:14 [01;32mppmspread[0m
+-rwxr-xr-x 1 root root      15408 gen 31 00:14 [01;32mppmtoacad[0m
+-rwxr-xr-x 1 root root      14600 gen 31 00:14 [01;32mppmtobmp[0m
+-rwxr-xr-x 1 root root      10400 gen 31 00:14 [01;32mppmtoeyuv[0m
+-rwxr-xr-x 1 root root      18672 gen 31 00:14 [01;32mppmtogif[0m
+-rwxr-xr-x 1 root root      10440 gen 31 00:14 [01;32mppmtoicr[0m
+-rwxr-xr-x 1 root root      39368 gen 31 00:14 [01;32mppmtoilbm[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mppmtojpeg[0m -> [01;32mpnmtojpeg[0m
+-rwxr-xr-x 1 root root      10392 gen 31 00:14 [01;32mppmtoleaf[0m
+-rwxr-xr-x 1 root root      10400 gen 31 00:14 [01;32mppmtolj[0m
+-rwxr-xr-x 1 root root         81 gen 31 00:13 [01;32mppmtomap[0m
+-rwxr-xr-x 1 root root      18640 gen 31 00:14 [01;32mppmtomitsu[0m
+-rwxr-xr-x 1 root root     547456 gen 31 00:14 [01;32mppmtompeg[0m
+-rwxr-xr-x 1 root root      10400 gen 31 00:14 [01;32mppmtoneo[0m
+-rwxr-xr-x 1 root root      14536 gen 31 00:14 [01;32mppmtopcx[0m
+-rwxr-xr-x 1 root root      10360 gen 31 00:14 [01;32mppmtopgm[0m
+-rwxr-xr-x 1 root root      10392 gen 31 00:14 [01;32mppmtopi1[0m
+-rwxr-xr-x 1 root root      10408 gen 31 00:14 [01;32mppmtopict[0m
+-rwxr-xr-x 1 root root      10392 gen 31 00:14 [01;32mppmtopj[0m
+-rwxr-xr-x 1 root root      10392 gen 31 00:14 [01;32mppmtopuzz[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32mppmtorgb3[0m
+-rwxr-xr-x 1 root root      10400 gen 31 00:14 [01;32mppmtosixel[0m
+-rwxr-xr-x 1 root root      10432 gen 31 00:14 [01;32mppmtotga[0m
+-rwxr-xr-x 1 root root      10472 gen 31 00:14 [01;32mppmtouil[0m
+-rwxr-xr-x 1 root root      14616 gen 31 00:14 [01;32mppmtowinicon[0m
+-rwxr-xr-x 1 root root      14640 gen 31 00:14 [01;32mppmtoxpm[0m
+-rwxr-xr-x 1 root root      10360 gen 31 00:14 [01;32mppmtoyuv[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32mppmtoyuvsplit[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32mppmtv[0m
+-rwxr-xr-x 1 root root      76752 feb 18 14:37 [01;32mpr[0m
+-rwxr-xr-x 1 root root       5656 feb  7 11:05 [01;32mprecat[0m
+-rwxr-xr-x 1 root root      43208 gen 29 06:15 [01;32mpreconv[0m
+-rwxr-xr-x 1 root root       2987 mar 13 12:54 [01;32mprename[0m
+-rwxr-xr-x 1 root root       5656 feb  7 11:05 [01;32mpreunzip[0m
+-rwxr-xr-x 1 root root       5656 feb  7 11:05 [01;32mprezip[0m
+-rwxr-xr-x 1 root root      10488 feb  7 11:05 [01;32mprezip-bin[0m
+lrwxrwxrwx 1 root root         11 giu 29 10:22 [01;36mprint[0m -> [01;32mrun-mailcap[0m
+-rwxr-xr-x 1 root root        395 feb 29 11:49 [01;32mprintafm[0m
+-rwxr-xr-x 1 root root      31376 feb 18 14:37 [01;32mprintenv[0m
+-rwxr-xr-x 1 root root      18704 mar  1 12:43 [01;32mprinterbanner[0m
+-rwxr-xr-x 1 root root       5640 apr  7 13:48 [01;32mprinter-profile[0m
+-rwxr-xr-x 1 root root      47856 feb 18 14:37 [01;32mprintf[0m
+-rwxr-xr-x 1 root root      32056 apr 13 18:51 [01;32mprlimit[0m
+-rwxr-xr-x 1 root root      13550 mar 13 12:54 [01;32mprove[0m
+-rwxr-xr-x 1 root root      14696 feb  7 14:37 [01;32mprtstat[0m
+-rwxr-xr-x 1 root root      14768 mar 13 23:29 [01;32mprune[0m
+-rwxr-xr-x 1 root root        740 feb 29 11:49 [01;32mps2ascii[0m
+-rwxr-xr-x 1 root root       2794 feb 29 11:49 [01;32mps2epsi[0m
+-rwxr-xr-x 1 root root        272 feb 29 11:49 [01;32mps2pdf[0m
+-rwxr-xr-x 1 root root        215 feb 29 11:49 [01;32mps2pdf12[0m
+-rwxr-xr-x 1 root root        215 feb 29 11:49 [01;32mps2pdf13[0m
+-rwxr-xr-x 1 root root        215 feb 29 11:49 [01;32mps2pdf14[0m
+-rwxr-xr-x 1 root root       1097 feb 29 11:49 [01;32mps2pdfwr[0m
+-rwxr-xr-x 1 root root        647 feb 29 11:49 [01;32mps2ps[0m
+-rwxr-xr-x 1 root root        669 feb 29 11:49 [01;32mps2ps2[0m
+lrwxrwxrwx 1 root root          8 giu 29 10:22 [01;36mps2txt[0m -> [01;32mps2ascii[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mpsfaddtable[0m -> [01;32mpsfxtable[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mpsfgettable[0m -> [01;32mpsfxtable[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mpsfstriptable[0m -> [01;32mpsfxtable[0m
+-rwxr-xr-x 1 root root      18808 set 16  2015 [01;32mpsfxtable[0m
+-rwxr-xr-x 1 root root      18888 nov 17  2014 [01;32mpsicc[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32mpsidtopgm[0m
+-rwxr-xr-x 1 root root      18768 gen 31 00:14 [01;32mpstopnm[0m
+-rwxr-xr-x 1 root root      27464 feb  7 14:37 [01;32mpstree[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mpstree.x11[0m -> [01;32mpstree[0m
+-rwxr-xr-x 1 root root      36607 mar 13 12:54 [01;32mpstruct[0m
+-rwxr-xr-x 1 root root       3524 mar 13 12:54 [01;32mptar[0m
+-rwxr-xr-x 1 root root       2590 mar 13 12:54 [01;32mptardiff[0m
+-rwxr-xr-x 1 root root       4354 mar 13 12:54 [01;32mptargrep[0m
+-rwxr-xr-x 1 root root      68560 feb 18 14:37 [01;32mptx[0m
+-rwxr-xr-x 1 root root      88224 mar 21 11:48 [01;32mpulseaudio[0m
+-rwxr-xr-x 1 root root      10608 gen 13 12:48 [01;32mpwdx[0m
+-rwxr-xr-x 1 root root       7806 mar 23 12:00 [01;32mpy3clean[0m
+-rwxr-xr-x 1 root root      12113 mar 23 12:00 [01;32mpy3compile[0m
+lrwxrwxrwx 1 root root         31 giu 29 10:22 [01;36mpy3versions[0m -> [01;32m../share/python3/py3versions.py[0m
+lrwxrwxrwx 1 root root         26 giu 29 10:22 [01;36mpybuild[0m -> [01;32m../share/dh-python/pybuild[0m
+-rwxr-xr-x 1 root root       4123 dic 10  2015 [01;32mpyclean[0m
+-rwxr-xr-x 1 root root      11894 dic 10  2015 [01;32mpycompile[0m
+lrwxrwxrwx 1 root root          8 giu 29 10:22 [01;36mpydoc[0m -> [01;32mpydoc2.7[0m
+-rwxr-xr-x 1 root root         79 apr 17 19:15 [01;32mpydoc2.7[0m
+lrwxrwxrwx 1 root root          8 giu 29 10:22 [01;36mpydoc3[0m -> [01;32mpydoc3.5[0m
+-rwxr-xr-x 1 root root         79 mar 31 13:49 [01;32mpydoc3.5[0m
+lrwxrwxrwx 1 root root         12 giu 29 10:22 [01;36mpygettext[0m -> [01;32mpygettext2.7[0m
+-rwxr-xr-x 1 root root      22097 apr 17 19:15 [01;32mpygettext2.7[0m
+lrwxrwxrwx 1 root root         12 giu 29 10:22 [01;36mpygettext3[0m -> [01;32mpygettext3.5[0m
+-rwxr-xr-x 1 root root      22256 mar 31 13:49 [01;32mpygettext3.5[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mpython[0m -> [01;32mpython2.7[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mpython2[0m -> [01;32mpython2.7[0m
+-rwxr-xr-x 1 root root    3533656 apr 17 19:18 [01;32mpython2.7[0m
+lrwxrwxrwx 1 root root         33 apr 17 19:18 [01;36mpython2.7-config[0m -> [01;32mx86_64-linux-gnu-python2.7-config[0m
+lrwxrwxrwx 1 root root         16 dic 10  2015 [01;36mpython2-config[0m -> [01;32mpython2.7-config[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mpython3[0m -> [01;32mpython3.5[0m
+-rwxr-xr-x 1 root root    4439120 mar 31 13:51 [01;32mpython3.5[0m
+-rwxr-xr-x 1 root root    4439120 mar 31 13:51 [01;32mpython3.5m[0m
+lrwxrwxrwx 1 root root         10 giu 29 10:22 [01;36mpython3m[0m -> [01;32mpython3.5m[0m
+lrwxrwxrwx 1 root root         16 dic 10  2015 [01;36mpython-config[0m -> [01;32mpython2.7-config[0m
+lrwxrwxrwx 1 root root         29 giu 29 10:22 [01;36mpyversions[0m -> [01;32m../share/python/pyversions.py[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqcollectiongenerator[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqdbus[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqdbuscpp2xml[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqdbusviewer[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqdbusxml2cpp[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqdoc[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqdoc3[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqglinfo[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqhelpconverter[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqhelpgenerator[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqlalr[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqmake[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqml[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqml1plugindump[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqmlbundle[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqmleasing[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqmlimportscanner[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqmllint[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqmlmin[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqmlplugindump[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqmlprofiler[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqmlscene[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqmltestrunner[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqmlviewer[0m -> [01;32mqtchooser[0m
+-rwxr-xr-x 1 root root      84152 nov 17  2015 [01;32mqpdf[0m
+-rwxr-xr-x 1 root root      18840 apr  7 13:48 [01;32mqpdldecode[0m
+-rwxr-xr-x 1 root root      10376 gen 31 00:14 [01;32mqrttoppm[0m
+-rwxr-xr-x 1 root root      39640 dic  9  2015 [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqtconfig[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqtdiag[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mqtpaths[0m -> [01;32mqtchooser[0m
+-rwxr-xr-x 1 root root       2453 apr 12 12:18 [01;32mquirks-handler[0m
+lrwxrwxrwx 1 root root         23 giu 29 10:22 [01;36mranlib[0m -> [01;32mx86_64-linux-gnu-ranlib[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32mrasttopnm[0m
+-rwxr-xr-x 1 root root      10424 gen 31 00:14 [01;32mrawtopgm[0m
+-rwxr-xr-x 1 root root      10376 gen 31 00:14 [01;32mrawtoppm[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mrcc[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root         21 giu 29 10:22 [01;36mrcp[0m -> [01;32m/etc/alternatives/rcp[0m
+-rwxr-xr-x 1 root root     140712 mar  1 16:33 [01;32mrctest[0m
+lrwxrwxrwx 1 root root         24 giu 29 10:22 [01;36mreadelf[0m -> [01;32mx86_64-linux-gnu-readelf[0m
+-rwxr-xr-x 1 root root      60240 feb 18 14:37 [01;32mrealpath[0m
+-rwxr-xr-x 1 root root      14624 feb 10 13:13 [01;32mrecode-sr-latin[0m
+-rwxr-xr-x 1 root root       3445 mag  6  2015 [01;32mrecountdiff[0m
+-rwxr-xr-x 1 root root      35552 mag  6  2015 [01;32mrediff[0m
+-rwxr-xr-x 1 root root     322024 mar 29 04:39 [01;32mremmina[0m
+lrwxrwxrwx 1 root root         24 giu 29 10:22 [01;36mrename[0m -> [01;32m/etc/alternatives/rename[0m
+-rwxr-xr-x 1 root root      14752 apr 13 18:51 [01;32mrename.ul[0m
+-rwxr-xr-x 1 root root      49208 feb 10 14:42 [01;32mrendercheck[0m
+-rwxr-xr-x 1 root root      10624 apr 13 18:51 [01;32mrenice[0m
+lrwxrwxrwx 1 root root          4 giu 29 10:22 [01;36mreset[0m -> [01;32mtset[0m
+-rwxr-xr-x 1 root root      18848 feb 17 19:16 [01;32mresize[0m
+-rwxr-xr-x 1 root root      18984 set 16  2015 [01;32mresizecons[0m
+-rwxr-xr-x 1 root root      35696 apr 13 18:51 [01;32mresizepart[0m
+-rwxr-xr-x 1 root root      10632 apr 13 18:51 [01;32mrev[0m
+-rwxr-xr-x 1 root root     102904 mar  1 16:33 [01;32mrfcomm[0m
+-rwxr-xr-x 1 root root      10368 gen 31 00:14 [01;32mrgb3toppm[0m
+-rwxr-xr-x 1 root root         30 mar  4 18:02 [01;32mrgrep[0m
+-rwxr-xr-x 1 root root      10552 apr 14 00:00 [01;32mrhythmbox[0m
+-rwxr-xr-x 1 root root      37816 apr 14 00:00 [01;32mrhythmbox-client[0m
+-rwxr-xr-x 1 root root      31336 gen 31 00:14 [01;32mrletopnm[0m
+lrwxrwxrwx 1 root root         24 giu 29 10:22 [01;36mrlogin[0m -> [01;32m/etc/alternatives/rlogin[0m
+lrwxrwxrwx 1 root root         22 giu 29 11:24 [01;36mrmic[0m -> [01;32m/etc/alternatives/rmic[0m
+lrwxrwxrwx 1 root root         22 giu 29 11:24 [01;36mrmid[0m -> [01;32m/etc/alternatives/rmid[0m
+lrwxrwxrwx 1 root root         29 giu 29 11:24 [01;36mrmiregistry[0m -> [01;32m/etc/alternatives/rmiregistry[0m
+-rwxr-xr-x 1 root root        173 nov  4  2015 [01;32mroutef[0m
+-rwxr-xr-x 1 root root       1262 nov  4  2015 [01;32mroutel[0m
+-rwxr-xr-x 1 root root      93120 apr 15 00:19 [01;32mrpcgen[0m
+lrwxrwxrwx 1 root root         21 giu 29 10:22 [01;36mrsh[0m -> [01;32m/etc/alternatives/rsh[0m
+-rwxr-xr-x 1 root root       2610 mag  6  2015 [01;32mrstart[0m
+-rwxr-xr-x 1 root root       1469 mag  6  2015 [01;32mrstartd[0m
+-rwxr-xr-x 1 root root     479448 gen 19 21:22 [01;32mrsync[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mrtstat[0m -> [01;32mlnstat[0m
+-rwxr-xr-x 1 root root      35632 feb 18 14:37 [01;32mruncon[0m
+-rwxr-xr-x 1 root root      17975 ott 30  2015 [01;32mrun-mailcap[0m
+-rwxr-xr-x 1 root root         57 feb  7 11:05 [01;32mrun-with-aspell[0m
+lrwxrwxrwx 1 root root         23 giu 29 10:22 [01;36mrview[0m -> [01;32m/etc/alternatives/rview[0m
+lrwxrwxrwx 1 root root         22 giu 29 11:20 [01;36mrvim[0m -> [01;32m/etc/alternatives/rvim[0m
+-rwxr-xr-x 1 root root       7312 lug 16  2014 [01;32msamba-program.py[0m
+-rwxr-xr-x 1 root root     117728 set 18  2015 [01;32msane-find-scanner[0m
+-rwxr-xr-x 1 root root      10469 gen 26 19:17 [01;32msavelog[0m
+-rwxr-xr-x 1 root root      47984 dic 17  2015 [01;32msbattach[0m
+-rwxr-xr-x 1 root root      10536 gen 31 00:14 [01;32msbigtopgm[0m
+-rwxr-xr-x 1 root root      56464 dic 17  2015 [01;32msbkeysync[0m
+-rwxr-xr-x 1 root root      48048 dic 17  2015 [01;32msbsiglist[0m
+-rwxr-xr-x 1 root root      48080 dic 17  2015 [01;32msbsign[0m
+-rwxr-xr-x 1 root root      52336 dic 17  2015 [01;32msbvarsign[0m
+-rwxr-xr-x 1 root root      52176 dic 17  2015 [01;32msbverify[0m
+-rwxr-xr-x 1 root root      51992 set 18  2015 [01;32mscanimage[0m
+-rwxr-xr-x 1 root root      14800 mar 13 23:29 [01;32msccmap[0m
+lrwxrwxrwx 1 root root         27 giu 29 11:24 [01;36mschemagen[0m -> [01;32m/etc/alternatives/schemagen[0m
+-rwxr-xr-x 1 root root      80016 apr 16 07:18 [01;32mscp[0m
+-rwxr-xr-x 1 root root         90 mar  8 02:15 [01;32mscp-dbus-service[0m
+-rwxr-xr-x 1 root root      10520 set 16  2015 [01;32mscreendump[0m
+-rwxr-xr-x 1 root root      23200 apr 13 18:51 [01;32mscript[0m
+-rwxr-xr-x 1 root root      14744 apr 13 18:51 [01;32mscriptreplay[0m
+-rwxr-xr-x 1 root root      47904 dic 27  2015 [01;32msdiff[0m
+-rwxr-xr-x 1 root root     205720 mar  1 16:33 [01;32msdptool[0m
+-rwxr-xr-x 1 root root    1102688 ott 27  2015 [01;32mseahorse[0m
+lrwxrwxrwx 1 root root         11 giu 29 10:22 [01;36msee[0m -> [01;32mrun-mailcap[0m
+-rwxr-xr-x 1 root root        474 ott 23  2015 [01;32mselect-default-iwrap[0m
+-rwxr-xr-x 1 root root       1215 giu 17  2013 [01;32mselect-editor[0m
+-rwxr-xr-x 1 root root       1436 giu 17  2013 [01;32msensible-browser[0m
+-rwxr-xr-x 1 root root       1109 giu 17  2013 [01;32msensible-editor[0m
+-rwxr-xr-x 1 root root        288 giu 17  2013 [01;32msensible-pager[0m
+-rwxr-xr-x 1 root root      47856 feb 18 14:37 [01;32mseq[0m
+lrwxrwxrwx 1 root root         27 giu 29 11:24 [01;36mserialver[0m -> [01;32m/etc/alternatives/serialver[0m
+lrwxrwxrwx 1 root root         28 giu 29 11:24 [01;36mservertool[0m -> [01;32m/etc/alternatives/servertool[0m
+-rwxr-xr-x 1 root root       1059 mar 16 16:40 [01;32msession-installer[0m
+-rwxr-xr-x 1 root root      14864 mag  7  2015 [01;32msession-migration[0m
+-rwxr-xr-x 1 root root      10600 feb 27 10:09 [01;32msessreg[0m
+-rwxr-xr-x 1 root root      14720 apr 13 18:51 [01;32msetarch[0m
+lrwxrwxrwx 1 root root         12 giu 29 10:22 [01;36msetfacl[0m -> [01;32m/bin/setfacl[0m
+-rwxr-xr-x 1 root root      10480 set 16  2015 [01;32msetkeycodes[0m
+-rwxr-xr-x 1 root root      10504 set 16  2015 [01;32msetleds[0m
+-rwxr-xr-x 1 root root      10464 set 16  2015 [01;32msetlogcons[0m
+-rwxr-xr-x 1 root root      10552 set 16  2015 [01;32msetmetamode[0m
+-rwxr-xr-x 1 root root      23008 feb  4 21:59 [01;32msetpci[0m
+-rwxr-xr-x 1 root root      10624 apr 13 18:51 [01;32msetsid[0m
+-rwxr-xr-x 1 root root      35440 apr 13 18:51 [01;32msetterm[0m
+-rwxr-xr-x 1 root root      23344 mag  6  2015 [01;32msetxkbmap[0m
+lrwxrwxrwx 1 root root          3 mar 13 23:29 [01;36msfdp[0m -> [01;32mdot[0m
+-rwxr-xr-x 1 root root     133488 apr 16 07:18 [01;32msftp[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36msg[0m -> [37;41mnewgrp[0m
+-rwxr-xr-x 1 root root      14568 gen 31 00:14 [01;32msgitopnm[0m
+-rwxr-xr-x 1 root root      43792 feb 18 14:37 [01;32msha1sum[0m
+-rwxr-xr-x 1 root root      51984 feb 18 14:37 [01;32msha224sum[0m
+-rwxr-xr-x 1 root root      51984 feb 18 14:37 [01;32msha256sum[0m
+-rwxr-xr-x 1 root root      56080 feb 18 14:37 [01;32msha384sum[0m
+-rwxr-xr-x 1 root root      56080 feb 18 14:37 [01;32msha512sum[0m
+-rwxr-xr-x 1 root root       9332 mar 13 12:54 [01;32mshasum[0m
+-rwxr-xr-x 1 root root    4291448 feb 16 14:57 [01;32mshotwell[0m
+-rwxr-xr-x 1 root root      18784 set 16  2015 [01;32mshowconsolefont[0m
+-rwxr-xr-x 1 root root      14624 set 16  2015 [01;32mshowkey[0m
+-rwxr-xr-x 1 root root       6400 feb 27 10:09 [01;32mshowrgb[0m
+-rwxr-xr-x 1 root root      56240 feb 18 14:37 [01;32mshred[0m
+-rwxr-xr-x 1 root root      56144 feb 18 14:37 [01;32mshuf[0m
+-rwxr-xr-x 1 root root     509456 nov  6  2015 [01;32msignond[0m
+-rwxr-xr-x 1 root root      73064 nov  6  2015 [01;32msignonpluginprocess[0m
+-rwxr-xr-x 1 root root     276184 nov 25  2015 [01;32msignon-ui[0m
+-rwxr-xr-x 1 root root     383192 mar 20 22:13 [01;32msimple-scan[0m
+-rwxr-xr-x 1 root root      10400 gen 31 00:14 [01;32msirtopnm[0m
+lrwxrwxrwx 1 root root         21 giu 29 10:22 [01;36msize[0m -> [01;32mx86_64-linux-gnu-size[0m
+-rwxr-xr-x 1 root root      23152 gen 13 12:48 [01;32mskill[0m
+-rwxr-xr-x 1 root root      18912 gen 13 12:48 [01;32mslabtop[0m
+-rwxr-xr-x 1 root root      14640 gen 31 00:14 [01;32msldtoppm[0m
+lrwxrwxrwx 1 root root          3 giu 29 10:22 [01;36mslogin[0m -> [01;32mssh[0m
+-rwxr-xr-x 1 root root      18856 apr  7 13:48 [01;32mslxdecode[0m
+-rwxr-xr-x 1 root root      23088 mag  6  2015 [01;32msmproxy[0m
+-rwxr-xr-x 1 root root    9297560 apr 19 16:31 [01;32msnap[0m
+lrwxrwxrwx 1 root root          5 giu 29 10:22 [01;36msnice[0m -> [01;32mskill[0m
+-rwxr-xr-x 1 root root      30920 gen 29 06:15 [01;32msoelim[0m
+lrwxrwxrwx 1 root root         34 giu 28 10:08 [01;36msoffice[0m -> [01;32m../lib/libreoffice/program/soffice[0m
+-rwxr-xr-x 1 root root       4259 mar 22 08:57 [01;32msoftware-properties-gtk[0m
+-rwxr-xr-x 1 root root     110040 feb 18 14:37 [01;32msort[0m
+-rwxr-xr-x 1 root root       4306 apr 15 00:10 [01;32msotruss[0m
+-rwxr-xr-x 1 root root      10376 gen 31 00:14 [01;32mspctoppm[0m
+-rwxr-xr-x 1 root root        220 feb 18 22:51 [01;32mspd-conf[0m
+-rwxr-xr-x 1 root root      19736 feb 18 22:51 [01;32mspd-say[0m
+-rwxr-xr-x 1 root root      31536 apr 15 02:04 [01;32mspeaker-test[0m
+-rwxr-xr-x 1 root root     134552 feb 18 22:51 [01;32mspeech-dispatcher[0m
+lrwxrwxrwx 1 root root         32 giu 29 10:22 [01;36mspellintian[0m -> [01;32m../share/lintian/frontend/dplint[0m
+-rwxr-xr-x 1 root root      18768 mar 13 12:54 [01;32msplain[0m
+-rwxr-xr-x 1 root root      69024 feb 18 14:37 [01;32msplit[0m
+-rwxr-xr-x 1 root root       3461 mag  6  2015 [01;32msplitdiff[0m
+-rwxr-xr-x 1 root root      10456 set 16  2015 [01;32msplitfont[0m
+-rwxr-xr-x 1 root root      23256 apr 15 00:19 [01;32msprof[0m
+-rwxr-xr-x 1 root root      10352 gen 31 00:14 [01;32msputoppm[0m
+-rwxr-xr-x 1 root root     707248 apr 16 07:18 [01;32mssh[0m
+-rwxr-xr-x 1 root root     338136 apr 16 07:18 [01;32mssh-add[0m
+-rwxr-sr-x 1 root ssh      358624 apr 16 07:18 [30;43mssh-agent[0m
+-rwxr-xr-x 1 root root       1456 apr 13 09:48 [01;32mssh-argv0[0m
+-rwxr-xr-x 1 root root      10360 mar  9 19:04 [01;32mssh-copy-id[0m
+-rwxr-xr-x 1 root root     399600 apr 16 07:18 [01;32mssh-keygen[0m
+-rwxr-xr-x 1 root root     415984 apr 16 07:18 [01;32mssh-keyscan[0m
+-rwxr-xr-x 1 root root      10424 gen 31 00:14 [01;32mst4topgm[0m
+-rwxr-xr-x 1 root root       1293 mar 21 11:46 [01;32mstart-pulseaudio-x11[0m
+-rwxr-xr-x 1 root root       5517 ott 23  2015 [01;32mstartx[0m
+-rwxr-xr-x 1 root root      80944 feb 18 14:37 [01;32mstat[0m
+-rwxr-xr-x 1 root root      64336 feb 18 14:37 [01;32mstdbuf[0m
+-rwxr-xr-x 1 root root     866480 gen 13 16:34 [01;32mstrace[0m
+lrwxrwxrwx 1 root root         24 giu 29 10:22 [01;36mstream[0m -> [01;32m/etc/alternatives/stream[0m
+lrwxrwxrwx 1 root root         56 giu  1 21:14 [01;36mstream-im6[0m -> [01;32m../lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16/stream[0m[K
+lrwxrwxrwx 1 root root         24 giu 29 10:22 [01;36mstrings[0m -> [01;32mx86_64-linux-gnu-strings[0m
+lrwxrwxrwx 1 root root         22 giu 29 10:22 [01;36mstrip[0m -> [01;32mx86_64-linux-gnu-strip[0m
+-rwsr-xr-x 1 root root     136808 mar 30 21:57 [37;41msudo[0m
+lrwxrwxrwx 1 root root          4 giu 29 10:22 [01;36msudoedit[0m -> [37;41msudo[0m
+-rwxr-xr-x 1 root root      47680 mar 30 21:57 [01;32msudoreplay[0m
+-rwxr-xr-x 1 root root      39672 feb 18 14:37 [01;32msum[0m
+-rwxr-xr-x 1 root root     291264 mar 14 09:23 [01;32msvn[0m
+-rwxr-xr-x 1 root root      85200 mar 14 09:23 [01;32msvnadmin[0m
+-rwxr-xr-x 1 root root      23072 mar 14 09:23 [01;32msvnauthz[0m
+-rwxr-xr-x 1 root root      23080 mar 14 09:23 [01;32msvnauthz-validate[0m
+-rwxr-xr-x 1 root root      60376 mar 14 09:23 [01;32msvnbench[0m
+-rwxr-xr-x 1 root root      35752 mar 14 09:23 [01;32msvndumpfilter[0m
+-rwxr-xr-x 1 root root      35504 mar 14 09:23 [01;32msvnfsfs[0m
+-rwxr-xr-x 1 root root      68888 mar 14 09:23 [01;32msvnlook[0m
+-rwxr-xr-x 1 root root      27440 mar 14 09:23 [01;32msvnmucc[0m
+-rwxr-xr-x 1 root root      52488 mar 14 09:23 [01;32msvnrdump[0m
+-rwxr-xr-x 1 root root      94704 mar 14 09:23 [01;32msvnserve[0m
+-rwxr-xr-x 1 root root      52128 mar 14 09:23 [01;32msvnsync[0m
+-rwxr-xr-x 1 root root      14928 mar 14 09:23 [01;32msvnversion[0m
+lrwxrwxrwx 1 root root          7 apr  6 04:48 [01;36mswig[0m -> [01;32mswig3.0[0m
+-rwxr-xr-x 1 root root    1606208 apr  6 04:48 [01;32mswig3.0[0m
+-rwxr-xr-x 1 root root     100968 apr  8 12:14 [01;32msymcryptrun[0m
+-rwxr-xr-x 1 root root      18312 mar  3 14:41 [01;32msynclient[0m
+-rwxr-xr-x 1 root root      18992 mar  3 14:41 [01;32msyndaemon[0m
+-rwxr-xr-x 1 root root     200584 feb 24 14:32 [01;32msyslinux[0m
+-rwxr-xr-x 1 root root      29888 ott  6  2015 [01;32msyslinux-legacy[0m
+-rwxr-xr-x 1 root root         95 mar  8 02:15 [01;32msystem-config-printer[0m
+-rwxr-xr-x 1 root root         80 mar  8 02:15 [01;32msystem-config-printer-applet[0m
+-rwxr-xr-x 1 root root    1487008 apr 12 12:34 [01;32msystemd-analyze[0m
+-rwxr-xr-x 1 root root      35256 apr 12 12:34 [01;32msystemd-cat[0m
+-rwxr-xr-x 1 root root     294112 apr 12 12:34 [01;32msystemd-cgls[0m
+-rwxr-xr-x 1 root root     310568 apr 12 12:34 [01;32msystemd-cgtop[0m
+-rwxr-xr-x 1 root root      64088 apr 12 12:34 [01;32msystemd-delta[0m
+-rwxr-xr-x 1 root root      35248 apr 12 12:34 [01;32msystemd-detect-virt[0m
+-rwxr-xr-x 1 root root      43440 apr 12 12:34 [01;32msystemd-path[0m
+-rwxr-xr-x 1 root root     335064 apr 12 12:34 [01;32msystemd-resolve[0m
+-rwxr-xr-x 1 root root     376344 apr 12 12:34 [01;32msystemd-run[0m
+-rwxr-xr-x 1 root root     351440 apr 12 12:34 [01;32msystemd-stdio-bridge[0m
+-rwxr-xr-x 1 root root      39072 gen  4 13:03 [01;32mt1ascii[0m
+-rwxr-xr-x 1 root root      44224 gen  4 13:03 [01;32mt1asm[0m
+-rwxr-xr-x 1 root root      39040 gen  4 13:03 [01;32mt1binary[0m
+-rwxr-xr-x 1 root root      43096 gen  4 13:03 [01;32mt1disasm[0m
+-rwxr-xr-x 1 root root      47328 gen  4 13:03 [01;32mt1mac[0m
+-rwxr-xr-x 1 root root      43304 gen  4 13:03 [01;32mt1unmac[0m
+-rwxr-xr-x 1 root root      14576 feb 19 09:22 [01;32mtabs[0m
+-rwxr-xr-x 1 root root      35568 feb 18 14:37 [01;32mtac[0m
+-rwxr-xr-x 1 root root      64432 feb 18 14:37 [01;32mtail[0m
+-rwxr-xr-x 1 root root      31416 apr 13 18:51 [01;32mtaskset[0m
+-rwxr-xr-x 1 root root     121032 gen 29 06:15 [01;32mtbl[0m
+lrwxrwxrwx 1 root root          8 giu 29 10:22 [01;36mtclsh[0m -> [01;32mtclsh8.6[0m
+-rwxr-xr-x 1 root root       6224 mar 30 01:55 [01;32mtclsh8.6[0m
+-rwxr-xr-x 1 root root      35568 feb 18 14:37 [01;32mtee[0m
+lrwxrwxrwx 1 root root         24 giu 29 10:22 [01;36mtelnet[0m -> [01;32m/etc/alternatives/telnet[0m
+-rwxr-xr-x 1 root root      99840 mag  6  2015 [01;32mtelnet.netkit[0m
+-rwxr-xr-x 1 root root      47824 feb 18 14:37 [01;32mtest[0m
+-rwxr-xr-x 1 root root      14504 gen 31 00:14 [01;32mtgatoppm[0m
+-rwxr-xr-x 1 root root       2295 nov 17  2014 [01;32mtgz[0m
+-rwxr-xr-x 1 root root      18704 gen 31 00:14 [01;32mthinkjettopbm[0m
+-rwxr-xr-x 1 root root       1795 apr 16 22:01 [01;32mthresholder[0m
+lrwxrwxrwx 1 root root         33 mag 11 21:17 [01;36mthunderbird[0m -> [01;32m../lib/thunderbird/thunderbird.sh[0m
+-rwxr-xr-x 1 root root      72408 feb 19 09:22 [01;32mtic[0m
+-rwxr-xr-x 1 root root      18680 gen 31 00:14 [01;32mtifftopnm[0m
+-rwxr-xr-x 1 root root      31576 nov 17  2014 [01;32mtificc[0m
+-rwxr-xr-x 1 root root      15072 lug 22  2015 [01;32mtime[0m
+-rwxr-xr-x 1 root root     302304 apr 12 12:34 [01;32mtimedatectl[0m
+-rwxr-xr-x 1 root root      56704 feb 18 14:37 [01;32mtimeout[0m
+-rwxr-xr-x 1 root root      14784 gen 13 12:48 [01;32mtload[0m
+lrwxrwxrwx 1 root root         27 giu 29 11:24 [01;36mtnameserv[0m -> [01;32m/etc/alternatives/tnameserv[0m
+-rwxr-xr-x 1 root root      14688 feb 19 09:22 [01;32mtoe[0m
+-rwxr-xr-x 1 root root     109064 gen 13 12:48 [01;32mtop[0m
+-rwxr-xr-x 1 root root      78730 lug 16  2014 [01;32mtos-bsl[0m
+-rwxr-xr-x 1 root root       6570 lug 16  2014 [01;32mtos-build-deluge-image[0m
+-rwxr-xr-x 1 root root      19966 lug 16  2014 [01;32mtos-channelgen[0m
+-rwxr-xr-x 1 root root      14641 lug 16  2014 [01;32mtos-check-env[0m
+-rwxr-xr-x 1 root root       1390 lug 16  2014 [01;32mtos-decode-flid[0m
+-rwxr-xr-x 1 root root      16676 lug 16  2014 [01;32mtos-deluge[0m
+-rwxr-xr-x 1 root root        259 lug 16  2014 [01;32mtos-dump.py[0m
+-rwxr-xr-x 1 root root      95160 mag 23  2012 [01;32mtoshset[0m
+-rwxr-xr-x 1 root root       1703 lug 16  2014 [01;32mtos-ident-flags[0m
+-rwxr-xr-x 1 root root        806 lug 16  2014 [01;32mtos-install-jni[0m
+-rwxr-xr-x 1 root root       5057 lug 16  2014 [01;32mtos-locate-jre[0m
+-rwxr-xr-x 1 root root       4171 lug 16  2014 [01;32mtos-mote-key[0m
+-rwxr-xr-x 1 root root        127 lug 16  2014 [01;32mtos-mviz[0m
+-rwxr-xr-x 1 root root      44262 lug 16  2014 [01;32mtos-ramsize[0m
+-rwxr-xr-x 1 root root         76 lug 16  2014 [01;32mtos-serial-configure[0m
+-rwxr-xr-x 1 root root      17334 lug 16  2014 [01;32mtos-serial-debug[0m
+-rwxr-xr-x 1 root root       5105 lug 16  2014 [01;32mtos-set-symbols[0m
+-rwxr-xr-x 1 root root       9009 lug 16  2014 [01;32mtos-storage-at45db[0m
+-rwxr-xr-x 1 root root       8777 lug 16  2014 [01;32mtos-storage-pxa27xp30[0m
+-rwxr-xr-x 1 root root      10498 lug 16  2014 [01;32mtos-storage-stm25p[0m
+-rwxr-xr-x 1 root root      14465 lug 16  2014 [01;32mtosthreads-dynamic-app[0m
+-rwxr-xr-x 1 root root       3499 lug 16  2014 [01;32mtosthreads-gen-dynamic-app[0m
+-rwxr-xr-x 1 root root       1398 lug 16  2014 [01;32mtos-write-buildinfo[0m
+-rwxr-xr-x 1 root root       1596 lug 16  2014 [01;32mtos-write-image[0m
+-rwxr-xr-x 1 root root      10232 mar 10 08:36 [01;32mtotem[0m
+-rwxr-xr-x 1 root root      18512 mar 10 08:36 [01;32mtotem-audio-preview[0m
+-rwxr-xr-x 1 root root      39016 mar 10 08:36 [01;32mtotem-video-thumbnailer[0m
+lrwxrwxrwx 1 root root         10 giu 29 10:22 [01;36mtouch[0m -> [01;32m/bin/touch[0m
+-rwxr-xr-x 1 root root      14648 feb 19 09:22 [01;32mtput[0m
+-rwxr-xr-x 1 root root      47856 feb 18 14:37 [01;32mtr[0m
+-rwxr-xr-x 1 root root      14680 mag  7  2014 [01;32mtracepath[0m
+-rwxr-xr-x 1 root root      14688 mag  7  2014 [01;32mtracepath6[0m
+lrwxrwxrwx 1 root root         29 giu 29 10:22 [01;36mtraceroute6[0m -> [01;32m/etc/alternatives/traceroute6[0m
+-rwxr-xr-x 1 root root      23104 mag  7  2014 [01;32mtraceroute6.iputils[0m
+-rwxr-xr-x 1 root root      35600 nov 17  2014 [01;32mtransicc[0m
+-rwxr-xr-x 1 root root     816872 mar 21 18:48 [01;32mtransmission-gtk[0m
+-rwxr-xr-x 1 root root      19424 feb 10 14:42 [01;32mtransset[0m
+-rwxr-xr-x 1 root root      10640 mar 13 23:29 [01;32mtred[0m
+-rwxr-xr-x 1 root root     712032 gen 29 06:15 [01;32mtroff[0m
+-rwxr-xr-x 1 root root      52016 feb 18 14:37 [01;32mtruncate[0m
+-rwxr-xr-x 1 root root     175624 dic 28  2015 [01;32mtrust[0m
+-rwxr-xr-x 1 root root      18864 feb 19 09:22 [01;32mtset[0m
+-rwxr-xr-x 1 root root      39600 feb 18 14:37 [01;32mtsort[0m
+-rwxr-xr-x 1 root root      10624 apr 20 18:01 [01;32mttfread[0m
+-rwxr-xr-x 1 root root      27312 feb 18 14:37 [01;32mtty[0m
+lrwxrwxrwx 1 root root          3 mar 13 23:29 [01;36mtwopi[0m -> [01;32mdot[0m
+-rwxr-xr-x 1 root root      15208 apr 15 00:09 [01;32mtzselect[0m
+lrwxrwxrwx 1 root root         10 giu 29 10:22 [01;36mubuntu-bug[0m -> [01;32mapport-bug[0m
+-rwsr-xr-x 1 root root      23288 apr 29 18:02 [37;41mubuntu-core-launcher[0m
+-rwxr-xr-x 1 root root       5278 apr 12 12:18 [01;32mubuntu-drivers[0m
+lrwxrwxrwx 1 root root         14 giu 29 10:22 [01;36mubuntu-software[0m -> [01;32mgnome-software[0m
+-rwxr-xr-x 1 root root       7193 apr 12 05:58 [01;32mubuntu-support-status[0m
+-rwxr-xr-x 1 root root      23120 feb  1 13:58 [01;32mubuntu-webapps-update-index[0m
+-rwxr-xr-x 1 root root      40636 mar 16 21:58 [01;32mucf[0m
+-rwxr-xr-x 1 root root      19367 mar 16 21:58 [01;32mucfq[0m
+-rwxr-xr-x 1 root root      10722 mar 16 21:58 [01;32mucfr[0m
+-rwxr-xr-x 1 root root      18776 mag  6  2015 [01;32mucs2any[0m
+-rwxr-xr-x 1 root root      52520 apr  1 22:05 [01;32mudisksctl[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36muic[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36muic3[0m -> [01;32mqtchooser[0m
+-rwxr-xr-x 1 root root     345897 lug 16  2014 [01;32muisp[0m
+-rwxr-xr-x 1 root root      14648 mar  1 12:43 [01;32mul[0m
+-rwxr-xr-x 1 root root     179280 set 18  2015 [01;32mumax_pp[0m
+-rwxr-xr-x 1 root root      56262 feb 21 05:07 [01;32munattended-upgrade[0m
+lrwxrwxrwx 1 root root         18 giu 29 10:22 [01;36munattended-upgrades[0m -> [01;32munattended-upgrade[0m
+-rwxr-xr-x 1 root root      31472 feb 18 14:37 [01;32munexpand[0m
+-rwxr-xr-x 1 root root      14744 mar 13 23:29 [01;32munflatten[0m
+-rwxr-xr-x 1 root root        530 set 16  2015 [01;32municode_stop[0m
+-rwxr-xr-x 1 root root      43792 feb 18 14:37 [01;32muniq[0m
+-rwxr-xr-x 1 root root       9182 apr 15 07:39 [01;32munity[0m
+-rwxr-xr-x 1 root root      66016 apr 14 00:27 [01;32munity-control-center[0m
+-rwxr-xr-x 1 root root      10560 dic 15  2015 [01;32munity-scope-loader[0m
+lrwxrwxrwx 1 root root         50 giu 29 10:22 [01;36munity-settings-daemon[0m -> [01;32m../lib/unity-settings-daemon/unity-settings-daemon[0m[K
+-rwxr-xr-x 1 root root      44176 feb  1 13:58 [01;32munity-webapps-desktop-file[0m
+-rwxr-xr-x 1 root root      27480 gen 14 17:00 [01;32munity-webapps-qml-launcher[0m
+-rwxr-xr-x 1 root root      19472 feb  1 13:58 [01;32munity-webapps-runner[0m
+-rwxr-xr-x 1 root root      27280 feb 18 14:37 [01;32munlink[0m
+lrwxrwxrwx 1 root root         24 giu 29 10:22 [01;36munlzma[0m -> [01;32m/etc/alternatives/unlzma[0m
+-rwxr-xr-x 1 root root         52 giu 28 08:12 [01;32munopkg[0m
+lrwxrwxrwx 1 root root         27 giu 29 11:24 [01;36munpack200[0m -> [01;32m/etc/alternatives/unpack200[0m
+-rwxr-xr-x 1 root root      19168 apr 13 18:51 [01;32munshare[0m
+-rwxr-xr-x 1 root root      94872 feb 24 12:33 [01;32munsquashfs[0m
+-rwxr-xr-x 1 root root       5940 mag  6  2015 [01;32munwrapdiff[0m
+lrwxrwxrwx 1 root root          2 giu 29 10:22 [01;36munxz[0m -> [01;32mxz[0m
+-rwxr-xr-x 1 root root     162688 nov 20  2015 [01;32munzip[0m
+-rwxr-xr-x 1 root root      76592 nov 20  2015 [01;32munzipsfx[0m
+-rwxr-xr-x 1 root root      47728 gen 12 22:39 [01;32mupdate-alternatives[0m
+lrwxrwxrwx 1 root root         26 giu 29 10:22 [01;36mupdatedb[0m -> [01;32m/etc/alternatives/updatedb[0m
+-rwxr-xr-x 1 root root      43768 nov 18  2014 [01;32mupdatedb.mlocate[0m
+-rwxr-xr-x 1 root root      19144 apr  4 20:39 [01;32mupdate-desktop-database[0m
+-rwxr-xr-x 1 root root       5637 nov 27  2015 [01;32mupdate-gconf-defaults[0m
+-rwxr-xr-x 1 root root       4774 apr 12 05:58 [01;32mupdate-manager[0m
+-rwxr-xr-x 1 root root        672 ott 23  2015 [01;32mupdate-mime-database[0m
+-rwxr-xr-x 1 root root      48296 ott 23  2015 [01;32mupdate-mime-database.real[0m
+-rwxr-xr-x 1 root root      57736 apr 12 12:44 [01;32mupdate-notifier[0m
+-rwxr-xr-x 1 root root      14816 feb 23 10:07 [01;32mupower[0m
+-rwxr-xr-x 1 root root      10576 gen 13 12:48 [01;32muptime[0m
+-rwxr-xr-x 1 root root       2937 gen 22 20:49 [01;32musb-creator-gtk[0m
+-rwxr-xr-x 1 root root       4216 ott 23  2015 [01;32musb-devices[0m
+-rwxr-xr-x 1 root root      23088 ott 23  2015 [01;32musbhid-dump[0m
+-rwxr-xr-x 1 root root      10504 apr  7 13:48 [01;32musb_printerid[0m
+-rwxr-xr-x 1 root root      31440 feb 18 14:37 [01;32musers[0m
+-rwxr-xr-x 1 root root      14872 apr 13 18:51 [01;32mutmpdump[0m
+-rwxr-xr-x 1 root root      10600 apr 13 18:51 [01;32muuidgen[0m
+-rwxr-xr-x 1 root root       3674 feb 17 19:16 [01;32muxterm[0m
+-rwxr-xr-x 1 root root       2496 nov 17  2014 [01;32muz[0m
+lrwxrwxrwx 1 root root         45 giu 29 11:11 [01;36mVBoxClient[0m -> [01;32m/opt/VBoxGuestAdditions-5.0.24/bin/VBoxClient[0m
+lrwxrwxrwx 1 root root         62 giu 29 11:13 [01;36mVBoxClient-all[0m -> [01;32m/usr/lib/x86_64-linux-gnu/VBoxGuestAdditions/98vboxadd-xclient[0m[K
+lrwxrwxrwx 1 root root         46 giu 29 11:11 [01;36mVBoxControl[0m -> [01;32m/opt/VBoxGuestAdditions-5.0.24/bin/VBoxControl[0m[K
+lrwxrwxrwx 1 root root         20 giu 29 10:22 [01;36mvi[0m -> [01;32m/etc/alternatives/vi[0m
+lrwxrwxrwx 1 root root         22 giu 29 10:22 [01;36mview[0m -> [01;32m/etc/alternatives/view[0m
+-rwxr-xr-x 1 root root        968 apr 16 22:01 [01;32mviewer[0m
+-rwxr-xr-x 1 root root      24088 mag  6  2015 [01;32mviewres[0m
+lrwxrwxrwx 1 root root         21 giu 29 11:20 [01;36mvim[0m -> [01;32m/etc/alternatives/vim[0m
+-rwxr-xr-x 1 root root    2437320 giu 17 08:54 [01;32mvim.basic[0m
+lrwxrwxrwx 1 root root         25 giu 29 11:20 [01;36mvimdiff[0m -> [01;32m/etc/alternatives/vimdiff[0m
+-rwxr-xr-x 1 root root       1051 mar 13 23:29 [01;32mvimdot[0m
+-rwxr-xr-x 1 root root    1064592 giu 17 08:48 [01;32mvim.tiny[0m
+-rwxr-xr-x 1 root root       2084 giu 17 08:47 [01;32mvimtutor[0m
+-rwxr-xr-x 1 root root      10592 feb 18 08:49 [01;32mvino-passwd[0m
+-rwxr-xr-x 1 root root      31912 feb 18 08:49 [01;32mvino-preferences[0m
+-rwxr-xr-x 1 root root      31216 gen 13 12:48 [01;32mvmstat[0m
+-rwxr-xr-x 1 root root      10680 mar  3 15:29 [01;32mvmwarectrl[0m
+-rwxr-xr-x 1 root root      10240 feb 25  2014 [01;32mvolname[0m
+-rwxr-xr-x 1 root root      23048 apr 11 08:03 [01;32mvstp[0m
+lrwxrwxrwx 1 root root         19 giu 29 10:22 [01;36mw[0m -> [01;32m/etc/alternatives/w[0m
+-rwxr-sr-x 1 root tty       27368 apr 13 18:51 [30;43mwall[0m
+-rwxr-xr-x 1 root root      23696 gen 13 12:48 [01;32mwatch[0m
+-rwxr-xr-x 1 root root      14328 apr  8 12:14 [01;32mwatchgnupg[0m
+-rwxr-xr-x 1 root root      10352 gen 31 00:14 [01;32mwbmptopbm[0m
+-rwxr-xr-x 1 root root      43832 feb 18 14:37 [01;32mwc[0m
+-rwxr-xr-x 1 root root     559416 apr 13 17:37 [01;32mwebapp-container[0m
+-rwxr-xr-x 1 root root      47200 apr 13 17:37 [01;32mwebapp-container-hook[0m
+-rwxr-xr-x 1 root root     710984 apr 13 17:37 [01;32mwebbrowser-app[0m
+-rwxr-xr-x 1 root root        286 feb 29 11:49 [01;32mwftopfa[0m
+-rwxr-xr-x 1 root root     474656 giu 14 10:18 [01;32mwget[0m
+-rwxr-xr-x 1 root root      48104 nov  7  2015 [01;32mwhatis[0m
+-rwxr-xr-x 1 root root      23648 apr 13 18:51 [01;32mwhereis[0m
+lrwxrwxrwx 1 root root         10 giu 29 10:22 [01;36mwhich[0m -> [01;32m/bin/which[0m
+-rwxr-xr-x 1 root root      47984 feb 18 14:37 [01;32mwho[0m
+-rwxr-xr-x 1 root root      31408 feb 18 14:37 [01;32mwhoami[0m
+-rwxr-xr-x 1 root root      57096 mar 17 22:16 [01;32mwhoopsie[0m
+-rwxr-xr-x 1 root root      19128 set 10  2015 [01;32mwhoopsie-preferences[0m
+-rwxr-xr-x 1 root root      18720 gen 31 00:14 [01;32mwinicontoppm[0m
+lrwxrwxrwx 1 root root          7 giu 29 10:22 [01;36mwish[0m -> [01;32mwish8.6[0m
+-rwxr-xr-x 1 root root       6240 mar 14 09:42 [01;32mwish8.6[0m
+-rwxr-xr-x 1 root root      10464 feb  7 11:05 [01;32mword-list-compress[0m
+-rwxr-xr-x 1 root root      55296 gen 19 14:44 [01;32mwpa_passphrase[0m
+-rwxr-xr-x 1 root root      18928 gen 13 12:48 [01;32mw.procps[0m
+lrwxrwxrwx 1 root root         23 giu 29 10:22 [01;36mwrite[0m -> [30;43m/etc/alternatives/write[0m
+lrwxrwxrwx 1 root root         23 giu 29 11:24 [01;36mwsgen[0m -> [01;32m/etc/alternatives/wsgen[0m
+lrwxrwxrwx 1 root root         26 giu 29 11:24 [01;36mwsimport[0m -> [01;32m/etc/alternatives/wsimport[0m
+lrwxrwxrwx 1 root root          4 giu 29 10:21 [01;36mX[0m -> [01;32mXorg[0m
+lrwxrwxrwx 1 root root          1 giu 29 10:21 [01;36mX11[0m -> [01;34m.[0m
+-rwxr-xr-x 1 root root     141608 feb 10 14:42 [01;32mx11perf[0m
+-rwxr-xr-x 1 root root       2807 feb 10 14:42 [01;32mx11perfcomp[0m
+lrwxrwxrwx 1 root root          7 giu 29 10:22 [01;36mx86_64[0m -> [01;32msetarch[0m
+-rwxr-xr-x 1 root root      27768 apr  1 18:52 [01;32mx86_64-linux-gnu-addr2line[0m
+-rwxr-xr-x 1 root root      60536 apr  1 18:52 [01;32mx86_64-linux-gnu-ar[0m
+-rwxr-xr-x 1 root root     369480 apr  1 18:52 [01;32mx86_64-linux-gnu-as[0m
+-rwxr-xr-x 1 root root      27248 apr  1 18:52 [01;32mx86_64-linux-gnu-c++filt[0m
+lrwxrwxrwx 1 root root          5 giu 29 10:22 [01;36mx86_64-linux-gnu-cpp[0m -> [01;32mcpp-5[0m
+lrwxrwxrwx 1 root root          5 mag 12 19:32 [01;36mx86_64-linux-gnu-cpp-5[0m -> [01;32mcpp-5[0m
+-rwxr-xr-x 1 root root    2720480 apr  1 18:52 [01;32mx86_64-linux-gnu-dwp[0m
+-rwxr-xr-x 1 root root      31552 apr  1 18:52 [01;32mx86_64-linux-gnu-elfedit[0m
+lrwxrwxrwx 1 root root          5 giu 29 10:22 [01;36mx86_64-linux-gnu-g++[0m -> [01;32mg++-5[0m
+lrwxrwxrwx 1 root root          5 mag 12 19:44 [01;36mx86_64-linux-gnu-g++-5[0m -> [01;32mg++-5[0m
+lrwxrwxrwx 1 root root          5 giu 29 10:22 [01;36mx86_64-linux-gnu-gcc[0m -> [01;32mgcc-5[0m
+lrwxrwxrwx 1 root root          5 mag 12 20:06 [01;36mx86_64-linux-gnu-gcc-5[0m -> [01;32mgcc-5[0m
+lrwxrwxrwx 1 root root          8 giu 29 10:22 [01;36mx86_64-linux-gnu-gcc-ar[0m -> [01;32mgcc-ar-5[0m
+lrwxrwxrwx 1 root root          8 mag 12 20:06 [01;36mx86_64-linux-gnu-gcc-ar-5[0m -> [01;32mgcc-ar-5[0m
+lrwxrwxrwx 1 root root          8 giu 29 10:22 [01;36mx86_64-linux-gnu-gcc-nm[0m -> [01;32mgcc-nm-5[0m
+lrwxrwxrwx 1 root root          8 mag 12 20:06 [01;36mx86_64-linux-gnu-gcc-nm-5[0m -> [01;32mgcc-nm-5[0m
+lrwxrwxrwx 1 root root         12 giu 29 10:22 [01;36mx86_64-linux-gnu-gcc-ranlib[0m -> [01;32mgcc-ranlib-5[0m
+lrwxrwxrwx 1 root root         12 mag 12 20:06 [01;36mx86_64-linux-gnu-gcc-ranlib-5[0m -> [01;32mgcc-ranlib-5[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mx86_64-linux-gnu-gcov[0m -> [01;32mgcov-5[0m
+lrwxrwxrwx 1 root root          6 mag 12 20:06 [01;36mx86_64-linux-gnu-gcov-5[0m -> [01;32mgcov-5[0m
+lrwxrwxrwx 1 root root         11 giu 29 10:22 [01;36mx86_64-linux-gnu-gcov-tool[0m -> [01;32mgcov-tool-5[0m
+lrwxrwxrwx 1 root root         11 mag 12 20:06 [01;36mx86_64-linux-gnu-gcov-tool-5[0m -> [01;32mgcov-tool-5[0m
+-rwxr-xr-x 1 root root      98616 apr  1 18:52 [01;32mx86_64-linux-gnu-gprof[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mx86_64-linux-gnu-ld[0m -> [01;32mld.bfd[0m
+-rwxr-xr-x 1 root root    1220040 apr  1 18:52 [01;32mx86_64-linux-gnu-ld.bfd[0m
+-rwxr-xr-x 1 root root    2912776 apr  1 18:52 [01;32mx86_64-linux-gnu-ld.gold[0m
+-rwxr-xr-x 1 root root      40744 apr  1 18:52 [01;32mx86_64-linux-gnu-nm[0m
+-rwxr-xr-x 1 root root     224432 apr  1 18:52 [01;32mx86_64-linux-gnu-objcopy[0m
+-rwxr-xr-x 1 root root     356760 apr  1 18:52 [01;32mx86_64-linux-gnu-objdump[0m
+lrwxrwxrwx 1 root root         34 giu 29 10:22 [01;36mx86_64-linux-gnu-pkg-config[0m -> [01;32m/usr/share/pkg-config-crosswrapper[0m[K
+-rwxr-xr-x 1 root root       2909 apr 17 19:15 [01;32mx86_64-linux-gnu-python2.7-config[0m
+lrwxrwxrwx 1 root root         33 dic 10  2015 [01;36mx86_64-linux-gnu-python-config[0m -> [01;32mx86_64-linux-gnu-python2.7-config[0m[K
+-rwxr-xr-x 1 root root      60536 apr  1 18:52 [01;32mx86_64-linux-gnu-ranlib[0m
+-rwxr-xr-x 1 root root     485184 apr  1 18:52 [01;32mx86_64-linux-gnu-readelf[0m
+-rwxr-xr-x 1 root root      31704 apr  1 18:52 [01;32mx86_64-linux-gnu-size[0m
+-rwxr-xr-x 1 root root      27728 apr  1 18:52 [01;32mx86_64-linux-gnu-strings[0m
+-rwxr-xr-x 1 root root     224440 apr  1 18:52 [01;32mx86_64-linux-gnu-strip[0m
+-rwxr-xr-x 1 root root      47944 apr  6 16:03 [01;32mx86_64-pc-linux-gnu-pkg-config[0m
+-rwxr-xr-x 1 root root      67800 feb  8 00:18 [01;32mxargs[0m
+-rwxr-xr-x 1 root root      40392 mar 26  2015 [01;32mxauth[0m
+-rwxr-xr-x 1 root root      20920 feb 10 14:42 [01;32mxbiff[0m
+-rwxr-xr-x 1 root root      10408 gen 31 00:14 [01;32mxbmtopbm[0m
+-rwxr-xr-x 1 root root     147304 apr 11 08:03 [01;32mxbrlapi[0m
+-rwxr-xr-x 1 root root      32376 feb 10 14:42 [01;32mxcalc[0m
+-rwxr-xr-x 1 root root      19272 feb 10 14:42 [01;32mxclipboard[0m
+-rwxr-xr-x 1 root root      46808 feb 10 14:42 [01;32mxclock[0m
+-rwxr-xr-x 1 root root      31800 feb 27 10:09 [01;32mxcmsdb[0m
+-rwxr-xr-x 1 root root      19976 feb 10 14:42 [01;32mxconsole[0m
+-rwxr-xr-x 1 root root      14816 feb 10 14:42 [01;32mxcursorgen[0m
+-rwxr-xr-x 1 root root      15032 feb 10 14:42 [01;32mxcutsel[0m
+-rwxr-xr-x 1 root root      19397 feb  1 15:01 [01;32mxdg-desktop-icon[0m
+-rwxr-xr-x 1 root root      42035 feb  1 15:01 [01;32mxdg-desktop-menu[0m
+-rwxr-xr-x 1 root root      26395 feb  1 15:01 [01;32mxdg-email[0m
+-rwxr-xr-x 1 root root      28787 feb  1 15:01 [01;32mxdg-icon-resource[0m
+-rwxr-xr-x 1 root root      40535 feb  1 15:01 [01;32mxdg-mime[0m
+-rwxr-xr-x 1 root root      22746 feb  1 15:01 [01;32mxdg-open[0m
+-rwxr-xr-x 1 root root      33748 feb  1 15:01 [01;32mxdg-screensaver[0m
+-rwxr-xr-x 1 root root      36544 feb  1 15:01 [01;32mxdg-settings[0m
+-rwxr-xr-x 1 root root        234 apr 14 07:45 [01;32mxdg-user-dir[0m
+-rwxr-xr-x 1 root root      19200 lug  3  2013 [01;32mxdg-user-dirs-gtk-update[0m
+-rwxr-xr-x 1 root root      18936 apr 14 07:45 [01;32mxdg-user-dirs-update[0m
+-rwxr-xr-x 1 root root       4523 apr  7 18:55 [01;32mxdiagnose[0m
+-rwxr-xr-x 1 root root      90712 feb 10 14:42 [01;32mxditview[0m
+-rwxr-xr-x 1 root root      32344 mag  6  2015 [01;32mxdpyinfo[0m
+-rwxr-xr-x 1 root root      10440 mag  6  2015 [01;32mxdriinfo[0m
+-rwxr-xr-x 1 root root       7238 apr  7 18:55 [01;32mxedid[0m
+-rwxr-xr-x 1 root root     645880 feb 10 14:42 [01;32mxedit[0m
+-rwxr-xr-x 1 root root      31512 mag  6  2015 [01;32mxev[0m
+-rwxr-xr-x 1 root root      20472 feb 10 14:42 [01;32mxeyes[0m
+-rwxr-xr-x 1 root root      29176 mag  6  2015 [01;32mxfd[0m
+-rwxr-xr-x 1 root root      37352 mag  6  2015 [01;32mxfontsel[0m
+-rwxr-xr-x 1 root root      10536 feb 27 10:09 [01;32mxgamma[0m
+-rwxr-xr-x 1 root root      64536 feb 10 14:42 [01;32mxgc[0m
+-rwxr-xr-x 1 root root     272048 feb 10 13:13 [01;32mxgettext[0m
+-rwxr-xr-x 1 root root      14824 feb 27 10:09 [01;32mxhost[0m
+-rwxr-xr-x 1 root root      14560 gen 31 00:14 [01;32mximtoppm[0m
+-rwxr-xr-x 1 root root      19056 ott 23  2015 [01;32mxinit[0m
+-rwxr-xr-x 1 root root      52672 ott 29  2015 [01;32mxinput[0m
+lrwxrwxrwx 1 root root         21 giu 29 11:24 [01;36mxjc[0m -> [01;32m/etc/alternatives/xjc[0m
+-rwxr-xr-x 1 root root      10512 mag  6  2015 [01;32mxkbbell[0m
+-rwxr-xr-x 1 root root     201568 mag  6  2015 [01;32mxkbcomp[0m
+-rwxr-xr-x 1 root root      31232 mag  6  2015 [01;32mxkbevd[0m
+-rwxr-xr-x 1 root root      88632 mag  6  2015 [01;32mxkbprint[0m
+-rwxr-xr-x 1 root root      19752 mag  6  2015 [01;32mxkbvleds[0m
+-rwxr-xr-x 1 root root      19816 mag  6  2015 [01;32mxkbwatch[0m
+-rwxr-xr-x 1 root root      16982 feb 27 10:09 [01;32mxkeystone[0m
+-rwxr-xr-x 1 root root      14680 mag  6  2015 [01;32mxkill[0m
+-rwxr-xr-x 1 root root      15544 feb 10 14:42 [01;32mxload[0m
+-rwxr-xr-x 1 root root      19928 feb 10 14:42 [01;32mxlogo[0m
+-rwxr-xr-x 1 root root      10520 mag  6  2015 [01;32mxlsatoms[0m
+-rwxr-xr-x 1 root root      14696 mag  6  2015 [01;32mxlsclients[0m
+-rwxr-xr-x 1 root root      18816 mag  6  2015 [01;32mxlsfonts[0m
+-rwxr-xr-x 1 root root      37816 feb 10 14:42 [01;32mxmag[0m
+-rwxr-xr-x 1 root root      63416 feb 10 14:42 [01;32mxman[0m
+-rwxr-xr-x 1 root root      19880 mag  6  2015 [01;32mxmessage[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mxmlpatterns[0m -> [01;32mqtchooser[0m
+lrwxrwxrwx 1 root root          9 giu 29 10:22 [01;36mxmlpatternsvalidator[0m -> [01;32mqtchooser[0m
+-rwxr-xr-x 1 root root      31656 feb 27 10:09 [01;32mxmodmap[0m
+-rwxr-xr-x 1 root root      10776 feb 10 14:42 [01;32mxmore[0m
+-rwxr-xr-x 1 root root        274 apr  7 11:24 [01;32mXorg[0m
+-rwxr-xr-x 1 root root       2892 apr  7 18:55 [01;32mxpci[0m
+-rwxr-xr-x 1 root root      14688 gen 31 00:14 [01;32mxpmtoppm[0m
+-rwxr-xr-x 1 root root      37912 mag  6  2015 [01;32mxprop[0m
+-rwxr-xr-x 1 root root      14744 apr  7 13:48 [01;32mxqxdecode[0m
+-rwxr-xr-x 1 root root      60256 feb 27 10:09 [01;32mxrandr[0m
+-rwxr-xr-x 1 root root       3994 apr  7 18:55 [01;32mxrandr-tool[0m
+-rwxr-xr-x 1 root root      27312 feb 27 10:09 [01;32mxrdb[0m
+-rwxr-xr-x 1 root root      10536 feb 27 10:09 [01;32mxrefresh[0m
+-rwxr-xr-x 1 root root       2809 feb 19 14:43 [01;32mxrotate[0m
+lrwxrwxrwx 1 root root         35 giu 29 10:22 [01;36mx-session-manager[0m -> [01;32m/etc/alternatives/x-session-manager[0m
+-rwxr-xr-x 1 root root      31432 feb 27 10:09 [01;32mxset[0m
+-rwxr-xr-x 1 root root      10520 feb 27 10:09 [01;32mxsetmode[0m
+-rwxr-xr-x 1 root root      10528 feb 27 10:09 [01;32mxsetpointer[0m
+-rwxr-xr-x 1 root root      18896 feb 27 10:09 [01;32mxsetroot[0m
+-rwxr-xr-x 1 root root      48904 mar  3 12:47 [01;32mxsetwacom[0m
+-rwxr-xr-x 1 root root      85800 mag  6  2015 [01;32mxsm[0m
+-rwxr-xr-x 1 root root      15256 feb 27 10:09 [01;32mxstdcmap[0m
+-rwxr-xr-x 1 root root       5126 mar 13 12:54 [01;32mxsubpp[0m
+-rwxr-xr-x 1 root root     543232 feb 17 19:16 [01;32mxterm[0m
+lrwxrwxrwx 1 root root         37 giu 29 10:22 [01;36mx-terminal-emulator[0m -> [01;32m/etc/alternatives/x-terminal-emulator[0m[K
+-rwxr-xr-x 1 root root      32808 feb 27 10:09 [01;32mxvidtune[0m
+-rwxr-xr-x 1 root root      14616 mag  6  2015 [01;32mxvinfo[0m
+-rwxr-xr-x 1 root root      10392 gen 31 00:14 [01;32mxvminitoppm[0m
+-rwxr-xr-x 1 root root      27184 feb 10 14:42 [01;32mxwd[0m
+-rwxr-xr-x 1 root root      18672 gen 31 00:14 [01;32mxwdtopnm[0m
+-rwxr-xr-x 1 root root      43752 mag  6  2015 [01;32mxwininfo[0m
+-rwxr-xr-x 1 root root      27144 feb 10 14:42 [01;32mxwud[0m
+lrwxrwxrwx 1 root root         31 giu 29 10:22 [01;36mx-www-browser[0m -> [01;32m/etc/alternatives/x-www-browser[0m
+-rwxr-xr-x 1 root root      18552 giu 17 08:54 [01;32mxxd[0m
+-rwxr-xr-x 1 root root      68648 feb 12  2014 [01;32mxz[0m
+lrwxrwxrwx 1 root root          2 giu 29 10:22 [01;36mxzcat[0m -> [01;32mxz[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mxzcmp[0m -> [01;32mxzdiff[0m
+-rwxr-xr-x 1 root root       5518 feb 12  2014 [01;32mxzdiff[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mxzegrep[0m -> [01;32mxzgrep[0m
+lrwxrwxrwx 1 root root          6 giu 29 10:22 [01;36mxzfgrep[0m -> [01;32mxzgrep[0m
+-rwxr-xr-x 1 root root       5421 feb 12  2014 [01;32mxzgrep[0m
+-rwxr-xr-x 1 root root       1825 feb 12  2014 [01;32mxzless[0m
+-rwxr-xr-x 1 root root       2168 feb 12  2014 [01;32mxzmore[0m
+lrwxrwxrwx 1 root root         22 giu 29 11:31 [01;36myacc[0m -> [01;32m/etc/alternatives/yacc[0m
+-rwxr-xr-x 1 root root      10376 gen 31 00:14 [01;32mybmtopbm[0m
+-rwxr-xr-x 1 root root      53296 mar 21 10:28 [01;32myelp[0m
+-rwxr-xr-x 1 root root      31408 feb 18 14:37 [01;32myes[0m
+-rwxr-xr-x 1 root root      10400 gen 31 00:14 [01;32myuvsplittoppm[0m
+-rwxr-xr-x 1 root root      10400 gen 31 00:14 [01;32myuvtoppm[0m
+-rwxr-xr-x 1 root root      14768 apr 15 00:19 [01;32mzdump[0m
+-rwxr-xr-x 1 root root      10384 gen 31 00:14 [01;32mzeisstopnm[0m
+-rwxr-xr-x 1 root root     206000 feb 24 15:31 [01;32mzeitgeist-daemon[0m
+-rwxr-xr-x 1 root root     131760 feb 24 15:31 [01;32mzeitgeist-datahub[0m
+-rwxr-xr-x 1 root root     105752 feb 16 16:30 [01;32mzenity[0m
+-rwxr-xr-x 1 root root     192520 ago 17  2015 [01;32mzip[0m
+-rwxr-xr-x 1 root root      86224 ago 17  2015 [01;32mzipcloak[0m
+-rwxr-xr-x 1 root root      48459 mar 13 12:54 [01;32mzipdetails[0m
+-rwxr-xr-x 1 root root       2953 nov 20  2015 [01;32mzipgrep[0m
+-rwxr-xr-x 1 root root     162688 nov 20  2015 [01;32mzipinfo[0m
+-rwxr-xr-x 1 root root      81840 ago 17  2015 [01;32mzipnote[0m
+-rwxr-xr-x 1 root root      81840 ago 17  2015 [01;32mzipsplit[0m
+-rwxr-xr-x 1 root root      27064 apr  7 13:48 [01;32mzjsdecode[0m
+-rwxr-xr-x 1 root root      10336 nov 17  2015 [01;32mzlib-flate[0m
+]0;ezio@ezio-VirtualBox: /usr/bin[01;32mezio@ezio-VirtualBox[00m:[01;34m/usr/bin[00m$ ls -l *gc*
+-rwxr-xr-x 2 root root 408464 ago  3  2011 [0m[01;32mavr-gcc[0m
+-rwxr-xr-x 2 root root 408464 ago  3  2011 [01;32mavr-gcc-4.1.2[0m
+-rwxr-xr-x 1 root root  16060 ago  3  2011 [01;32mavr-gccbug[0m
+-rwxr-xr-x 1 root root  92474 ago  3  2011 [01;32mavr-gcov[0m
+-rwxr-xr-x 1 root root    428 mag  7  2006 [01;32mc89-gcc[0m
+-rwxr-xr-x 1 root root    454 apr 11  2011 [01;32mc99-gcc[0m
+-rwxr-xr-x 1 root root  14736 mar 13 23:29 [01;32mgc[0m
+-rwxr-xr-x 1 root root  10696 feb  3 17:00 [01;32mgcalccmd[0m
+lrwxrwxrwx 1 root root      5 giu 29 10:21 [01;36mgcc[0m -> [01;32mgcc-5[0m
+-rwxr-xr-x 1 root root 915704 mag 12 20:06 [01;32mgcc-5[0m
+lrwxrwxrwx 1 root root      8 giu 29 10:21 [01;36mgcc-ar[0m -> [01;32mgcc-ar-5[0m
+-rwxr-xr-x 1 root root  31136 mag 12 20:06 [01;32mgcc-ar-5[0m
+lrwxrwxrwx 1 root root      8 giu 29 10:21 [01;36mgcc-nm[0m -> [01;32mgcc-nm-5[0m
+-rwxr-xr-x 1 root root  31136 mag 12 20:06 [01;32mgcc-nm-5[0m
+lrwxrwxrwx 1 root root     12 giu 29 10:21 [01;36mgcc-ranlib[0m -> [01;32mgcc-ranlib-5[0m
+-rwxr-xr-x 1 root root  31136 mag 12 20:06 [01;32mgcc-ranlib-5[0m
+-rwxr-xr-x 1 root root  56648 nov 27  2015 [01;32mgconf-merge-tree[0m
+lrwxrwxrwx 1 root root     11 giu 29 10:21 [01;36mgconftool[0m -> [01;32mgconftool-2[0m
+-rwxr-xr-x 1 root root  60672 nov 27  2015 [01;32mgconftool-2[0m
+-rwxr-xr-x 1 root root   2945 feb 24 18:40 [01;32mgcore[0m
+lrwxrwxrwx 1 root root      6 giu 29 10:21 [01;36mgcov[0m -> [01;32mgcov-5[0m
+-rwxr-xr-x 1 root root 474968 mag 12 20:06 [01;32mgcov-5[0m
+lrwxrwxrwx 1 root root     11 giu 29 10:22 [01;36mgcov-tool[0m -> [01;32mgcov-tool-5[0m
+-rwxr-xr-x 1 root root 462640 mag 12 20:06 [01;32mgcov-tool-5[0m
+-rwxr-xr-x 1 root root  10672 ott 23  2015 [01;32mgcr-viewer[0m
+-rwxr-xr-x 1 root root 139720 apr  8 12:14 [01;32mgpgconf[0m
+lrwxrwxrwx 1 root root     28 giu 29 10:22 [01;36mhp-logcapture[0m -> [01;32m../share/hplip/logcapture.py[0m
+-rwxr-xr-x 1 root root  22872 feb 10 13:13 [01;32mmsgcat[0m
+-rwxr-xr-x 1 root root  22984 feb 10 13:13 [01;32mmsgcmp[0m
+-rwxr-xr-x 1 root root  18760 feb 10 13:13 [01;32mmsgcomm[0m
+-rwxr-xr-x 1 root root  18744 feb 10 13:13 [01;32mmsgconv[0m
+-rwxr-xr-x 1 ezio ezio 593903 ago 21  2011 [01;32mmsp430-gcc[0m
+-rwxr-xr-x 1 ezio ezio 593903 ago 21  2011 [01;32mmsp430-gcc-4.5.3[0m
+-rwxr-xr-x 1 ezio ezio  15890 ago 21  2011 [01;32mmsp430-gccbug[0m
+-rwxr-xr-x 1 ezio ezio 117746 ago 21  2011 [01;32mmsp430-gcov[0m
+-rwxr-xr-x 1 root root  10464 set 16  2015 [01;32msetlogcons[0m
+-rwxr-xr-x 1 root root   5637 nov 27  2015 [01;32mupdate-gconf-defaults[0m
+lrwxrwxrwx 1 root root      5 giu 29 10:22 [01;36mx86_64-linux-gnu-gcc[0m -> [01;32mgcc-5[0m
+lrwxrwxrwx 1 root root      5 mag 12 20:06 [01;36mx86_64-linux-gnu-gcc-5[0m -> [01;32mgcc-5[0m
+lrwxrwxrwx 1 root root      8 giu 29 10:22 [01;36mx86_64-linux-gnu-gcc-ar[0m -> [01;32mgcc-ar-5[0m
+lrwxrwxrwx 1 root root      8 mag 12 20:06 [01;36mx86_64-linux-gnu-gcc-ar-5[0m -> [01;32mgcc-ar-5[0m
+lrwxrwxrwx 1 root root      8 giu 29 10:22 [01;36mx86_64-linux-gnu-gcc-nm[0m -> [01;32mgcc-nm-5[0m
+lrwxrwxrwx 1 root root      8 mag 12 20:06 [01;36mx86_64-linux-gnu-gcc-nm-5[0m -> [01;32mgcc-nm-5[0m
+lrwxrwxrwx 1 root root     12 giu 29 10:22 [01;36mx86_64-linux-gnu-gcc-ranlib[0m -> [01;32mgcc-ranlib-5[0m
+lrwxrwxrwx 1 root root     12 mag 12 20:06 [01;36mx86_64-linux-gnu-gcc-ranlib-5[0m -> [01;32mgcc-ranlib-5[0m
+lrwxrwxrwx 1 root root      6 giu 29 10:22 [01;36mx86_64-linux-gnu-gcov[0m -> [01;32mgcov-5[0m
+lrwxrwxrwx 1 root root      6 mag 12 20:06 [01;36mx86_64-linux-gnu-gcov-5[0m -> [01;32mgcov-5[0m
+lrwxrwxrwx 1 root root     11 giu 29 10:22 [01;36mx86_64-linux-gnu-gcov-tool[0m -> [01;32mgcov-tool-5[0m
+lrwxrwxrwx 1 root root     11 mag 12 20:06 [01;36mx86_64-linux-gnu-gcov-tool-5[0m -> [01;32mgcov-tool-5[0m
+-rwxr-xr-x 1 root root  64536 feb 10 14:42 [01;32mxgc[0m
+]0;ezio@ezio-VirtualBox: /usr/bin[01;32mezio@ezio-VirtualBox[00m:[01;34m/usr/bin[00m$ ls[K[Kls -l *gc*[1P*+*
+-rwxr-xr-x 2 root root 411850 ago  3  2011 [0m[01;32mavr-g++[0m
+lrwxrwxrwx 1 root root      5 giu 29 10:21 [01;36mg++[0m -> [01;32mg++-5[0m
+-rwxr-xr-x 1 root root 919800 mag 12 19:45 [01;32mg++-5[0m
+lrwxrwxrwx 1 root root      5 giu 29 10:22 [01;36mx86_64-linux-gnu-g++[0m -> [01;32mg++-5[0m
+lrwxrwxrwx 1 root root      5 mag 12 19:44 [01;36mx86_64-linux-gnu-g++-5[0m -> [01;32mg++-5[0m
+]0;ezio@ezio-VirtualBox: /usr/bin[01;32mezio@ezio-VirtualBox[00m:[01;34m/usr/bin[00m$ rm [K[K[Kmv /usr/bin/gcc /usr/bin/gcc_backup01072016
+mv: cannot move '/usr/bin/gcc' to '/usr/bin/gcc_backup01072016': Permission denied
+]0;ezio@ezio-VirtualBox: /usr/bin[01;32mezio@ezio-VirtualBox[00m:[01;34m/usr/bin[00m$ sudo [K[K[K[K[Kmv /usr/bin/gcc /usr/bin/gcc_backup01072016[C[C[1P[1P[1@s[1@u[1@d[1@o[C[1@ [1@m[1@v
+[sudo] password for ezio: 
+]0;ezio@ezio-VirtualBox: /usr/bin[01;32mezio@ezio-VirtualBox[00m:[01;34m/usr/bin[00m$ ls -l *gcc*
+-rwxr-xr-x 2 root root 408464 ago  3  2011 [0m[01;32mavr-gcc[0m
+-rwxr-xr-x 2 root root 408464 ago  3  2011 [01;32mavr-gcc-4.1.2[0m
+-rwxr-xr-x 1 root root  16060 ago  3  2011 [01;32mavr-gccbug[0m
+-rwxr-xr-x 1 root root    428 mag  7  2006 [01;32mc89-gcc[0m
+-rwxr-xr-x 1 root root    454 apr 11  2011 [01;32mc99-gcc[0m
+-rwxr-xr-x 1 root root 915704 mag 12 20:06 [01;32mgcc-5[0m
+lrwxrwxrwx 1 root root      8 giu 29 10:21 [01;36mgcc-ar[0m -> [01;32mgcc-ar-5[0m
+-rwxr-xr-x 1 root root  31136 mag 12 20:06 [01;32mgcc-ar-5[0m
+lrwxrwxrwx 1 root root      5 giu 29 10:21 [01;36mgcc_backup01072016[0m -> [01;32mgcc-5[0m
+lrwxrwxrwx 1 root root      8 giu 29 10:21 [01;36mgcc-nm[0m -> [01;32mgcc-nm-5[0m
+-rwxr-xr-x 1 root root  31136 mag 12 20:06 [01;32mgcc-nm-5[0m
+lrwxrwxrwx 1 root root     12 giu 29 10:21 [01;36mgcc-ranlib[0m -> [01;32mgcc-ranlib-5[0m
+-rwxr-xr-x 1 root root  31136 mag 12 20:06 [01;32mgcc-ranlib-5[0m
+-rwxr-xr-x 1 ezio ezio 593903 ago 21  2011 [01;32mmsp430-gcc[0m
+-rwxr-xr-x 1 ezio ezio 593903 ago 21  2011 [01;32mmsp430-gcc-4.5.3[0m
+-rwxr-xr-x 1 ezio ezio  15890 ago 21  2011 [01;32mmsp430-gccbug[0m
+lrwxrwxrwx 1 root root      5 giu 29 10:22 [01;36mx86_64-linux-gnu-gcc[0m -> [01;32mgcc-5[0m
+lrwxrwxrwx 1 root root      5 mag 12 20:06 [01;36mx86_64-linux-gnu-gcc-5[0m -> [01;32mgcc-5[0m
+lrwxrwxrwx 1 root root      8 giu 29 10:22 [01;36mx86_64-linux-gnu-gcc-ar[0m -> [01;32mgcc-ar-5[0m
+lrwxrwxrwx 1 root root      8 mag 12 20:06 [01;36mx86_64-linux-gnu-gcc-ar-5[0m -> [01;32mgcc-ar-5[0m
+lrwxrwxrwx 1 root root      8 giu 29 10:22 [01;36mx86_64-linux-gnu-gcc-nm[0m -> [01;32mgcc-nm-5[0m
+lrwxrwxrwx 1 root root      8 mag 12 20:06 [01;36mx86_64-linux-gnu-gcc-nm-5[0m -> [01;32mgcc-nm-5[0m
+lrwxrwxrwx 1 root root     12 giu 29 10:22 [01;36mx86_64-linux-gnu-gcc-ranlib[0m -> [01;32mgcc-ranlib-5[0m
+lrwxrwxrwx 1 root root     12 mag 12 20:06 [01;36mx86_64-linux-gnu-gcc-ranlib-5[0m -> [01;32mgcc-ranlib-5[0m
+]0;ezio@ezio-VirtualBox: /usr/bin[01;32mezio@ezio-VirtualBox[00m:[01;34m/usr/bin[00m$ sudo ln -s /usr/bin/g[Kmsp430-g
+msp430-gcc        msp430-gccbug     msp430-gprof      
+msp430-gcc-4.5.3  msp430-gcov       
+]0;ezio@ezio-VirtualBox: /usr/bin[01;32mezio@ezio-VirtualBox[00m:[01;34m/usr/bin[00m$ sudo ln -s /usr/bin/msp430-g
+msp430-gcc        msp430-gccbug     msp430-gprof      
+msp430-gcc-4.5.3  msp430-gcov       
+]0;ezio@ezio-VirtualBox: /usr/bin[01;32mezio@ezio-VirtualBox[00m:[01;34m/usr/bin[00m$ sudo ln -s /usr/bin/msp430-gcc /usr/bin/gcc
+]0;ezio@ezio-VirtualBox: /usr/bin[01;32mezio@ezio-VirtualBox[00m:[01;34m/usr/bin[00m$ ls -l *gcc*
+-rwxr-xr-x 2 root root 408464 ago  3  2011 [0m[01;32mavr-gcc[0m
+-rwxr-xr-x 2 root root 408464 ago  3  2011 [01;32mavr-gcc-4.1.2[0m
+-rwxr-xr-x 1 root root  16060 ago  3  2011 [01;32mavr-gccbug[0m
+-rwxr-xr-x 1 root root    428 mag  7  2006 [01;32mc89-gcc[0m
+-rwxr-xr-x 1 root root    454 apr 11  2011 [01;32mc99-gcc[0m
+lrwxrwxrwx 1 root root     19 lug  1 15:18 [01;36mgcc[0m -> [01;32m/usr/bin/msp430-gcc[0m
+-rwxr-xr-x 1 root root 915704 mag 12 20:06 [01;32mgcc-5[0m
+lrwxrwxrwx 1 root root      8 giu 29 10:21 [01;36mgcc-ar[0m -> [01;32mgcc-ar-5[0m
+-rwxr-xr-x 1 root root  31136 mag 12 20:06 [01;32mgcc-ar-5[0m
+lrwxrwxrwx 1 root root      5 giu 29 10:21 [01;36mgcc_backup01072016[0m -> [01;32mgcc-5[0m
+lrwxrwxrwx 1 root root      8 giu 29 10:21 [01;36mgcc-nm[0m -> [01;32mgcc-nm-5[0m
+-rwxr-xr-x 1 root root  31136 mag 12 20:06 [01;32mgcc-nm-5[0m
+lrwxrwxrwx 1 root root     12 giu 29 10:21 [01;36mgcc-ranlib[0m -> [01;32mgcc-ranlib-5[0m
+-rwxr-xr-x 1 root root  31136 mag 12 20:06 [01;32mgcc-ranlib-5[0m
+-rwxr-xr-x 1 ezio ezio 593903 ago 21  2011 [01;32mmsp430-gcc[0m
+-rwxr-xr-x 1 ezio ezio 593903 ago 21  2011 [01;32mmsp430-gcc-4.5.3[0m
+-rwxr-xr-x 1 ezio ezio  15890 ago 21  2011 [01;32mmsp430-gccbug[0m
+lrwxrwxrwx 1 root root      5 giu 29 10:22 [01;36mx86_64-linux-gnu-gcc[0m -> [01;32mgcc-5[0m
+lrwxrwxrwx 1 root root      5 mag 12 20:06 [01;36mx86_64-linux-gnu-gcc-5[0m -> [01;32mgcc-5[0m
+lrwxrwxrwx 1 root root      8 giu 29 10:22 [01;36mx86_64-linux-gnu-gcc-ar[0m -> [01;32mgcc-ar-5[0m
+lrwxrwxrwx 1 root root      8 mag 12 20:06 [01;36mx86_64-linux-gnu-gcc-ar-5[0m -> [01;32mgcc-ar-5[0m
+lrwxrwxrwx 1 root root      8 giu 29 10:22 [01;36mx86_64-linux-gnu-gcc-nm[0m -> [01;32mgcc-nm-5[0m
+lrwxrwxrwx 1 root root      8 mag 12 20:06 [01;36mx86_64-linux-gnu-gcc-nm-5[0m -> [01;32mgcc-nm-5[0m
+lrwxrwxrwx 1 root root     12 giu 29 10:22 [01;36mx86_64-linux-gnu-gcc-ranlib[0m -> [01;32mgcc-ranlib-5[0m
+lrwxrwxrwx 1 root root     12 mag 12 20:06 [01;36mx86_64-linux-gnu-gcc-ranlib-5[0m -> [01;32mgcc-ranlib-5[0m
+]0;ezio@ezio-VirtualBox: /usr/bin[01;32mezio@ezio-VirtualBox[00m:[01;34m/usr/bin[00m$ ls -l *gcc*[C[1P*[1P*+*+*
+-rwxr-xr-x 2 root root 411850 ago  3  2011 [0m[01;32mavr-g++[0m
+lrwxrwxrwx 1 root root      5 giu 29 10:21 [01;36mg++[0m -> [01;32mg++-5[0m
+-rwxr-xr-x 1 root root 919800 mag 12 19:45 [01;32mg++-5[0m
+lrwxrwxrwx 1 root root      5 giu 29 10:22 [01;36mx86_64-linux-gnu-g++[0m -> [01;32mg++-5[0m
+lrwxrwxrwx 1 root root      5 mag 12 19:44 [01;36mx86_64-linux-gnu-g++-5[0m -> [01;32mg++-5[0m
+]0;ezio@ezio-VirtualBox: /usr/bin[01;32mezio@ezio-VirtualBox[00m:[01;34m/usr/bin[00m$ gcc -v
+Using built-in specs.
+Reading specs from /usr/bin/../lib/gcc/msp430/4.5.3/../../../../msp430/lib/msp430mcu.spec
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/bin/../libexec/gcc/msp430/4.5.3/lto-wrapper
+Target: msp430
+Configured with: ../configure --prefix=/home/raz/local/src/tinyos-2.x.tools/tools/msp430.new/debian/usr --target=msp430 --enable-languages=c
+Thread model: single
+gcc version 4.5.3 (GCC) 
+]0;ezio@ezio-VirtualBox: /usr/bin[01;32mezio@ezio-VirtualBox[00m:[01;34m/usr/bin[00m$ gcc[K[K[Kgcc --version
+gcc (GCC) 4.5.3
+Copyright (C) 2010 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+]0;ezio@ezio-VirtualBox: /usr/bin[01;32mezio@ezio-VirtualBox[00m:[01;34m/usr/bin[00m$ exit
+exit
+
+Script done on ven 01 lug 2016 15:19:29 CEST

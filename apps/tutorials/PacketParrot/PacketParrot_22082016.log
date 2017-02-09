@@ -1,0 +1,168 @@
+Script started on lun 22 ago 2016 11:46:45 CEST
+Setting up for TinyOS 2.1.2 Repository Version
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/PacketParrot[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/PacketParrot[00m$ date
+lun 22 ago 2016, 11.46.51, CEST
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/PacketParrot[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/PacketParrot[00m$ df -h
+Filesystem                   Size  Used Avail Use% Mounted on
+udev                         477M     0  477M   0% /dev
+tmpfs                        100M  3,7M   96M   4% /run
+/dev/mapper/ubuntu--vg-root  8,3G  6,3G  1,6G  80% /
+tmpfs                        497M  172K  497M   1% /dev/shm
+tmpfs                        5,0M  4,0K  5,0M   1% /run/lock
+tmpfs                        497M     0  497M   0% /sys/fs/cgroup
+/dev/sda1                    472M  152M  296M  34% /boot
+tmpfs                        100M   56K  100M   1% /run/user/1000
+Ezio                         112G   73G   40G  66% /media/sf_Ezio
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/PacketParrot[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/PacketParrot[00m$ make telosb insta[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kmotelist
+Reference  Device           Description
+---------- ---------------- ---------------------------------------------
+XBSJEO83   /dev/ttyUSB0     XBOW Crossbow Telos Rev.B
+M4AF8BAC   /dev/ttyUSB1     Moteiv tmote sky
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/PacketParrot[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/PacketParrot[00m$ make telosb install
+mkdir -p build/telosb
+    compiling PacketParrotC to a telosb binary
+ncc -o build/telosb/main.exe  -Os -fnesc-separator=__ -Wall -Wshadow -Wnesc-all -target=telosb -fnesc-cfile=build/telosb/app.c -board= -DDEFINED_TOS_AM_GROUP=0x22 -Ibuild/telosb -DIDENT_APPNAME=\"PacketParrotC\" -DIDENT_USERNAME=\"ezio\" -DIDENT_HOSTNAME=\"ezio-VirtualBox\" -DIDENT_USERHASH=0x30cf1021L -DIDENT_TIMESTAMP=0x57baca1dL -DIDENT_UIDHASH=0xf027931aL  PacketParrotC.nc -lm 
+
+
+
+
+
+
+/home/ezio/tinyos-main-read-only/tos/chips/cc2420/lpl/DummyLplC.nc:39:2: warning: #warning "*** LOW POWER COMMUNICATIONS DISABLED ***"
+    compiled PacketParrotC to build/telosb/main.exe
+           15040 bytes in ROM
+             490 bytes in RAM
+msp430-objcopy --output-target=ihex build/telosb/main.exe build/telosb/main.ihex
+    writing TOS image
+cp build/telosb/main.ihex build/telosb/main.ihex.out
+    found mote on /dev/ttyUSB0 (using bsl,auto)
+    installing telosb binary using bsl
+tos-bsl --telosb -c /dev/ttyUSB0 -r -e -I -p build/telosb/main.ihex.out
+MSP430 Bootstrap Loader Version: 1.39-goodfet-8
+Mass Erase...
+MSP430 Bootstrap Loader Version: 1.39-goodfet-8
+Mass Erase...
+Traceback (most recent call last):
+  File "/usr/local/bin/tos-bsl", line 1918, in <module>
+    main(0);
+  File "/usr/local/bin/tos-bsl", line 1833, in main
+    for f in toinit: f()
+  File "/usr/local/bin/tos-bsl", line 1098, in actionMassErase
+    0xa506)             #Required setting for mass erase!
+  File "/usr/local/bin/tos-bsl", line 758, in bslTxRx
+    rxFrame = self.comTxRx(cmd, dataOut, len(dataOut))  #Send frame
+  File "/usr/local/bin/tos-bsl", line 440, in comTxRx
+    rxHeader, rxNum = self.comRxHeader()        #receive header
+  File "/usr/local/bin/tos-bsl", line 346, in comRxHeader
+    if not hdr: raise BSLException("Timeout")
+__main__.BSLException: Timeout
+/home/ezio/tinyos-main-read-only/support/make/msp/bsl.extra:45: recipe for target 'program' failed
+make: *** [program] Error 1
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/PacketParrot[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/PacketParrot[00m$ 
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/PacketParrot[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/PacketParrot[00m$ 
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/PacketParrot[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/PacketParrot[00m$ 
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/PacketParrot[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/PacketParrot[00m$ 
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/PacketParrot[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/PacketParrot[00m$ 
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/PacketParrot[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/PacketParrot[00m$ 
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/PacketParrot[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/PacketParrot[00m$ make telosb install
+mkdir -p build/telosb
+    compiling PacketParrotC to a telosb binary
+ncc -o build/telosb/main.exe  -Os -fnesc-separator=__ -Wall -Wshadow -Wnesc-all -target=telosb -fnesc-cfile=build/telosb/app.c -board= -DDEFINED_TOS_AM_GROUP=0x22 -Ibuild/telosb -DIDENT_APPNAME=\"PacketParrotC\" -DIDENT_USERNAME=\"ezio\" -DIDENT_HOSTNAME=\"ezio-VirtualBox\" -DIDENT_USERHASH=0x30cf1021L -DIDENT_TIMESTAMP=0x57baca52L -DIDENT_UIDHASH=0x08cb0477L  PacketParrotC.nc -lm 
+/home/ezio/tinyos-main-read-only/tos/chips/cc2420/lpl/DummyLplC.nc:39:2: warning: #warning "*** LOW POWER COMMUNICATIONS DISABLED ***"
+    compiled PacketParrotC to build/telosb/main.exe
+           15040 bytes in ROM
+             490 bytes in RAM
+msp430-objcopy --output-target=ihex build/telosb/main.exe build/telosb/main.ihex
+    writing TOS image
+cp build/telosb/main.ihex build/telosb/main.ihex.out
+    found mote on /dev/ttyUSB0 (using bsl,auto)
+    installing telosb binary using bsl
+tos-bsl --telosb -c /dev/ttyUSB0 -r -e -I -p build/telosb/main.ihex.out
+MSP430 Bootstrap Loader Version: 1.39-goodfet-8
+Mass Erase...
+Transmit default password ...
+Invoking BSL...
+Transmit default password ...
+Current bootstrap loader version: 1.61 (Device ID: f16c)
+Changing baudrate to 38400 ...
+Program ...
+15182 bytes programmed.
+Reset device ...
+rm -f build/telosb/main.exe.out build/telosb/main.ihex.out 
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/PacketParrot[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/PacketParrot[00m$ cd ..
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials[00m$ cd BlinkToRadio
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio[00m$ ls
+[0m[01;32m1.4MotePCUSB0.log[0m  [01;32m1.4MotePCUSB3.log[0m    [01;32mBlinkToRadio.h[0m  [01;32mREADME.txt[0m
+[01;32m1.4MotePCUSB1.log[0m  [01;32mBlinkToRadioAppC.nc[0m  [01;34mbuild[0m           [01;32mroute[0m
+[01;32m1.4MotePCUSB2.log[0m  [01;32mBlinkToRadioC.nc[0m     [01;32mMakefile[0m
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio[00m$ make telos[K[K[K[K[K[K[K[K[K[Kmake clean
+rm -rf build  pp
+rm -rf _TOSSIMmodule.so TOSSIM.pyc TOSSIM.py app.xml simbuild
+rm -rf VolumeMapC.nc
+rm -f BlinkToRadioAppC.cmap BlinkToRadioAppC.dot BlinkToRadioAppC.html BlinkToRadioAppC.png
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio[00m$ make telosb insteall[K[K[K[K[K[K[K[K[Ki[K instal [Kl bsl,/dev/ttyUSB1
+mkdir -p build/telosb
+    compiling BlinkToRadioAppC to a telosb binary
+ncc -o build/telosb/main.exe  -Os -fnesc-separator=__ -Wall -Wshadow -Wnesc-all -target=telosb -fnesc-cfile=build/telosb/app.c -board= -DDEFINED_TOS_AM_GROUP=0x22 -I/home/ezio/tinyos-main-read-only/tos/lib/printf    -DIDENT_APPNAME=\"BlinkToRadioApp\" -DIDENT_USERNAME=\"ezio\" -DIDENT_HOSTNAME=\"ezio-VirtualBox\" -DIDENT_USERHASH=0x30cf1021L -DIDENT_TIMESTAMP=0x57bacad0L -DIDENT_UIDHASH=0xd99d6258L  BlinkToRadioAppC.nc -lm 
+In file included from BlinkToRadioAppC.nc:52:
+/home/ezio/tinyos-main-read-only/tos/lib/printf/printf.h:44:2: warning: #warning "                                  *************************** PRINTF SEMANTICS HAVE CHANGED! ********************************************* Make sure you now include the following two components in your top level application file: PrintfC and SerialStartC. To supress this warning in the future, #define the variable NEW_PRINTF_SEMANTICS. Take a look at the updated tutorial application under apps/tutorials/printf for an example. ************************************************************************************"
+/home/ezio/tinyos-main-read-only/tos/chips/cc2420/lpl/DummyLplC.nc:39:2: warning: #warning "*** LOW POWER COMMUNICATIONS DISABLED ***"
+BlinkToRadioC.nc: In function ‘BlinkToRadioC__Timer0__fired’:
+BlinkToRadioC.nc:125:7: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘int *’ [-Wformat]
+BlinkToRadioC.nc:126:7: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘int *’ [-Wformat]
+BlinkToRadioC.nc:127:7: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘int *’ [-Wformat]
+    compiled BlinkToRadioAppC to build/telosb/main.exe
+           17574 bytes in ROM
+             912 bytes in RAM
+msp430-objcopy --output-target=ihex build/telosb/main.exe build/telosb/main.ihex
+    writing TOS image
+cp build/telosb/main.ihex build/telosb/main.ihex.out
+    installing telosb binary using bsl
+tos-bsl --telosb -c /dev/ttyUSB1 -r -e -I -p build/telosb/main.ihex.out
+MSP430 Bootstrap Loader Version: 1.39-goodfet-8
+Mass Erase...
+Transmit default password ...
+Invoking BSL...
+Transmit default password ...
+Current bootstrap loader version: 1.61 (Device ID: f16c)
+Changing baudrate to 38400 ...
+Program ...
+17936 bytes programmed.
+Reset device ...
+rm -f build/telosb/main.exe.out build/telosb/main.ihex.out 
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio[00m$ motelist
+Reference  Device           Description
+---------- ---------------- ---------------------------------------------
+XBSJEO83   /dev/ttyUSB0     XBOW Crossbow Telos Rev.B
+M4AF8BAC   /dev/ttyUSB1     Moteiv tmote sky
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio[00m$ java net.tinyos.tools.PrintfClient serial@/dev/ttyUSB1;[K:telos
+b
+Thread[Thread-1,5,main]serial@/dev/ttyUSB0:115200: resynchronising
+^C]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio[00m$ java net.tinyos.tools.PrintfClient serial@/dev/ttyUSB1:telos
+b
+Thread[Thread-1,5,main]serial@/dev/ttyUSB0:115200: resynchronising
+^C]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio[00m$ motelist
+Reference  Device           Description
+---------- ---------------- ---------------------------------------------
+XBSJEO83   /dev/ttyUSB0     XBOW Crossbow Telos Rev.B
+M4AF8BAC   /dev/ttyUSB1     Moteiv tmote sky
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio[00m$ java Bl[K[Knet.tinyos.tools.Printf -comm serial@/dev/ttyUSB1:telos
+b
+Error: Could not find or load main class net.tinyos.tools.Printf
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio[00m$ java et[K[Knet.tinyos.tools.PrintfClient -comm serial@/dev/ttyUSB1
+:telosb
+Thread[Thread-1,5,main]serial@/dev/ttyUSB1:115200: resynchronising
+Boot.booted and AMControl.satrt
+AMControl.startdoneBoot.booted and AMControl.satrt
+AMControl.startdoneHello Mac ! 
+a point=4388
+c point=4386
+d point=4384
+NODE ID IS 1
+counter is: 1
+^C]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio[00m$ pwd
+/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio[00m$ shutdown -h now
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio[00m$ exit
+
+Script done on lun 22 ago 2016 17:09:18 CEST

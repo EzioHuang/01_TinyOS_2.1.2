@@ -1,0 +1,726 @@
+Script started on gio 30 giu 2016 14:46:48 CEST
+Setting up for TinyOS 2.1.2 Repository Version
+]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio [00m$ motelist
+Reference  Device           Description
+---------- ---------------- ---------------------------------------------
+XBSJEO83   /dev/ttyUSB0     XBOW Crossbow Telos Rev.B
+MFUD5W27   /dev/ttyUSB1     FTDI MTM-CM5000MSP
+M4AF8BAC   /dev/ttyUSB2     Moteiv tmote sky
+XBQ6KKP1   /dev/ttyUSB3     XBOW Crossbow Telos Rev.B
+]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio [00m$ make telosb install,3 bsl,/dev/ttyUSB3
+mkdir -p build/telosb
+    compiling BlinkToRadioAppC to a telosb binary
+
+    WARNING: Minimum recommended msp430-gcc version for this TinyOS release is 4.6.3!!!
+
+ncc -o build/telosb/main.exe  -Os -fnesc-separator=__ -Wall -Wshadow -Wnesc-all -target=telosb -fnesc-cfile=build/telosb/app.c -board= -DDEFINED_TOS_AM_GROUP=0x22 -I/opt/tinyos-2.1.2/tos/lib/printf    -DIDENT_APPNAME=\"BlinkToRadioApp\" -DIDENT_USERNAME=\"ezio\" -DIDENT_HOSTNAME=\"ezio-VirtualBox\" -DIDENT_USERHASH=0x30cf1021L -DIDENT_TIMESTAMP=0x5775152fL -DIDENT_UIDHASH=0x0bef22a5L  BlinkToRadioAppC.nc -lm 
+In file included from BlinkToRadioAppC.nc:52:
+/opt/tinyos-2.1.2/tos/lib/printf/printf.h:44:2: warning: #warning "                                  *************************** PRINTF SEMANTICS HAVE CHANGED! ********************************************* Make sure you now include the following two components in your top level application file: PrintfC and SerialStartC. To supress this warning in the future, #define the variable NEW_PRINTF_SEMANTICS. Take a look at the updated tutorial application under apps/tutorials/printf for an example. ************************************************************************************"
+/opt/tinyos-2.1.2/tos/chips/cc2420/lpl/DummyLplC.nc:39:2: warning: #warning "*** LOW POWER COMMUNICATIONS DISABLED ***"
+    compiled BlinkToRadioAppC to build/telosb/main.exe
+           16502 bytes in ROM
+             906 bytes in RAM
+msp430-objcopy --output-target=ihex build/telosb/main.exe build/telosb/main.ihex
+    writing TOS image
+tos-set-symbols --objcopy msp430-objcopy --objdump msp430-objdump --target ihex build/telosb/main.ihex build/telosb/main.ihex.out-3 TOS_NODE_ID=3 ActiveMessageAddressC__addr=3
+    installing telosb binary using bsl
+tos-bsl --telosb -c /dev/ttyUSB3 -r -e -I -p build/telosb/main.ihex.out-3
+MSP430 Bootstrap Loader Version: 1.39-goodfet-8
+Mass Erase...
+Transmit default password ...
+Invoking BSL...
+Transmit default password ...
+Current bootstrap loader version: 1.61 (Device ID: f16c)
+Changing baudrate to 38400 ...
+Program ...
+16534 bytes programmed.
+Reset device ...
+rm -f build/telosb/main.exe.out-3 build/telosb/main.ihex.out-3 
+]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio [00m$ java net.tinyos.tools.PrintfClient serial@/dev/ttyUSB0:telosb[1P:telosb3:telosb-serial@/dev/ttyUSB3:telosbcserial@/dev/ttyUSB3:telosboserial@/dev/ttyUSB3:telosbmserial@/dev/ttyUSB3:telosbmserial@/dev/ttyUSB3:telosb serial@/dev/ttyUSB3:telosb
+Thread[Thread-1,5,main]Error loading the TinyOS JNI libraries the conventional way!
+Attempting to load library 'toscomm'
+Could not load library 'toscomm': no toscomm in java.library.path
+----------
+java.lang.UnsatisfiedLinkError: no toscomm in java.library.path
+	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1682)
+	at java.lang.Runtime.loadLibrary0(Runtime.java:822)
+	at java.lang.System.loadLibrary(System.java:993)
+	at net.tinyos.util.TOSLibraryLoader.load(TOSLibraryLoader.java:85)
+	at net.tinyos.comm.TOSCommJNI.<clinit>(TOSCommJNI.java:14)
+	at net.tinyos.comm.NativeSerial.getTOSCommMap(NativeSerial.java:207)
+	at net.tinyos.comm.TOSSerial.<init>(TOSSerial.java:277)
+	at net.tinyos.packet.SerialByteSource.openStreams(SerialByteSource.java:67)
+	at net.tinyos.packet.StreamByteSource.open(StreamByteSource.java:61)
+	at net.tinyos.packet.Packetizer.openSource(Packetizer.java:149)
+	at net.tinyos.packet.AbstractSource.open(AbstractSource.java:78)
+	at net.tinyos.packet.Packetizer.open(Packetizer.java:142)
+	at net.tinyos.packet.PhoenixSource.run(PhoenixSource.java:178)
+----------
+
+In order to load the library 'toscomm' Java tries to locate the file 'libtoscomm.so' in one of the following paths:
+/usr/lib/jvm/jdk1.5.0_14/jre/lib/amd64/server:/usr/lib/jvm/jdk1.5.0_14/jre/lib/amd64:/usr/lib/jvm/jdk1.5.0_14/jre/../lib/amd64
+
+The operating system is 'Linux' (amd64)
+
+Trying to locate the file 'linux_amd64_toscomm.lib' in the classpath
+Temporary file created: '/tmp/toscomm41771.lib'
+Library copied successfully. Let's load it.
+Library loaded successfully
+serial@/dev/ttyUSB3:115200: resynchronising
+source ID is: 2
+counter ID is: 18
+source ID is: 2
+counter ID is: 19
+source ID is: 2
+counter ID is: 20
+source ID is: 2
+counter ID is: 21
+source ID is: 2
+counter ID is: 22
+source ID is: 2
+counter ID is: 23
+source ID is: 2
+counter ID is: 24
+source ID is: 2
+counter ID is: 25
+source ID is: 2
+counter ID is: 26
+source ID is: 2
+counter ID is: 27
+source ID is: 2
+counter ID is: 28
+source ID is: 2
+counter ID is: 29
+source ID is: 2
+counter ID is: 30
+source ID is: 2
+counter ID is: 31
+source ID is: 2
+counter ID is: 32
+source ID is: 2
+counter ID is: 33
+source ID is: 2
+counter ID is: 34
+source ID is: 2
+counter ID is: 35
+source ID is: 2
+counter ID is: 1
+Boot.booted and AMControl.satrt
+AMControl.startdonesource ID is: 2
+counter ID is: 2
+NODE ID IS 3
+counter is: 1
+source ID is: 2
+counter ID is: 3
+source ID is: 2
+counter ID is: 4
+source ID is: 2
+counter ID is: 5
+source ID is: 2
+counter ID is: 6
+source ID is: 2
+counter ID is: 7
+source ID is: 2
+counter ID is: 8
+source ID is: 2
+counter ID is: 9
+source ID is: 2
+counter ID is: 10
+source ID is: 2
+counter ID is: 11
+source ID is: 2
+counter ID is: 12
+source ID is: 2
+counter ID is: 13
+source ID is: 2
+counter ID is: 14
+source ID is: 2
+counter ID is: 15
+source ID is: 2
+counter ID is: 16
+source ID is: 2
+counter ID is: 17
+^C]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio [00m$ java net.tinyos.tools.PrintfClient -comm serial@/dev/ttyUSB3:telosb[C[C[29Pmake telosb install,3 bsl,/dev/ttyUSB3
+mkdir -p build/telosb
+    compiling BlinkToRadioAppC to a telosb binary
+
+    WARNING: Minimum recommended msp430-gcc version for this TinyOS release is 4.6.3!!!
+
+ncc -o build/telosb/main.exe  -Os -fnesc-separator=__ -Wall -Wshadow -Wnesc-all -target=telosb -fnesc-cfile=build/telosb/app.c -board= -DDEFINED_TOS_AM_GROUP=0x22 -I/opt/tinyos-2.1.2/tos/lib/printf    -DIDENT_APPNAME=\"BlinkToRadioApp\" -DIDENT_USERNAME=\"ezio\" -DIDENT_HOSTNAME=\"ezio-VirtualBox\" -DIDENT_USERHASH=0x30cf1021L -DIDENT_TIMESTAMP=0x577516d8L -DIDENT_UIDHASH=0x351613bfL  BlinkToRadioAppC.nc -lm 
+In file included from BlinkToRadioAppC.nc:52:
+/opt/tinyos-2.1.2/tos/lib/printf/printf.h:44:2: warning: #warning "                                  *************************** PRINTF SEMANTICS HAVE CHANGED! ********************************************* Make sure you now include the following two components in your top level application file: PrintfC and SerialStartC. To supress this warning in the future, #define the variable NEW_PRINTF_SEMANTICS. Take a look at the updated tutorial application under apps/tutorials/printf for an example. ************************************************************************************"
+/opt/tinyos-2.1.2/tos/chips/cc2420/lpl/DummyLplC.nc:39:2: warning: #warning "*** LOW POWER COMMUNICATIONS DISABLED ***"
+    compiled BlinkToRadioAppC to build/telosb/main.exe
+           16502 bytes in ROM
+             906 bytes in RAM
+msp430-objcopy --output-target=ihex build/telosb/main.exe build/telosb/main.ihex
+    writing TOS image
+tos-set-symbols --objcopy msp430-objcopy --objdump msp430-objdump --target ihex build/telosb/main.ihex build/telosb/main.ihex.out-3 TOS_NODE_ID=3 ActiveMessageAddressC__addr=3
+    installing telosb binary using bsl
+tos-bsl --telosb -c /dev/ttyUSB3 -r -e -I -p build/telosb/main.ihex.out-3
+MSP430 Bootstrap Loader Version: 1.39-goodfet-8
+Mass Erase...
+MSP430 Bootstrap Loader Version: 1.39-goodfet-8
+Mass Erase...
+Transmit default password ...
+Invoking BSL...
+Transmit default password ...
+Current bootstrap loader version: 1.61 (Device ID: f16c)
+Changing baudrate to 38400 ...
+Program ...
+16534 bytes programmed.
+Reset device ...
+rm -f build/telosb/main.exe.out-3 build/telosb/main.ihex.out-3 
+]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio [00m$ make telosb install,3 bsl,/dev/ttyUSB3[C[Cjava net.tinyos.tools.PrintfClient -comm serial@/dev/ttyUSB3:telosb
+Thread[Thread-1,5,main]Error loading the TinyOS JNI libraries the conventional way!
+Attempting to load library 'toscomm'
+Could not load library 'toscomm': no toscomm in java.library.path
+----------
+java.lang.UnsatisfiedLinkError: no toscomm in java.library.path
+	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1682)
+	at java.lang.Runtime.loadLibrary0(Runtime.java:822)
+	at java.lang.System.loadLibrary(System.java:993)
+	at net.tinyos.util.TOSLibraryLoader.load(TOSLibraryLoader.java:85)
+	at net.tinyos.comm.TOSCommJNI.<clinit>(TOSCommJNI.java:14)
+	at net.tinyos.comm.NativeSerial.getTOSCommMap(NativeSerial.java:207)
+	at net.tinyos.comm.TOSSerial.<init>(TOSSerial.java:277)
+	at net.tinyos.packet.SerialByteSource.openStreams(SerialByteSource.java:67)
+	at net.tinyos.packet.StreamByteSource.open(StreamByteSource.java:61)
+	at net.tinyos.packet.Packetizer.openSource(Packetizer.java:149)
+	at net.tinyos.packet.AbstractSource.open(AbstractSource.java:78)
+	at net.tinyos.packet.Packetizer.open(Packetizer.java:142)
+	at net.tinyos.packet.PhoenixSource.run(PhoenixSource.java:178)
+----------
+
+In order to load the library 'toscomm' Java tries to locate the file 'libtoscomm.so' in one of the following paths:
+/usr/lib/jvm/jdk1.5.0_14/jre/lib/amd64/server:/usr/lib/jvm/jdk1.5.0_14/jre/lib/amd64:/usr/lib/jvm/jdk1.5.0_14/jre/../lib/amd64
+
+The operating system is 'Linux' (amd64)
+
+Trying to locate the file 'linux_amd64_toscomm.lib' in the classpath
+Temporary file created: '/tmp/toscomm4240.lib'
+Library copied successfully. Let's load it.
+Library loaded successfully
+serial@/dev/ttyUSB3:115200: resynchronising
+NODE ID IS 3
+counter is: 2
+AMSend.sendDone
+NODE ID IS 3
+counter is: 3
+AMSend.sendDone
+NODE ID IS 3
+counter is: 4
+AMSend.sendDone
+NODE ID IS 3
+counter is: 5
+AMSend.sendDone
+NODE ID IS 3
+counter is: 6
+AMSend.sendDone
+NODE ID IS 3
+counter is: 7
+AMSend.sendDone
+NODE ID IS 3
+counter is: 8
+AMSend.sendDone
+NODE ID IS 3
+counter is: 9
+AMSend.sendDone
+NODE ID IS 3
+counter is: 10
+AMSend.sendDone
+^C]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio [00m$ java net.tinyos.tools.PrintfClient -comm serial@/dev/ttyUSB3:telosb
+Thread[Thread-1,5,main]Error loading the TinyOS JNI libraries the conventional way!
+Attempting to load library 'toscomm'
+Could not load library 'toscomm': no toscomm in java.library.path
+----------
+java.lang.UnsatisfiedLinkError: no toscomm in java.library.path
+	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1682)
+	at java.lang.Runtime.loadLibrary0(Runtime.java:822)
+	at java.lang.System.loadLibrary(System.java:993)
+	at net.tinyos.util.TOSLibraryLoader.load(TOSLibraryLoader.java:85)
+	at net.tinyos.comm.TOSCommJNI.<clinit>(TOSCommJNI.java:14)
+	at net.tinyos.comm.NativeSerial.getTOSCommMap(NativeSerial.java:207)
+	at net.tinyos.comm.TOSSerial.<init>(TOSSerial.java:277)
+	at net.tinyos.packet.SerialByteSource.openStreams(SerialByteSource.java:67)
+	at net.tinyos.packet.StreamByteSource.open(StreamByteSource.java:61)
+	at net.tinyos.packet.Packetizer.openSource(Packetizer.java:149)
+	at net.tinyos.packet.AbstractSource.open(AbstractSource.java:78)
+	at net.tinyos.packet.Packetizer.open(Packetizer.java:142)
+	at net.tinyos.packet.PhoenixSource.run(PhoenixSource.java:178)
+----------
+
+In order to load the library 'toscomm' Java tries to locate the file 'libtoscomm.so' in one of the following paths:
+/usr/lib/jvm/jdk1.5.0_14/jre/lib/amd64/server:/usr/lib/jvm/jdk1.5.0_14/jre/lib/amd64:/usr/lib/jvm/jdk1.5.0_14/jre/../lib/amd64
+
+The operating system is 'Linux' (amd64)
+
+Trying to locate the file 'linux_amd64_toscomm.lib' in the classpath
+Temporary file created: '/tmp/toscomm38721.lib'
+Library copied successfully. Let's load it.
+Library loaded successfully
+serial@/dev/ttyUSB3:115200 died - exiting (java.io.IOException: Could not open /dev/ttyUSB3: TOSComm JNI library runtime error: open: No such file or directory)
+]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio [00m$ motelist
+Reference  Device           Description
+---------- ---------------- ---------------------------------------------
+XBSJEO83   /dev/ttyUSB0     XBOW Crossbow Telos Rev.B
+MFUD5W27   /dev/ttyUSB1     FTDI MTM-CM5000MSP
+M4AF8BAC   /dev/ttyUSB2     Moteiv tmote sky
+XBQ6KKP1   /dev/ttyUSB4     XBOW Crossbow Telos Rev.B
+]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio [00m$ ^C
+]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio [00m$ motelist
+Reference  Device           Description
+---------- ---------------- ---------------------------------------------
+XBQ6KKP1   /dev/ttyUSB0     XBOW Crossbow Telos Rev.B
+MFUD5W27   /dev/ttyUSB1     FTDI MTM-CM5000MSP
+XBSJEO83   /dev/ttyUSB2     XBOW Crossbow Telos Rev.B
+M4AF8BAC   /dev/ttyUSB3     Moteiv tmote sky
+]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio [00m$ motelist[C[Cjava net.tinyos.tools.PrintfClient -comm serial@/dev/ttyUSB3:telosb[C[C[29Pmake telosb install,3 bsl,/dev/ttyUSB3
+mkdir -p build/telosb
+    compiling BlinkToRadioAppC to a telosb binary
+
+    WARNING: Minimum recommended msp430-gcc version for this TinyOS release is 4.6.3!!!
+
+ncc -o build/telosb/main.exe  -Os -fnesc-separator=__ -Wall -Wshadow -Wnesc-all -target=telosb -fnesc-cfile=build/telosb/app.c -board= -DDEFINED_TOS_AM_GROUP=0x22 -I/opt/tinyos-2.1.2/tos/lib/printf    -DIDENT_APPNAME=\"BlinkToRadioApp\" -DIDENT_USERNAME=\"ezio\" -DIDENT_HOSTNAME=\"ezio-VirtualBox\" -DIDENT_USERHASH=0x30cf1021L -DIDENT_TIMESTAMP=0x57751a11L -DIDENT_UIDHASH=0xde16f5cfL  BlinkToRadioAppC.nc -lm 
+In file included from BlinkToRadioAppC.nc:52:
+/opt/tinyos-2.1.2/tos/lib/printf/printf.h:44:2: warning: #warning "                                  *************************** PRINTF SEMANTICS HAVE CHANGED! ********************************************* Make sure you now include the following two components in your top level application file: PrintfC and SerialStartC. To supress this warning in the future, #define the variable NEW_PRINTF_SEMANTICS. Take a look at the updated tutorial application under apps/tutorials/printf for an example. ************************************************************************************"
+/opt/tinyos-2.1.2/tos/chips/cc2420/lpl/DummyLplC.nc:39:2: warning: #warning "*** LOW POWER COMMUNICATIONS DISABLED ***"
+    compiled BlinkToRadioAppC to build/telosb/main.exe
+           16502 bytes in ROM
+             906 bytes in RAM
+msp430-objcopy --output-target=ihex build/telosb/main.exe build/telosb/main.ihex
+    writing TOS image
+tos-set-symbols --objcopy msp430-objcopy --objdump msp430-objdump --target ihex build/telosb/main.ihex build/telosb/main.ihex.out-3 TOS_NODE_ID=3 ActiveMessageAddressC__addr=3
+    installing telosb binary using bsl
+tos-bsl --telosb -c /dev/ttyUSB3 -r -e -I -p build/telosb/main.ihex.out-3
+MSP430 Bootstrap Loader Version: 1.39-goodfet-8
+Mass Erase...
+Transmit default password ...
+Invoking BSL...
+Transmit default password ...
+Current bootstrap loader version: 1.61 (Device ID: f16c)
+Changing baudrate to 38400 ...
+Program ...
+16534 bytes programmed.
+Reset device ...
+rm -f build/telosb/main.exe.out-3 build/telosb/main.ihex.out-3 
+]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio [00m$ make telosb install,3 bsl,/dev/ttyUSB3[C[C[Cotelist[K[C[Cjava net.tinyos.tools.PrintfClient -comm serial@/dev/ttyUSB3:telosb
+Thread[Thread-1,5,main]Error loading the TinyOS JNI libraries the conventional way!
+Attempting to load library 'toscomm'
+Could not load library 'toscomm': no toscomm in java.library.path
+----------
+java.lang.UnsatisfiedLinkError: no toscomm in java.library.path
+	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1682)
+	at java.lang.Runtime.loadLibrary0(Runtime.java:822)
+	at java.lang.System.loadLibrary(System.java:993)
+	at net.tinyos.util.TOSLibraryLoader.load(TOSLibraryLoader.java:85)
+	at net.tinyos.comm.TOSCommJNI.<clinit>(TOSCommJNI.java:14)
+	at net.tinyos.comm.NativeSerial.getTOSCommMap(NativeSerial.java:207)
+	at net.tinyos.comm.TOSSerial.<init>(TOSSerial.java:277)
+	at net.tinyos.packet.SerialByteSource.openStreams(SerialByteSource.java:67)
+	at net.tinyos.packet.StreamByteSource.open(StreamByteSource.java:61)
+	at net.tinyos.packet.Packetizer.openSource(Packetizer.java:149)
+	at net.tinyos.packet.AbstractSource.open(AbstractSource.java:78)
+	at net.tinyos.packet.Packetizer.open(Packetizer.java:142)
+	at net.tinyos.packet.PhoenixSource.run(PhoenixSource.java:178)
+----------
+
+In order to load the library 'toscomm' Java tries to locate the file 'libtoscomm.so' in one of the following paths:
+/usr/lib/jvm/jdk1.5.0_14/jre/lib/amd64/server:/usr/lib/jvm/jdk1.5.0_14/jre/lib/amd64:/usr/lib/jvm/jdk1.5.0_14/jre/../lib/amd64
+
+The operating system is 'Linux' (amd64)
+
+Trying to locate the file 'linux_amd64_toscomm.lib' in the classpath
+Temporary file created: '/tmp/toscomm37599.lib'
+Library copied successfully. Let's load it.
+Library loaded successfully
+serial@/dev/ttyUSB3:115200: resynchronising
+NODE ID IS 3
+counter is: 2
+AMSend.sendDone
+NODE ID IS 3
+counter is: 3
+AMSend.sendDone
+NODE ID IS 3
+counter is: 4
+AMSend.sendDone
+NODE ID IS 3
+counter is: 5
+AMSend.sendDone
+NODE ID IS 3
+counter is: 6
+AMSend.sendDone
+NODE ID IS 3
+counter is: 7
+AMSend.sendDone
+NODE ID IS 3
+counter is: 8
+AMSend.sendDone
+NODE ID IS 3
+counter is: 9
+AMSend.sendDone
+NODE ID IS 3
+counter is: 10
+AMSend.sendDone
+NODE ID IS 3
+counter is: 11
+AMSend.sendDone
+NODE ID IS 3
+counter is: 12
+AMSend.sendDone
+NODE ID IS 3
+counter is: 13
+AMSend.sendDone
+NODE ID IS 3
+counter is: 14
+AMSend.sendDone
+NODE ID IS 3
+counter is: 15
+AMSend.sendDone
+NODE ID IS 3
+counter is: 16
+AMSend.sendDone
+NODE ID IS 3
+counter is: 17
+AMSend.sendDone
+NODE ID IS 3
+counter is: 18
+AMSend.sendDone
+NODE ID IS 3
+counter is: 19
+AMSend.sendDone
+NODE ID IS 3
+counter is: 20
+AMSend.sendDone
+NODE ID IS 3
+counter is: 21
+AMSend.sendDone
+NODE ID IS 3
+counter is: 22
+AMSend.sendDone
+NODE ID IS 3
+counter is: 23
+AMSend.sendDone
+NODE ID IS 3
+counter is: 24
+AMSend.sendDone
+NODE ID IS 3
+counter is: 25
+AMSend.sendDone
+NODE ID IS 3
+counter is: 26
+AMSend.sendDone
+NODE ID IS 3
+counter is: 27
+AMSend.sendDone
+NODE ID IS 3
+counter is: 28
+AMSend.sendDone
+NODE ID IS 3
+counter is: 29
+AMSend.sendDone
+NODE ID IS 3
+counter is: 30
+AMSend.sendDone
+NODE ID IS 3
+counter is: 31
+AMSend.sendDone
+NODE ID IS 3
+counter is: 32
+AMSend.sendDone
+NODE ID IS 3
+counter is: 33
+AMSend.sendDone
+NODE ID IS 3
+counter is: 34
+AMSend.sendDone
+NODE ID IS 3
+counter is: 35
+AMSend.sendDone
+NODE ID IS 3
+counter is: 36
+AMSend.sendDone
+NODE ID IS 3
+counter is: 37
+AMSend.sendDone
+serial@/dev/ttyUSB3:115200: ignoring unknown packet type 0x0
+NODE ID IS 3
+counter is: 38
+serial@/dev/ttyUSB3:115200: bad packet
+NODE ID IS 3
+counter is: 39
+serial@/dev/ttyUSB3:115200: ignoring unknown packet type 0x0
+serial@/dev/ttyUSB3:115200: bad packet
+AMSend.sendDone
+serial@/dev/ttyUSB3:115200: bad packet
+serial@/dev/ttyUSB3:115200: packet too long
+serial@/dev/ttyUSB3:115200: resynchronising
+NODE ID IS 3
+counter is: 42
+AMSend.sendDone
+NODE ID IS 3
+counter is: 43
+AMSend.sendDone
+NODE ID IS 3
+counter is: 44
+AMSend.sendDone
+NODE ID IS 3
+counter is: 45
+AMSend.sendDone
+NODE ID IS 3
+counter is: 46
+AMSend.sendDone
+NODE ID IS 3
+counter is: 47
+AMSend.sendDone
+NODE ID IS 3
+counter is: 48
+AMSend.sendDone
+NODE ID IS 3
+counter is: 49
+AMSend.sendDone
+NODE ID IS 3
+counter is: 50
+AMSend.sendDone
+NODE ID IS 3
+counter is: 51
+AMSend.sendDone
+NODE ID IS 3
+counter is: 52
+AMSend.sendDone
+NODE ID IS 3
+counter is: 53
+AMSend.sendDone
+NODE ID IS 3
+counter is: 54
+AMSend.sendDone
+NODE ID IS 3
+counter is: 55
+AMSend.sendDone
+NODE ID IS 3
+counter is: 56
+AMSend.sendDone
+NODE ID IS 3
+counter is: 57
+AMSend.sendDone
+Boot.booted and AMControl.satrt
+AMControl.startdoneNODE ID IS 3
+counter is: 1
+AMSend.sendDone
+NODE ID IS 3
+counter is: 2
+AMSend.sendDone
+NODE ID IS 3
+counter is: 3
+AMSend.sendDone
+NODE ID IS 3
+counter is: 4
+AMSend.sendDone
+NODE ID IS 3
+counter is: 5
+AMSend.sendDone
+NODE ID IS 3
+counter is: 6
+AMSend.sendDone
+NODE ID IS 3
+counter is: 7
+AMSend.sendDone
+NODE ID IS 3
+counter is: 8
+AMSend.sendDone
+NODE ID IS 3
+counter is: 9
+AMSend.sendDone
+NODE ID IS 3
+counter is: 10
+AMSend.sendDone
+NODE ID IS 3
+counter is: 11
+AMSend.sendDone
+NODE ID IS 3
+counter is: 12
+AMSend.sendDone
+NODE ID IS 3
+counter is: 13
+AMSend.sendDone
+NODE ID IS 3
+counter is: 14
+AMSend.sendDone
+NODE ID IS 3
+counter is: 15
+AMSend.sendDone
+NODE ID IS 3
+counter is: 16
+AMSend.sendDone
+NODE ID IS 3
+counter is: 17
+AMSend.sendDone
+NODE ID IS 3
+counter is: 18
+AMSend.sendDone
+NODE ID IS 3
+counter is: 19
+^C]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio [00m$ motelist
+Reference  Device           Description
+---------- ---------------- ---------------------------------------------
+XBQ6KKP1   /dev/ttyUSB0     XBOW Crossbow Telos Rev.B
+MFUD5W27   /dev/ttyUSB1     FTDI MTM-CM5000MSP
+M4AF8BAC   /dev/ttyUSB3     Moteiv tmote sky
+]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio [00m$ motelist
+Reference  Device           Description
+---------- ---------------- ---------------------------------------------
+MFUD5W27   /dev/ttyUSB1     FTDI MTM-CM5000MSP
+M4AF8BAC   /dev/ttyUSB3     Moteiv tmote sky
+]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio [00m$ 
+]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio [00m$ motelist[C[Cjava net.tinyos.tools.PrintfClient -comm serial@/dev/ttyUSB3:telosb[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[C[Cmotelist[K[C[C[Kmotelist
+Reference  Device           Description
+---------- ---------------- ---------------------------------------------
+MFUD5W27   /dev/ttyUSB1     FTDI MTM-CM5000MSP
+M4AF8BAC   /dev/ttyUSB3     Moteiv tmote sky
+]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio [00m$ motelist[C[Cjava net.tinyos.tools.PrintfClient -comm serial@/d[C[C[12Pmake telosb install,3 bsl,/dev/ttyUSB3[C[C[Cotelist[K[C[Cjava net.tinyos.tools.PrintfClient -comm serial@/dev/ttyUSB3:telosb[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K.li[K[KListen -comm serial@/dev/ttyS[KUSB1:telosb
+Error loading the TinyOS JNI libraries the conventional way!
+Attempting to load library 'toscomm'
+Could not load library 'toscomm': no toscomm in java.library.path
+----------
+java.lang.UnsatisfiedLinkError: no toscomm in java.library.path
+	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1682)
+	at java.lang.Runtime.loadLibrary0(Runtime.java:822)
+	at java.lang.System.loadLibrary(System.java:993)
+	at net.tinyos.util.TOSLibraryLoader.load(TOSLibraryLoader.java:85)
+	at net.tinyos.comm.TOSCommJNI.<clinit>(TOSCommJNI.java:14)
+	at net.tinyos.comm.NativeSerial.getTOSCommMap(NativeSerial.java:207)
+	at net.tinyos.comm.TOSSerial.<init>(TOSSerial.java:277)
+	at net.tinyos.packet.SerialByteSource.openStreams(SerialByteSource.java:67)
+	at net.tinyos.packet.StreamByteSource.open(StreamByteSource.java:61)
+	at net.tinyos.packet.Packetizer.openSource(Packetizer.java:149)
+	at net.tinyos.packet.AbstractSource.open(AbstractSource.java:78)
+	at net.tinyos.packet.Packetizer.open(Packetizer.java:142)
+	at net.tinyos.tools.Listen.main(Unknown Source)
+----------
+
+In order to load the library 'toscomm' Java tries to locate the file 'libtoscomm.so' in one of the following paths:
+/usr/lib/jvm/jdk1.5.0_14/jre/lib/amd64/server:/usr/lib/jvm/jdk1.5.0_14/jre/lib/amd64:/usr/lib/jvm/jdk1.5.0_14/jre/../lib/amd64
+
+The operating system is 'Linux' (amd64)
+
+Trying to locate the file 'linux_amd64_toscomm.lib' in the classpath
+Temporary file created: '/tmp/toscomm65348.lib'
+Library copied successfully. Let's load it.
+Library loaded successfully
+serial@/dev/ttyUSB1:115200: resynchronising
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 30 33 
+serial@/dev/ttyUSB1:115200: bad packet
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 30 34 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+serial@/dev/ttyUSB1:115200: bad packet
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 30 35 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 41 4D 53 65 6E 64 2E 73 65 6E 64 44 6F 6E 65 0A 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 30 36 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 41 4D 53 65 6E 64 2E 73 65 6E 64 44 6F 6E 65 0A 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 30 38 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 31 30 
+serial@/dev/ttyUSB1:115200: bad packet
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 31 32 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 31 33 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 41 4D 53 65 6E 64 2E 73 65 6E 64 44 6F 6E 65 0A 00 00 00 00 00 00 00 00 00 00 00 00 
+serial@/dev/ttyUSB1:115200: bad packet
+serial@/dev/ttyUSB1:115200: bad packet
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 31 36 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 31 39 
+00 FF FF 00 00 1C 00 64 0A 41 4D 53 65 6E 64 2E 73 65 6E 64 44 6F 6E 65 0A 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 32 30 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+serial@/dev/ttyUSB1:115200: bad packet
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 32 32 
+00 FF FF 00 00 1C 00 64 0A 41 4D 53 65 6E 64 2E 73 65 6E 64 44 6F 6E 65 0A 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 32 35 
+serial@/dev/ttyUSB1:115200: bad packet
+serial@/dev/ttyUSB1:115200: bad packet
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 32 37 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 32 39 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 33 32 
+00 FF FF 00 00 1C 00 64 0A 41 4D 53 65 6E 64 2E 73 65 6E 64 44 6F 6E 65 0A 00 00 00 00 00 00 00 00 00 00 00 
+serial@/dev/ttyUSB1:115200: bad packet
+serial@/dev/ttyUSB1:115200: bad packet
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 33 35 
+serial@/dev/ttyUSB1:115200: bad packet
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 33 37 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 41 4D 53 65 6E 64 2E 73 65 6E 64 44 6F 6E 65 0A 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 33 39 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 34 30 
+00 FF FF 00 00 1C 00 64 0A 41 4D 53 65 6E 64 2E 73 65 6E 64 44 6F 6E 65 0A 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 34 31 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 41 4D 53 65 6E 64 2E 73 65 6E 64 44 6F 6E 65 0A 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 34 32 
+serial@/dev/ttyUSB1:115200: bad packet
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 34 34 
+serial@/dev/ttyUSB1:115200: bad packet
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 34 38 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 34 39 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 41 4D 53 65 6E 64 2E 73 65 6E 64 44 6F 6E 65 0A 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 73 6F 75 72 63 65 20 49 44 20 69 73 3A 20 32 0A 63 6F 75 6E 74 65 72 20 49 44 20 69 
+serial@/dev/ttyUSB1:115200: bad packet
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 35 31 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 41 4D 53 65 6E 64 2E 73 65 6E 64 44 6F 6E 65 0A 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 35 32 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 41 4D 53 65 6E 64 2E 73 65 6E 64 44 6F 6E 65 0A 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 35 34 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 41 4D 53 65 6E 64 2E 73 65 6E 64 44 6F 6E 65 0A 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 35 36 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 41 4D 53 65 6E 64 2E 73 65 6E 64 44 6F 6E 65 0A 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 35 37 
+00 FF FF 00 00 1C 00 64 0A 41 4D 53 65 6E 64 2E 73 65 6E 64 44 6F 6E 65 0A 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 35 38 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+serial@/dev/ttyUSB1:115200: bad packet
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 36 31 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 41 4D 53 65 6E 64 2E 73 65 6E 64 44 6F 6E 65 0A 00 00 00 00 00 00 00 00 00 00 00 00 
+serial@/dev/ttyUSB1:115200: bad packet
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 36 33 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 41 4D 53 65 6E 64 2E 73 65 6E 64 44 6F 6E 65 0A 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 36 34 
+serial@/dev/ttyUSB1:115200: bad packet
+00 FF FF 00 00 1C 00 64 41 4D 53 65 6E 64 2E 73 65 6E 64 44 6F 6E 65 0A 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 36 36 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 41 4D 53 65 6E 64 2E 73 65 6E 64 44 6F 6E 65 0A 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 36 38 
+00 FF FF 00 00 1C 00 64 0A 41 4D 53 65 6E 64 2E 73 65 6E 64 44 6F 6E 65 0A 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 36 39 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+serial@/dev/ttyUSB1:115200: bad packet
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 37 32 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 41 4D 53 65 6E 64 2E 73 65 6E 64 44 6F 6E 65 0A 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 37 33 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 41 4D 53 65 6E 64 2E 73 65 6E 64 44 6F 6E 65 0A 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 4E 4F 44 45 20 49 44 20 49 53 20 31 0A 63 6F 75 6E 74 65 72 20 69 73 3A 20 31 37 34 
+00 FF FF 00 00 1C 00 64 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 FF FF 00 00 1C 00 64 41 4D 53 65 6E 64 2E 73 65 6E 64 44 6F 6E 65 0A 00 00 00 00 00 00 00 00 00 00 00 00 
+^C]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio [00m$ motelist
+Reference  Device           Description
+---------- ---------------- ---------------------------------------------
+MFUD5W27   /dev/ttyUSB1     FTDI MTM-CM5000MSP
+]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio [00m$ cd e
+bash: cd: e: No such file or directory
+]0;ezio@ezio-VirtualBox: /media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_tinyos-main-read-only/apps/tutorials/BlinkToRadio [00m$ exit
+exit
+
+Script done on gio 30 giu 2016 15:41:19 CEST

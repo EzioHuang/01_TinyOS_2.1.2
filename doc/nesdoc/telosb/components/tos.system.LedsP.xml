@@ -1,0 +1,91 @@
+<?xml version="1.0" ?><component loc="44:/home/ezio/tinyos-main-read-only/tos/system/LedsP.nc" nicename="tos.system.LedsP" qname="LedsP" safe="">
+      <documentation loc="35:/home/ezio/tinyos-main-read-only/tos/system/LedsP.nc">
+        <short>
+ The implementation of the standard 3 LED mote abstraction.</short>
+        <long>
+ The implementation of the standard 3 LED mote abstraction.
+
+ @author Joe Polastre
+ @author Philip Levis
+
+ @date   March 21, 2005
+</long>
+      </documentation>
+      <module/>
+    <specification><interface loc="50:/home/ezio/tinyos-main-read-only/tos/system/LedsP.nc" name="Led0" provided="0" ref="0x7f0e31b7b7b0">
+      <component-ref nicename="tos.system.LedsP" qname="LedsP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Led0" ref="0x7f0e31b7b7b0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.GeneralIO" qname="GeneralIO"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="makeInput" ref="0x7f0e31b7bb30" scoped=""/>
+        <function-ref name="isInput" ref="0x7f0e31b7bcc0" scoped=""/>
+        <function-ref name="toggle" ref="0x7f0e31b7be50" scoped=""/>
+        <function-ref name="isOutput" ref="0x7f0e31b80020" scoped=""/>
+        <function-ref name="get" ref="0x7f0e31b801b0" scoped=""/>
+        <function-ref name="makeOutput" ref="0x7f0e31b80340" scoped=""/>
+        <function-ref name="set" ref="0x7f0e31b804d0" scoped=""/>
+        <function-ref name="clr" ref="0x7f0e31b80660" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="46:/home/ezio/tinyos-main-read-only/tos/system/LedsP.nc" name="Init" provided="1" ref="0x7f0e31b86a90">
+      <component-ref nicename="tos.system.LedsP" qname="LedsP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Init" ref="0x7f0e31b86a90" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Init" qname="Init"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="init" ref="0x7f0e31b86e10" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="51:/home/ezio/tinyos-main-read-only/tos/system/LedsP.nc" name="Led1" provided="0" ref="0x7f0e31b80980">
+      <component-ref nicename="tos.system.LedsP" qname="LedsP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Led1" ref="0x7f0e31b80980" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.GeneralIO" qname="GeneralIO"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="makeInput" ref="0x7f0e31b80d00" scoped=""/>
+        <function-ref name="isInput" ref="0x7f0e31b7f020" scoped=""/>
+        <function-ref name="toggle" ref="0x7f0e31b7f1b0" scoped=""/>
+        <function-ref name="isOutput" ref="0x7f0e31b7f340" scoped=""/>
+        <function-ref name="get" ref="0x7f0e31b7f4d0" scoped=""/>
+        <function-ref name="makeOutput" ref="0x7f0e31b7f660" scoped=""/>
+        <function-ref name="set" ref="0x7f0e31b7f7f0" scoped=""/>
+        <function-ref name="clr" ref="0x7f0e31b7f980" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="47:/home/ezio/tinyos-main-read-only/tos/system/LedsP.nc" name="Leds" provided="1" ref="0x7f0e31b830c0">
+      <component-ref nicename="tos.system.LedsP" qname="LedsP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Leds" ref="0x7f0e31b830c0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Leds" qname="Leds"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="led0Off" ref="0x7f0e31b83440" scoped=""/>
+        <function-ref name="led0Toggle" ref="0x7f0e31b835d0" scoped=""/>
+        <function-ref name="led1On" ref="0x7f0e31b83760" scoped=""/>
+        <function-ref name="led1Toggle" ref="0x7f0e31b838f0" scoped=""/>
+        <function-ref name="led2Toggle" ref="0x7f0e31b83a80" scoped=""/>
+        <function-ref name="get" ref="0x7f0e31b83c10" scoped=""/>
+        <function-ref name="led1Off" ref="0x7f0e31b83da0" scoped=""/>
+        <function-ref name="led2Off" ref="0x7f0e31b824d0" scoped=""/>
+        <function-ref name="set" ref="0x7f0e31b82020" scoped=""/>
+        <function-ref name="led0On" ref="0x7f0e31b821b0" scoped=""/>
+        <function-ref name="led2On" ref="0x7f0e31b82340" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="52:/home/ezio/tinyos-main-read-only/tos/system/LedsP.nc" name="Led2" provided="0" ref="0x7f0e31b7fca0">
+      <component-ref nicename="tos.system.LedsP" qname="LedsP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Led2" ref="0x7f0e31b7fca0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.GeneralIO" qname="GeneralIO"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="makeInput" ref="0x7f0e31b790a0" scoped=""/>
+        <function-ref name="isInput" ref="0x7f0e31b79230" scoped=""/>
+        <function-ref name="toggle" ref="0x7f0e31b793c0" scoped=""/>
+        <function-ref name="isOutput" ref="0x7f0e31b79550" scoped=""/>
+        <function-ref name="get" ref="0x7f0e31b796e0" scoped=""/>
+        <function-ref name="makeOutput" ref="0x7f0e31b79870" scoped=""/>
+        <function-ref name="set" ref="0x7f0e31b79a00" scoped=""/>
+        <function-ref name="clr" ref="0x7f0e31b79b90" scoped=""/>
+      </interface-functions>
+    </interface></specification><referenced/></component>

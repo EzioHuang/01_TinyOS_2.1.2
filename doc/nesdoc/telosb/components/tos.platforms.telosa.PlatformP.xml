@@ -1,0 +1,39 @@
+<?xml version="1.0" ?><component loc="3:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/PlatformP.nc" nicename="tos.platforms.telosa.PlatformP" qname="PlatformP" safe="">
+      <module/>
+    <specification><interface loc="6:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/PlatformP.nc" name="MoteInit" provided="0" ref="0x7f0e31d89e10">
+      <component-ref nicename="tos.platforms.telosa.PlatformP" qname="PlatformP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="MoteInit" ref="0x7f0e31d89e10" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Init" qname="Init"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="init" ref="0x7f0e31d881c0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="4:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/PlatformP.nc" name="Init" provided="1" ref="0x7f0e31d89020">
+      <component-ref nicename="tos.platforms.telosa.PlatformP" qname="PlatformP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Init" ref="0x7f0e31d89020" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Init" qname="Init"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="init" ref="0x7f0e31d893a0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="5:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/PlatformP.nc" name="MoteClockInit" provided="0" ref="0x7f0e31d89730">
+      <component-ref nicename="tos.platforms.telosa.PlatformP" qname="PlatformP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="MoteClockInit" ref="0x7f0e31d89730" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Init" qname="Init"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="init" ref="0x7f0e31d89ab0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="7:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/PlatformP.nc" name="LedsInit" provided="0" ref="0x7f0e31d88520">
+      <component-ref nicename="tos.platforms.telosa.PlatformP" qname="PlatformP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="LedsInit" ref="0x7f0e31d88520" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Init" qname="Init"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="init" ref="0x7f0e31d888a0" scoped=""/>
+      </interface-functions>
+    </interface></specification><referenced/></component>

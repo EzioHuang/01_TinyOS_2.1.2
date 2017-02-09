@@ -1,0 +1,464 @@
+Script started on mer 17 ago 2016 10:25:57 CEST
+Setting up for TinyOS 2.1.2 Repository Version
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[00m$ make clean
+rm -rf build  pp
+rm -rf _TOSSIMmodule.so TOSSIM.pyc TOSSIM.py app.xml simbuild
+rm -rf VolumeMapC.nc
+rm -f BlinkConfigAppC.cmap BlinkConfigAppC.dot BlinkConfigAppC.html BlinkConfigAppC.png
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[00m$ date
+mer 17 ago 2016, 10.26.07, CEST
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[00m$ df -h
+Filesystem                   Size  Used Avail Use% Mounted on
+udev                         477M     0  477M   0% /dev
+tmpfs                        100M  3,7M   96M   4% /run
+/dev/mapper/ubuntu--vg-root  8,3G  6,3G  1,6G  80% /
+tmpfs                        497M  136K  497M   1% /dev/shm
+tmpfs                        5,0M  4,0K  5,0M   1% /run/lock
+tmpfs                        497M     0  497M   0% /sys/fs/cgroup
+/dev/sda1                    472M  152M  296M  34% /boot
+tmpfs                        100M   52K  100M   1% /run/user/1000
+Ezio                         112G   51G   62G  46% /media/sf_Ezio
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[00m$ make [K[K[K[K[Kdf -h[1Patemake cleanshutdown -h nowjava net.tinyos.toools.PrintfClient [A]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[00m$ [3Pshutdown -h now
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5Pmake clean[6Pdatef -h[Kdf -h[1Patemake cleanshutdown -h nowjava net.tinyos.toools.PrintfClient [A]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[00m$ make telosb install[K
+mkdir -p build/telosb
+tos-storage-stm25p  /home/ezio/tinyos-main-read-only/tos/platforms/telosb <volumes-stm25p.xml >build/telosb/StorageVolumes.h || rm -f build/telosb/StorageVolumes.h
+    compiling BlinkConfigAppC to a telosb binary
+ncc -o build/telosb/main.exe  -Os -fnesc-separator=__ -Wall -Wshadow -Wnesc-all -target=telosb -fnesc-cfile=build/telosb/app.c -board= -DDEFINED_TOS_AM_GROUP=0x22 -Ibuild/telosb -I/home/ezio/tinyos-main-read-only/tos/lib/printf -DIDENT_APPNAME=\"BlinkConfigAppC\" -DIDENT_USERNAME=\"ezio\" -DIDENT_HOSTNAME=\"ezio-VirtualBox\" -DIDENT_USERHASH=0x30cf1021L -DIDENT_TIMESTAMP=0x57b41fb1L -DIDENT_UIDHASH=0xa4ab552aL  BlinkConfigAppC.nc -lm 
+    compiled BlinkConfigAppC to build/telosb/main.exe
+           13876 bytes in ROM
+             780 bytes in RAM
+msp430-objcopy --output-target=ihex build/telosb/main.exe build/telosb/main.ihex
+    writing TOS image
+cp build/telosb/main.ihex build/telosb/main.ihex.out
+    found mote on /dev/ttyUSB0 (using bsl,auto)
+    installing telosb binary using bsl
+tos-bsl --telosb -c /dev/ttyUSB0 -r -e -I -p build/telosb/main.ihex.out
+MSP430 Bootstrap Loader Version: 1.39-goodfet-8
+Mass Erase...
+Transmit default password ...
+Invoking BSL...
+Transmit default password ...
+Current bootstrap loader version: 1.61 (Device ID: f16c)
+Changing baudrate to 38400 ...
+Program ...
+14662 bytes programmed.
+Reset device ...
+rm -f build/telosb/main.exe.out build/telosb/main.ihex.out 
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[00m$ make telosb installl[A]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[00m$ df -h[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Patemake cleanshutdown -h nowjava net.tinyos.toools.PrintfClient 
+Thread[Thread-1,5,main]serial@/dev/ttyUSB0:115200: resynchronising
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+Boot.booted conf.period is a uint32: 10240
+Mount.mountDone: 0
+Mount SUCCESS: !
+Config is valid!
+Config.readDone started
+conf.period = conf.period/2 256
+conf.version = 1
+MIN_PERIOD = 128
+MAX_PERIOD = 1024
+conf.period = conf.period/2 128
+conf.period = conf.period > MAX_PERIOD ? MAX_PERIOD : conf.period 128
+conf.period = conf.period < MIN_PEConfig.writeDone started
+conf.period = 128
+conf.version = 1
+Config.commit Done
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+Boot.booted conf.period is a uint32: 10240
+Mount.mountDone: 0
+Mount SUCCESS: !
+Config is valid!
+Config.readDone started
+conf.period = conf.period/2 128
+conf.version = 1
+MIN_PERIOD = 128
+MAX_PERIOD = 1024
+conf.period = conf.period/2 64
+conf.period = conf.period > MAX_PERIOD ? MAX_PERIOD : conf.period 64
+conf.period = conf.period < MIN_PERIConfig.writeDone started
+conf.period = 1024
+conf.version = 1
+Config.commit Done
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+Boot.booted conf.period is a uint32: 10240
+Mount.mountDone: 0
+Mount SUCCESS: !
+Config is valid!
+Config.readDone started
+conf.period = conf.period/2 1024
+conf.version = 1
+MIN_PERIOD = 128
+MAX_PERIOD = 1024
+conf.period = conf.period/2 512
+conf.period = conf.period > MAX_PERIOD ? MAX_PERIOD : conf.period 512
+conf.period = conf.period < MIN_PConfig.writeDone started
+conf.period = 512
+conf.version = 1
+Config.commit Done
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+Boot.booted conf.period is a uint32: 10240
+Mount.mountDone: 0
+Mount SUCCESS: !
+Config is valid!
+Config.readDone started
+conf.period = conf.period/2 512
+conf.version = 1
+MIN_PERIOD = 128
+MAX_PERIOD = 1024
+conf.period = conf.period/2 256
+conf.period = conf.period > MAX_PERIOD ? MAX_PERIOD : conf.period 256
+conf.period = conf.period < MIN_PEConfig.writeDone started
+conf.period = 256
+conf.version = 1
+Config.commit Done
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+Boot.booted conf.period is a uint32: 10240
+Mount.mountDone: 0
+Mount SUCCESS: !
+Config is valid!
+Config.readDone started
+conf.period = conf.period/2 256
+conf.version = 1
+MIN_PERIOD = 128
+MAX_PERIOD = 1024
+conf.period = conf.period/2 128
+conf.period = conf.period > MAX_PERIOD ? MAX_PERIOD : conf.period 128
+conf.period = conf.period < MIN_PEConfig.writeDone started
+conf.period = 128
+conf.version = 1
+Config.commit Done
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+Boot.booted conf.period is a uint32: 10240
+Mount.mountDone: 0
+Mount SUCCESS: !
+Config is valid!
+Config.readDone started
+conf.period = conf.period/2 128
+conf.version = 1
+MIN_PERIOD = 128
+MAX_PERIOD = 1024
+conf.period = conf.period/2 64
+conf.period = conf.period > MAX_PERIOD ? MAX_PERIOD : conf.period 64
+conf.period = conf.period < MIN_PERIConfig.writeDone started
+conf.period = 1024
+conf.version = 1
+Config.commit Done
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+^C]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[00m$ java net.tinyos.toools.PrintfClient 
+Thread[Thread-1,5,main]serial@/dev/ttyUSB0:115200: resynchronising
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+Boot.booted conf.period is a uint32: 10240
+Mount.mountDone: 0
+Mount SUCCESS: !
+Config is valid!
+Config.readDone started
+conf.period = conf.period/2 256
+conf.version = 1
+MIN_PERIOD = 128
+MAX_PERIOD = 1024
+conf.period = conf.period/2 128
+conf.period = conf.period > MAX_PERIOD ? MAX_PERIOD : conf.period 128
+conf.period = conf.period < MIN_PEConfig.writeDone started
+conf.period = 128
+conf.version = 1
+Config.commit Done
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+Boot.booted conf.period is a uint32: 10240
+Mount.mountDone: 0
+Mount SUCCESS: !
+Config is valid!
+Config.readDone started
+conf.period = conf.period/2 128
+conf.version = 1
+MIN_PERIOD = 128
+MAX_PERIOD = 1024
+conf.period = conf.period/2 64
+conf.period = conf.period > MAX_PERIOD ? MAX_PERIOD : conf.period 64
+conf.period = conf.period < MIN_PERIConfig.writeDone started
+conf.period = 1024
+conf.version = 1
+Config.commit Done
+event void Timer0.fired
+event void Timer0.fired
+Boot.booted conf.period is a uint32: 10240
+Mount.mountDone: 0
+Mount SUCCESS: !
+Config is valid!
+Config.readDone started
+conf.period = conf.period/2 1024
+conf.version = 1
+MIN_PERIOD = 128
+MAX_PERIOD = 1024
+conf.period = conf.period/2 512
+conf.period = conf.period > MAX_PERIOD ? MAX_PERIOD : conf.period 512
+conf.period = conf.period < MIN_PConfig.writeDone started
+conf.period = 512
+conf.version = 1
+Config.commit Done
+event void Timer0.fired
+Boot.booted conf.period is a uint32: 10240
+Mount.mountDone: 0
+Mount SUCCESS: !
+Config is valid!
+Config.readDone started
+conf.period = conf.period/2 512
+conf.version = 1
+MIN_PERIOD = 128
+MAX_PERIOD = 1024
+conf.period = conf.period/2 256
+conf.period = conf.period > MAX_PERIOD ? MAX_PERIOD : conf.period 256
+conf.period = conf.period < MIN_PEConfig.writeDone started
+conf.period = 256
+conf.version = 1
+Config.commit Done
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+Boot.booted conf.period is a uint32: 10240
+Mount.mountDone: 0
+Mount SUCCESS: !
+Config is valid!
+Config.readDone started
+conf.period = conf.period/2 256
+conf.version = 1
+MIN_PERIOD = 128
+MAX_PERIOD = 1024
+conf.period = conf.period/2 128
+conf.period = conf.period > MAX_PERIOD ? MAX_PERIOD : conf.period 128
+conf.period = conf.period < MIN_PEConfig.writeDone started
+conf.period = 128
+conf.version = 1
+Config.commit Done
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+Boot.booted conf.period is a uint32: 10240
+Mount.mountDone: 0
+Mount SUCCESS: !
+Config is valid!
+Config.readDone started
+conf.period = conf.period/2 128
+conf.version = 1
+MIN_PERIOD = 128
+MAX_PERIOD = 1024
+conf.period = conf.period/2 64
+conf.period = conf.period > MAX_PERIOD ? MAX_PERIOD : conf.period 64
+conf.period = conf.period < MIN_PERIConfig.writeDone started
+conf.period = 1024
+conf.version = 1
+Config.commit Done
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+^C]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[00m$ java net.tinyos.toools.PrintfClient 
+Thread[Thread-1,5,main]serial@/dev/ttyUSB0:115200 died - exiting (java.io.IOException: Could not open /dev/ttyUSB0: TOSComm JNI library runtime error: open: No such file or directory)
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[00m$ java net.tinyos.toools.PrintfClient 
+Thread[Thread-1,5,main]serial@/dev/ttyUSB0:115200: resynchronising
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+Boot.booted conf.period is a uint32: 10240
+Mount.mountDone: 0
+Mount SUCCESS: !
+Config is valid!
+Config.readDone started
+conf.period = conf.period/2 512
+conf.version = 1
+MIN_PERIOD = 128
+MAX_PERIOD = 1024
+conf.period = conf.period/2 256
+conf.period = conf.period > MAX_PERIOD ? MAX_PERIOD : conf.period 256
+conf.period = conf.period < MIN_PEConfig.writeDone started
+conf.period = 256
+conf.version = 1
+Config.commit Done
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+Boot.booted conf.period is a uint32: 10240
+Mount.mountDone: 0
+Mount SUCCESS: !
+Config is valid!
+Config.readDone started
+conf.period = conf.period/2 256
+conf.version = 1
+MIN_PERIOD = 128
+MAX_PERIOD = 1024
+conf.period = conf.period/2 128
+conf.period = conf.period > MAX_PERIOD ? MAX_PERIOD : conf.period 128
+conf.period = conf.period < MIN_PEConfig.writeDone started
+conf.period = 128
+conf.version = 1
+Config.commit Done
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+Boot.booted conf.period is a uint32: 10240
+Mount.mountDone: 0
+Mount SUCCESS: !
+Config is valid!
+Config.readDone started
+conf.period = conf.period/2 128
+conf.version = 1
+MIN_PERIOD = 128
+MAX_PERIOD = 1024
+conf.period = conf.period/2 64
+conf.period = conf.period > MAX_PERIOD ? MAX_PERIOD : conf.period 64
+conf.period = conf.period < MIN_PERIConfig.writeDone started
+conf.period = 1024
+conf.version = 1
+Config.commit Done
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+event void Timer0.fired
+^C]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[00m$ ls
+[0m[01;32mBlinkConfigAppC.nc[0m  [01;32mBlinkConfig.log[0m  [01;32mMakefile[0m    [01;32mvolumes-at45db.xml[0m
+[01;32mBlinkConfigC.nc[0m     [01;34mbuild[0m            [01;32mREADME.txt[0m  [01;32mvolumes-stm25p.xml[0m
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkConfig[00m$ exit
+exit
+
+Script done on mer 17 ago 2016 10:33:05 CEST

@@ -1,0 +1,256 @@
+Script started on gio 14 lug 2016 15:37:44 CEST
+Setting up for TinyOS 2.1.2 Repository Version
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ cat Makefile 
+COMPONENT=BlinkToRadioAppC
+
+BUILD_EXTRA_DEPS += BlinkToRadio.class
+CLEAN_EXTRA = *.class BlinkToRadioMsg.java
+#BlinkToRadio.class: $(wildcard *.java) BlinkToRadioMsg.java
+#	javac -target 1.4 -source 1.4 *.java
+
+BlinkToRadioMsg.class: BlinkToRadioMsg.java
+	javac BlinkToRadioMsg.java
+
+#BlinkToRadioMsg.java:
+#	mig java -target=null $(CFLAGS) -java-classname=BlinkToRadioMsg BlinkToRadio.h BlinkToRadioMsg -o $@
+BlinkToRadioMsg.java:
+	mig java -target=null -java-classname=BlinkToRadioMsg BlinkToRadio.h BlinkToRadioMsg -o $@
+
+ 
+include $(MAKERULES)
+
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ 
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ make teslo[K[K[Klosb install
+mkdir -p build/telosb
+make: *** No rule to make target 'BlinkToRadio.class', needed by 'exe0'.  Stop.
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ ls
+[0m[01;32m1.4MotePC_14072016.log[0m       [01;32m1.4MotePCUSB1.log[0m  [01;32mBlinkToRadioAppC.nc[0m  [01;34mbuild[0m
+[01;32m1.4MotePC_USB0_07072016.log[0m  [01;32m1.4MotePCUSB2.log[0m  [01;32mBlinkToRadioC.nc[0m     [01;32mMakefile[0m
+[01;32m1.4MotePCUSB0.log[0m            [01;32m1.4MotePCUSB3.log[0m  [01;32mBlinkToRadio.h[0m       [01;32mREADME.txt[0m
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ lsmake telosb install
+mkdir -p build/telosb
+make: *** No rule to make target 'BlinkToRadio.class', needed by 'exe0'.  Stop.
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ make telosb install[K[K[K[K[K[K[K[K
+mkdir -p build/telosb
+make: *** No rule to make target 'BlinkToRadio.class', needed by 'exe0'.  Stop.
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ make telosb
+mkdir -p build/telosb
+make: *** No rule to make target 'BlinkToRadio.class', needed by 'exe0'.  Stop.
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ make telosb
+mkdir -p build/telosb
+make: *** No rule to make target 'BlinkToRadio.class', needed by 'exe0'.  Stop.
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ make telosb
+mkdir -p build/telosb
+mig java -target=null -java-classname=BlinkToRadioMsg BlinkToRadio.h BlinkToRadioMsg -o BlinkToRadioMsg.java
+javac BlinkToRadioMsg.java
+    compiling BlinkToRadioAppC to a telosb binary
+ncc -o build/telosb/main.exe  -Os -fnesc-separator=__ -Wall -Wshadow -Wnesc-all -target=telosb -fnesc-cfile=build/telosb/app.c -board= -DDEFINED_TOS_AM_GROUP=0x22 -DIDENT_APPNAME=\"BlinkToRadioApp\" -DIDENT_USERNAME=\"ezio\" -DIDENT_HOSTNAME=\"ezio-VirtualBox\" -DIDENT_USERHASH=0x30cf1021L -DIDENT_TIMESTAMP=0x5787a6c7L -DIDENT_UIDHASH=0x07169a2bL  BlinkToRadioAppC.nc -lm 
+/home/ezio/tinyos-main-read-only/tos/chips/cc2420/lpl/DummyLplC.nc:39:2: warning: #warning "*** LOW POWER COMMUNICATIONS DISABLED ***"
+    compiled BlinkToRadioAppC to build/telosb/main.exe
+           14040 bytes in ROM
+             584 bytes in RAM
+msp430-objcopy --output-target=ihex build/telosb/main.exe build/telosb/main.ihex
+    writing TOS image
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ make telosb
+mkdir -p build/telosb
+    compiling BlinkToRadioAppC to a telosb binary
+ncc -o build/telosb/main.exe  -Os -fnesc-separator=__ -Wall -Wshadow -Wnesc-all -target=telosb -fnesc-cfile=build/telosb/app.c -board= -DDEFINED_TOS_AM_GROUP=0x22 -DIDENT_APPNAME=\"BlinkToRadioApp\" -DIDENT_USERNAME=\"ezio\" -DIDENT_HOSTNAME=\"ezio-VirtualBox\" -DIDENT_USERHASH=0x30cf1021L -DIDENT_TIMESTAMP=0x5787a6feL -DIDENT_UIDHASH=0x60207ea7L  BlinkToRadioAppC.nc -lm 
+/home/ezio/tinyos-main-read-only/tos/chips/cc2420/lpl/DummyLplC.nc:39:2: warning: #warning "*** LOW POWER COMMUNICATIONS DISABLED ***"
+    compiled BlinkToRadioAppC to build/telosb/main.exe
+           14040 bytes in ROM
+             584 bytes in RAM
+msp430-objcopy --output-target=ihex build/telosb/main.exe build/telosb/main.ihex
+    writing TOS image
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ mskr v[K[K[K[K[K[Kmake celan[K[K[K[Klean
+rm -rf build *.class BlinkToRadioMsg.java pp
+rm -rf _TOSSIMmodule.so TOSSIM.pyc TOSSIM.py app.xml simbuild
+rm -rf VolumeMapC.nc
+rm -f BlinkToRadioAppC.cmap BlinkToRadioAppC.dot BlinkToRadioAppC.html BlinkToRadioAppC.png
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ make telosb
+mkdir -p build/telosb
+mig java -target=null -java-classname=BlinkToRadioMsg BlinkToRadio.h BlinkToRadioMsg -o BlinkToRadioMsg.java
+javac BlinkToRadioMsg.java
+    compiling BlinkToRadioAppC to a telosb binary
+ncc -o build/telosb/main.exe  -Os -fnesc-separator=__ -Wall -Wshadow -Wnesc-all -target=telosb -fnesc-cfile=build/telosb/app.c -board= -DDEFINED_TOS_AM_GROUP=0x22 -DIDENT_APPNAME=\"BlinkToRadioApp\" -DIDENT_USERNAME=\"ezio\" -DIDENT_HOSTNAME=\"ezio-VirtualBox\" -DIDENT_USERHASH=0x30cf1021L -DIDENT_TIMESTAMP=0x5787a70aL -DIDENT_UIDHASH=0xe15cdc88L  BlinkToRadioAppC.nc -lm 
+/home/ezio/tinyos-main-read-only/tos/chips/cc2420/lpl/DummyLplC.nc:39:2: warning: #warning "*** LOW POWER COMMUNICATIONS DISABLED ***"
+    compiled BlinkToRadioAppC to build/telosb/main.exe
+           14040 bytes in ROM
+             584 bytes in RAM
+msp430-objcopy --output-target=ihex build/telosb/main.exe build/telosb/main.ihex
+    writing TOS image
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ make telosb install
+mkdir -p build/telosb
+    compiling BlinkToRadioAppC to a telosb binary
+ncc -o build/telosb/main.exe  -Os -fnesc-separator=__ -Wall -Wshadow -Wnesc-all -target=telosb -fnesc-cfile=build/telosb/app.c -board= -DDEFINED_TOS_AM_GROUP=0x22 -DIDENT_APPNAME=\"BlinkToRadioApp\" -DIDENT_USERNAME=\"ezio\" -DIDENT_HOSTNAME=\"ezio-VirtualBox\" -DIDENT_USERHASH=0x30cf1021L -DIDENT_TIMESTAMP=0x5787a720L -DIDENT_UIDHASH=0xecddee5bL  BlinkToRadioAppC.nc -lm 
+/home/ezio/tinyos-main-read-only/tos/chips/cc2420/lpl/DummyLplC.nc:39:2: warning: #warning "*** LOW POWER COMMUNICATIONS DISABLED ***"
+    compiled BlinkToRadioAppC to build/telosb/main.exe
+           14040 bytes in ROM
+             584 bytes in RAM
+msp430-objcopy --output-target=ihex build/telosb/main.exe build/telosb/main.ihex
+    writing TOS image
+cp build/telosb/main.ihex build/telosb/main.ihex.out
+    found mote on /dev/ttyUSB0 (using bsl,auto)
+    installing telosb binary using bsl
+tos-bsl --telosb -c /dev/ttyUSB0 -r -e -I -p build/telosb/main.ihex.out
+MSP430 Bootstrap Loader Version: 1.39-goodfet-8
+Mass Erase...
+MSP430 Bootstrap Loader Version: 1.39-goodfet-8
+Mass Erase...
+Transmit default password ...
+Invoking BSL...
+Transmit default password ...
+Current bootstrap loader version: 1.61 (Device ID: f16c)
+Changing baudrate to 38400 ...
+Program ...
+14184 bytes programmed.
+Reset device ...
+rm -f build/telosb/main.exe.out build/telosb/main.ihex.out 
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ javan[K net.tinyos.tools.MsgReader BlinkToRadioMsg.[K
+sf@localhost:9002 died - exiting (java.net.ConnectException: Connection refused)
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ java net.tinyos.tools.MsgReader BlinkToRadioMsg -comm se
+rial@/dev/ttyUSB0:telosb
+serial@/dev/ttyUSB0:115200: resynchronising
+^C]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ java net.tinyos.tools.MsgReader BlinkToRadioMsg -comm se
+rial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm seri[1Pal@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cg -comm serial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C. -comm serial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+BlinkToRadioMsg.class  BlinkToRadioMsg.java   
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ java net.tinyos.tools.MsgReader BlinkToRadioMsg. -comm seerial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cc -comm serial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cl -comm serial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cass -comm serial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+java.lang.ClassNotFoundException: BlinkToRadioMsg.class
+serial@/dev/ttyUSB0:115200: resynchronising
+^C]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ java net.tinyos.tools.MsgReader BlinkToRadioMsg.class -c
+omm serial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -com[C[1P serial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm[1P serial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm [1Pserial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm s[1Perial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm se[1Prial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm ser[1Pial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C. -comm serial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cj -comm serial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ca -comm serial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cva -comm serial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+java.lang.ClassNotFoundException: BlinkToRadioMsg.java
+serial@/dev/ttyUSB0:115200: resynchronising
+^C]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ java net.tinyos.tools.MsgReader BlinkToRadioMsg.java -co
+mm serial@/dev/ttyUSB0:telosb[C[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm[1P serial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm [1Pserial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm s[1Perial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm se[1Prial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm ser[1Pial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm seri[1Pal@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm seria[1Pl@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm serial[1P@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+BlinkToRadioAppC.nc    BlinkToRadio.h         BlinkToRadioMsg.java
+BlinkToRadioC.nc       BlinkToRadioMsg.class  
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ java net.tinyos.tools.MsgReader BlinkToRadio -comm seriall@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CM -comm serial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csg. -comm serial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm ser[1Pial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C. -comm serial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm ser[1Pial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+serial@/dev/ttyUSB0:115200: resynchronising
+^C]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ java net.tinyos.tools.MsgReader BlinkToRadioMsg -comm se
+rial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C BlinkToRadioMsg -comm seri[1Pal@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C BlinkToRadioMsg -comm seria[1Pl@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C BlinkToRadioMsg -comm serial[1P@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C BlinkToRadioMsg -comm serial@[1P/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C BlinkToRadioMsg -comm serial@/[1Pdev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C BlinkToRadioMsg -comm serial@/d[1Pev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C BlinkToRadioMsg -comm serial@/de[1Pv/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C BlinkToRadioMsg -comm serial@/dev[1P/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C BlinkToRadioMsg -comm serial@/dev/[1PttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CL BlinkToRadioMsg -comm serial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ci BlinkToRadioMsg -comm serial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cs BlinkToRadioMsg -comm serial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cten BlinkToRadioMsg -comm serial@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+usage: java net.tinyos.tools.Listen [-comm PACKETSOURCE]
+       (default packet source from MOTECOM environment variable)
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ java net.tinyos.tools.Listen BlinkToRadioMsg -comm seria
+l@/dev/ttyUSB0:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CMsgReader BlinkToRadioMsg -comm serial@/dev/ttyUSB0:telosb[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K
+sf@localhost:9002 died - exiting (java.net.ConnectException: Connection refused)
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ male cle[K[K[K[K[K[Kke clean
+rm -rf build *.class BlinkToRadioMsg.java pp
+rm -rf _TOSSIMmodule.so TOSSIM.pyc TOSSIM.py app.xml simbuild
+rm -rf VolumeMapC.nc
+rm -f BlinkToRadioAppC.cmap BlinkToRadioAppC.dot BlinkToRadioAppC.html BlinkToRadioAppC.png
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ make telosb install
+mkdir -p build/telosb
+mig java -target=null -java-classname=BlinkToRadioMsg BlinkToRadio.h BlinkToRadioMsg -o BlinkToRadioMsg.java
+javac BlinkToRadioMsg.java
+    compiling BlinkToRadioAppC to a telosb binary
+ncc -o build/telosb/main.exe  -Os -fnesc-separator=__ -Wall -Wshadow -Wnesc-all -target=telosb -fnesc-cfile=build/telosb/app.c -board= -DDEFINED_TOS_AM_GROUP=0x22 -DIDENT_APPNAME=\"BlinkToRadioApp\" -DIDENT_USERNAME=\"ezio\" -DIDENT_HOSTNAME=\"ezio-VirtualBox\" -DIDENT_USERHASH=0x30cf1021L -DIDENT_TIMESTAMP=0x5787a8acL -DIDENT_UIDHASH=0x5680d522L  BlinkToRadioAppC.nc -lm 
+/home/ezio/tinyos-main-read-only/tos/chips/cc2420/lpl/DummyLplC.nc:39:2: warning: #warning "*** LOW POWER COMMUNICATIONS DISABLED ***"
+    compiled BlinkToRadioAppC to build/telosb/main.exe
+           14040 bytes in ROM
+             584 bytes in RAM
+msp430-objcopy --output-target=ihex build/telosb/main.exe build/telosb/main.ihex
+    writing TOS image
+cp build/telosb/main.ihex build/telosb/main.ihex.out
+    found mote on /dev/ttyUSB0 (using bsl,auto)
+    installing telosb binary using bsl
+tos-bsl --telosb -c /dev/ttyUSB0 -r -e -I -p build/telosb/main.ihex.out
+MSP430 Bootstrap Loader Version: 1.39-goodfet-8
+Mass Erase...
+Transmit default password ...
+Invoking BSL...
+Transmit default password ...
+Current bootstrap loader version: 1.61 (Device ID: f16c)
+Changing baudrate to 38400 ...
+Program ...
+14184 bytes programmed.
+Reset device ...
+rm -f build/telosb/main.exe.out build/telosb/main.ihex.out 
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ make telosb install[9Pcleanjava net.tinyos.tools.MsgReader BlinkToRadioMsg
+sf@localhost:9002 died - exiting (java.net.ConnectException: Connection refused)
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ java net.tinyos.tools.MsgReader BlinkToRadioMsg -comm se
+rial@d[K/dev/ttyUSB0:telosb
+serial@/dev/ttyUSB0:115200: resynchronising
+^C]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ make clean
+rm -rf build *.class BlinkToRadioMsg.java pp
+rm -rf _TOSSIMmodule.so TOSSIM.pyc TOSSIM.py app.xml simbuild
+rm -rf VolumeMapC.nc
+rm -f BlinkToRadioAppC.cmap BlinkToRadioAppC.dot BlinkToRadioAppC.html BlinkToRadioAppC.png
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ make telosb install
+mkdir -p build/telosb
+mig java -target=null -java-classname=BlinkToRadioMsg BlinkToRadio.h BlinkToRadioMsg -o BlinkToRadioMsg.java
+javac BlinkToRadioMsg.java
+    compiling BlinkToRadioAppC to a telosb binary
+ncc -o build/telosb/main.exe  -Os -fnesc-separator=__ -Wall -Wshadow -Wnesc-all -target=telosb -fnesc-cfile=build/telosb/app.c -board= -DDEFINED_TOS_AM_GROUP=0x22 -DIDENT_APPNAME=\"BlinkToRadioApp\" -DIDENT_USERNAME=\"ezio\" -DIDENT_HOSTNAME=\"ezio-VirtualBox\" -DIDENT_USERHASH=0x30cf1021L -DIDENT_TIMESTAMP=0x5787a929L -DIDENT_UIDHASH=0xa8de5d44L  BlinkToRadioAppC.nc -lm 
+/home/ezio/tinyos-main-read-only/tos/chips/cc2420/lpl/DummyLplC.nc:39:2: warning: #warning "*** LOW POWER COMMUNICATIONS DISABLED ***"
+    compiled BlinkToRadioAppC to build/telosb/main.exe
+           14040 bytes in ROM
+             584 bytes in RAM
+msp430-objcopy --output-target=ihex build/telosb/main.exe build/telosb/main.ihex
+    writing TOS image
+cp build/telosb/main.ihex build/telosb/main.ihex.out
+    found mote on /dev/ttyUSB0 (using bsl,auto)
+    installing telosb binary using bsl
+tos-bsl --telosb -c /dev/ttyUSB0 -r -e -I -p build/telosb/main.ihex.out
+MSP430 Bootstrap Loader Version: 1.39-goodfet-8
+Mass Erase...
+Transmit default password ...
+Invoking BSL...
+Transmit default password ...
+Current bootstrap loader version: 1.61 (Device ID: f16c)
+Changing baudrate to 38400 ...
+Program ...
+14184 bytes programmed.
+Reset device ...
+rm -f build/telosb/main.exe.out build/telosb/main.ihex.out 
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ cd ../../
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps[00m$ l[Kcd  BaseStation
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/BaseStation[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/BaseSStation[00m$ ls
+[0m[01;32mBaseStationC.nc[0m  [01;32mBaseStationP.nc[0m  [01;34mbuild[0m  [01;32mMakefile[0m  [01;32mREADME.txt[0m
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/BaseStation[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/BaseSStation[00m$ make telosb install
+mkdir -p build/telosb
+    compiling BaseStationC to a telosb binary
+ncc -o build/telosb/main.exe  -Os -fnesc-separator=__ -Wall -Wshadow -Wnesc-all -target=telosb -fnesc-cfile=build/telosb/app.c -board= -DDEFINED_TOS_AM_GROUP=0x22 -DCC2420_NO_ACKNOWLEDGEMENTS -DCC2420_NO_ADDRESS_RECOGNITION -DTASKLET_IS_TASK -DIDENT_APPNAME=\"BaseStationC\" -DIDENT_USERNAME=\"ezio\" -DIDENT_HOSTNAME=\"ezio-VirtualBox\" -DIDENT_USERHASH=0x30cf1021L -DIDENT_TIMESTAMP=0x5787a943L -DIDENT_UIDHASH=0x6a9bfe27L  BaseStationC.nc -lm 
+/home/ezio/tinyos-main-read-only/tos/chips/cc2420/lpl/DummyLplC.nc:39:2: warning: #warning "*** LOW POWER COMMUNICATIONS DISABLED ***"
+    compiled BaseStationC to build/telosb/main.exe
+           14438 bytes in ROM
+            1818 bytes in RAM
+msp430-objcopy --output-target=ihex build/telosb/main.exe build/telosb/main.ihex
+    writing TOS image
+cp build/telosb/main.ihex build/telosb/main.ihex.out
+    found mote on /dev/ttyUSB0 (using bsl,auto)
+    installing telosb binary using bsl
+tos-bsl --telosb -c /dev/ttyUSB0 -r -e -I -p build/telosb/main.ihex.out
+MSP430 Bootstrap Loader Version: 1.39-goodfet-8
+Mass Erase...
+Transmit default password ...
+Invoking BSL...
+Transmit default password ...
+Current bootstrap loader version: 1.61 (Device ID: f16c)
+Changing baudrate to 38400 ...
+Program ...
+14582 bytes programmed.
+Reset device ...
+rm -f build/telosb/main.exe.out build/telosb/main.ihex.out 
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/BaseStation[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/BaseSStation[00m$ make telosb install[C[C[C[C[C[C[C[C[Cls[Kcd BaseStation[5P../../make telosb install[9Pcleantelosb install[9Pcleanjava net.tinyos.tools.MsgReader BlinkToRadioMsg -comm serial@/dev/ttyUS
+B0:telosb
+java.lang.ClassNotFoundException: BlinkToRadioMsg
+serial@/dev/ttyUSB0:115200: resynchronising
+^C]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/BaseStation[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/BaseSStation[00m$ cd ../../tu[K[K
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only[00m$ ls
+[0m[01;34mapps[0m  [01;32mgcc_change.log[0m              [01;34mjdk1.5.0_14[0m  [01;32mREADME[0m             [01;34msupport[0m  [01;34mtos[0m
+[01;34mdoc[0m   [01;32mgcc_version_correction.log[0m  [01;34mlicenses[0m     [01;32mrelease-notes.txt[0m  [01;34mtools[0m
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only[00m$ cd apps/  [Ktutorials/BlinkToRadio_Mig/
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ cd apps/tutorials/BlinkToRadio_Mig/[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kcd ../../java net.tinyos.tools.MsgReader BlinkToRadioMsg -comm se
+rial@/dev/ttyUSB0:telosb
+serial@/dev/ttyUSB0:115200: resynchronising
+^C]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ shutdown -h now
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ exit
+
+Script done on gio 14 lug 2016 19:13:35 CEST

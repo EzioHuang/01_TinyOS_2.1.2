@@ -1,0 +1,783 @@
+<?xml version="1.0" ?><component loc="48:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/Msp430Timer32khzMapC.nc" nicename="tos.platforms.telosa.Msp430Timer32khzMapC" qname="Msp430Timer32khzMapC">
+      <documentation loc="34:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/Msp430Timer32khzMapC.nc">
+        <short>
+ MSP430Timer32khzMapC presents as paramaterized interfaces all of
+ the 32khz hardware timers on the MSP430 that are available for
+ compile time allocation by &quot;new Alarm32khz16C()&quot;, &quot;new
+ AlarmMilli32C()&quot;, and so on.</short>
+        <long>
+ MSP430Timer32khzMapC presents as paramaterized interfaces all of
+ the 32khz hardware timers on the MSP430 that are available for
+ compile time allocation by &quot;new Alarm32khz16C()&quot;, &quot;new
+ AlarmMilli32C()&quot;, and so on.  
+
+ Platforms based on the MSP430 are * encouraged to copy in and
+ override this file, presenting only the * hardware timers that are
+ available for allocation on that platform.
+
+ @author Cory Sharp &lt;cssharp@eecs.berkeley.edu&gt;
+ @version $Revision: 1.5 $ $Date: 2010-06-29 22:07:55 $
+</long>
+      </documentation>
+      <configuration/>
+      <wiring>
+        <wire loc="58:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/Msp430Timer32khzMapC.nc">
+          <from><interface-ref name="Msp430Timer" ref="0x7f0e318df8b0" scoped=""/>
+          <arguments>
+            <value cst="I:0">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </from>
+          <to><interface-ref name="TimerB" ref="0x7f0e31cfcb70" scoped=""/></to>
+        </wire>
+        <wire loc="59:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/Msp430Timer32khzMapC.nc">
+          <from><interface-ref name="Msp430TimerControl" ref="0x7f0e318dc560" scoped=""/>
+          <arguments>
+            <value cst="I:0">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </from>
+          <to><interface-ref name="ControlB0" ref="0x7f0e31cfa410" scoped=""/></to>
+        </wire>
+        <wire loc="60:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/Msp430Timer32khzMapC.nc">
+          <from><interface-ref name="Msp430Compare" ref="0x7f0e318da020" scoped=""/>
+          <arguments>
+            <value cst="I:0">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </from>
+          <to><interface-ref name="CompareB0" ref="0x7f0e31cf0a20" scoped=""/></to>
+        </wire>
+        <wire loc="66:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/Msp430Timer32khzMapC.nc">
+          <from><interface-ref name="Msp430Timer" ref="0x7f0e318df8b0" scoped=""/>
+          <arguments>
+            <value cst="I:1">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </from>
+          <to><interface-ref name="TimerB" ref="0x7f0e31cfcb70" scoped=""/></to>
+        </wire>
+        <wire loc="67:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/Msp430Timer32khzMapC.nc">
+          <from><interface-ref name="Msp430TimerControl" ref="0x7f0e318dc560" scoped=""/>
+          <arguments>
+            <value cst="I:1">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </from>
+          <to><interface-ref name="ControlB2" ref="0x7f0e31cf7020" scoped=""/></to>
+        </wire>
+        <wire loc="68:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/Msp430Timer32khzMapC.nc">
+          <from><interface-ref name="Msp430Compare" ref="0x7f0e318da020" scoped=""/>
+          <arguments>
+            <value cst="I:1">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </from>
+          <to><interface-ref name="CompareB2" ref="0x7f0e31cee700" scoped=""/></to>
+        </wire>
+        <wire loc="70:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/Msp430Timer32khzMapC.nc">
+          <from><interface-ref name="Msp430Timer" ref="0x7f0e318df8b0" scoped=""/>
+          <arguments>
+            <value cst="I:2">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </from>
+          <to><interface-ref name="TimerB" ref="0x7f0e31cfcb70" scoped=""/></to>
+        </wire>
+        <wire loc="71:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/Msp430Timer32khzMapC.nc">
+          <from><interface-ref name="Msp430TimerControl" ref="0x7f0e318dc560" scoped=""/>
+          <arguments>
+            <value cst="I:2">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </from>
+          <to><interface-ref name="ControlB3" ref="0x7f0e31cf65a0" scoped=""/></to>
+        </wire>
+        <wire loc="72:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/Msp430Timer32khzMapC.nc">
+          <from><interface-ref name="Msp430Compare" ref="0x7f0e318da020" scoped=""/>
+          <arguments>
+            <value cst="I:2">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </from>
+          <to><interface-ref name="CompareB3" ref="0x7f0e31ced570" scoped=""/></to>
+        </wire>
+        <wire loc="74:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/Msp430Timer32khzMapC.nc">
+          <from><interface-ref name="Msp430Timer" ref="0x7f0e318df8b0" scoped=""/>
+          <arguments>
+            <value cst="I:3">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </from>
+          <to><interface-ref name="TimerB" ref="0x7f0e31cfcb70" scoped=""/></to>
+        </wire>
+        <wire loc="75:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/Msp430Timer32khzMapC.nc">
+          <from><interface-ref name="Msp430TimerControl" ref="0x7f0e318dc560" scoped=""/>
+          <arguments>
+            <value cst="I:3">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </from>
+          <to><interface-ref name="ControlB4" ref="0x7f0e31cf4a50" scoped=""/></to>
+        </wire>
+        <wire loc="76:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/Msp430Timer32khzMapC.nc">
+          <from><interface-ref name="Msp430Compare" ref="0x7f0e318da020" scoped=""/>
+          <arguments>
+            <value cst="I:3">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </from>
+          <to><interface-ref name="CompareB4" ref="0x7f0e31cec3e0" scoped=""/></to>
+        </wire>
+        <wire loc="78:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/Msp430Timer32khzMapC.nc">
+          <from><interface-ref name="Msp430Timer" ref="0x7f0e318df8b0" scoped=""/>
+          <arguments>
+            <value cst="I:4">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </from>
+          <to><interface-ref name="TimerB" ref="0x7f0e31cfcb70" scoped=""/></to>
+        </wire>
+        <wire loc="79:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/Msp430Timer32khzMapC.nc">
+          <from><interface-ref name="Msp430TimerControl" ref="0x7f0e318dc560" scoped=""/>
+          <arguments>
+            <value cst="I:4">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </from>
+          <to><interface-ref name="ControlB5" ref="0x7f0e31cf2020" scoped=""/></to>
+        </wire>
+        <wire loc="80:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/Msp430Timer32khzMapC.nc">
+          <from><interface-ref name="Msp430Compare" ref="0x7f0e318da020" scoped=""/>
+          <arguments>
+            <value cst="I:4">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </from>
+          <to><interface-ref name="CompareB5" ref="0x7f0e31ceb1f0" scoped=""/></to>
+        </wire>
+        <wire loc="82:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/Msp430Timer32khzMapC.nc">
+          <from><interface-ref name="Msp430Timer" ref="0x7f0e318df8b0" scoped=""/>
+          <arguments>
+            <value cst="I:5">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </from>
+          <to><interface-ref name="TimerB" ref="0x7f0e31cfcb70" scoped=""/></to>
+        </wire>
+        <wire loc="83:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/Msp430Timer32khzMapC.nc">
+          <from><interface-ref name="Msp430TimerControl" ref="0x7f0e318dc560" scoped=""/>
+          <arguments>
+            <value cst="I:5">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </from>
+          <to><interface-ref name="ControlB6" ref="0x7f0e31cf15a0" scoped=""/></to>
+        </wire>
+        <wire loc="84:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/Msp430Timer32khzMapC.nc">
+          <from><interface-ref name="Msp430Compare" ref="0x7f0e318da020" scoped=""/>
+          <arguments>
+            <value cst="I:5">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </from>
+          <to><interface-ref name="CompareB6" ref="0x7f0e31cea020" scoped=""/></to>
+        </wire>
+      </wiring>
+    <specification><interface loc="52:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/Msp430Timer32khzMapC.nc" name="Msp430Compare" provided="1" ref="0x7f0e318da020">
+      <component-ref nicename="tos.platforms.telosa.Msp430Timer32khzMapC" qname="Msp430Timer32khzMapC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Msp430Compare" ref="0x7f0e318da020" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Compare" qname="Msp430Compare"/>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="uint8_t" ref="0x7f0e32ba9160"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="getEvent" ref="0x7f0e318da3a0" scoped=""/>
+        <function-ref name="setEvent" ref="0x7f0e318da530" scoped=""/>
+        <function-ref name="setEventFromPrev" ref="0x7f0e318da6c0" scoped=""/>
+        <function-ref name="setEventFromNow" ref="0x7f0e318da850" scoped=""/>
+        <function-ref name="fired" ref="0x7f0e318da9e0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="50:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/Msp430Timer32khzMapC.nc" name="Msp430Timer" provided="1" ref="0x7f0e318df8b0">
+      <component-ref nicename="tos.platforms.telosa.Msp430Timer32khzMapC" qname="Msp430Timer32khzMapC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Msp430Timer" ref="0x7f0e318df8b0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Timer" qname="Msp430Timer"/>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="uint8_t" ref="0x7f0e32ba9160"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="clear" ref="0x7f0e318dfc30" scoped=""/>
+        <function-ref name="setClockSource" ref="0x7f0e318dfdc0" scoped=""/>
+        <function-ref name="enableEvents" ref="0x7f0e318de020" scoped=""/>
+        <function-ref name="get" ref="0x7f0e318de1b0" scoped=""/>
+        <function-ref name="disableEvents" ref="0x7f0e318de340" scoped=""/>
+        <function-ref name="clearOverflow" ref="0x7f0e318de4d0" scoped=""/>
+        <function-ref name="getMode" ref="0x7f0e318de660" scoped=""/>
+        <function-ref name="isOverflowPending" ref="0x7f0e318de7f0" scoped=""/>
+        <function-ref name="overflow" ref="0x7f0e318de980" scoped=""/>
+        <function-ref name="setMode" ref="0x7f0e318deb10" scoped=""/>
+        <function-ref name="setInputDivider" ref="0x7f0e318deca0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="51:/home/ezio/tinyos-main-read-only/tos/platforms/telosa/Msp430Timer32khzMapC.nc" name="Msp430TimerControl" provided="1" ref="0x7f0e318dc560">
+      <component-ref nicename="tos.platforms.telosa.Msp430Timer32khzMapC" qname="Msp430Timer32khzMapC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Msp430TimerControl" ref="0x7f0e318dc560" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430TimerControl" qname="Msp430TimerControl"/>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="uint8_t" ref="0x7f0e32ba9160"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="setControlAsCapture" ref="0x7f0e318dc8e0" scoped=""/>
+        <function-ref name="getControl" ref="0x7f0e318dca70" scoped=""/>
+        <function-ref name="enableEvents" ref="0x7f0e318dcc00" scoped=""/>
+        <function-ref name="areEventsEnabled" ref="0x7f0e318dcd90" scoped=""/>
+        <function-ref name="setControlAsCompare" ref="0x7f0e318db020" scoped=""/>
+        <function-ref name="disableEvents" ref="0x7f0e318db1b0" scoped=""/>
+        <function-ref name="isInterruptPending" ref="0x7f0e318db340" scoped=""/>
+        <function-ref name="clearPendingInterrupt" ref="0x7f0e318db4d0" scoped=""/>
+        <function-ref name="setControl" ref="0x7f0e318db660" scoped=""/>
+      </interface-functions>
+    </interface></specification><referenced><interface loc="64:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc" name="CompareB6" provided="1" ref="0x7f0e31cea020">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430TimerC" qname="Msp430TimerC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="CompareB6" ref="0x7f0e31cea020" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Compare" qname="Msp430Compare"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="getEvent" ref="0x7f0e31cea5a0" scoped=""/>
+        <function-ref name="setEvent" ref="0x7f0e31cea730" scoped=""/>
+        <function-ref name="setEventFromPrev" ref="0x7f0e31cea8c0" scoped=""/>
+        <function-ref name="setEventFromNow" ref="0x7f0e31ceaa50" scoped=""/>
+        <function-ref name="fired" ref="0x7f0e31ceabe0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="51:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc" name="ControlB0" provided="1" ref="0x7f0e31cfa410">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430TimerC" qname="Msp430TimerC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="ControlB0" ref="0x7f0e31cfa410" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430TimerControl" qname="Msp430TimerControl"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="setControlAsCapture" ref="0x7f0e31cfa790" scoped=""/>
+        <function-ref name="getControl" ref="0x7f0e31cfa920" scoped=""/>
+        <function-ref name="enableEvents" ref="0x7f0e31cfaab0" scoped=""/>
+        <function-ref name="areEventsEnabled" ref="0x7f0e31cfac40" scoped=""/>
+        <function-ref name="setControlAsCompare" ref="0x7f0e31cfadd0" scoped=""/>
+        <function-ref name="disableEvents" ref="0x7f0e31cf9020" scoped=""/>
+        <function-ref name="isInterruptPending" ref="0x7f0e31cf91b0" scoped=""/>
+        <function-ref name="clearPendingInterrupt" ref="0x7f0e31cf9340" scoped=""/>
+        <function-ref name="setControl" ref="0x7f0e31cf94d0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="50:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc" name="TimerB" provided="1" ref="0x7f0e31cfcb70">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430TimerC" qname="Msp430TimerC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="TimerB" ref="0x7f0e31cfcb70" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Timer" qname="Msp430Timer"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="clear" ref="0x7f0e31cfb020" scoped=""/>
+        <function-ref name="setClockSource" ref="0x7f0e31cfb1b0" scoped=""/>
+        <function-ref name="enableEvents" ref="0x7f0e31cfb340" scoped=""/>
+        <function-ref name="get" ref="0x7f0e31cfb4d0" scoped=""/>
+        <function-ref name="disableEvents" ref="0x7f0e31cfb660" scoped=""/>
+        <function-ref name="clearOverflow" ref="0x7f0e31cfb7f0" scoped=""/>
+        <function-ref name="getMode" ref="0x7f0e31cfb980" scoped=""/>
+        <function-ref name="isOverflowPending" ref="0x7f0e31cfbb10" scoped=""/>
+        <function-ref name="overflow" ref="0x7f0e31cfbca0" scoped=""/>
+        <function-ref name="setMode" ref="0x7f0e31cfbe30" scoped=""/>
+        <function-ref name="setInputDivider" ref="0x7f0e31cfa020" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="56:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc" name="ControlB5" provided="1" ref="0x7f0e31cf2020">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430TimerC" qname="Msp430TimerC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="ControlB5" ref="0x7f0e31cf2020" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430TimerControl" qname="Msp430TimerControl"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="setControlAsCapture" ref="0x7f0e31cf23a0" scoped=""/>
+        <function-ref name="getControl" ref="0x7f0e31cf2530" scoped=""/>
+        <function-ref name="enableEvents" ref="0x7f0e31cf26c0" scoped=""/>
+        <function-ref name="areEventsEnabled" ref="0x7f0e31cf2850" scoped=""/>
+        <function-ref name="setControlAsCompare" ref="0x7f0e31cf29e0" scoped=""/>
+        <function-ref name="disableEvents" ref="0x7f0e31cf2b70" scoped=""/>
+        <function-ref name="isInterruptPending" ref="0x7f0e31cf2d00" scoped=""/>
+        <function-ref name="clearPendingInterrupt" ref="0x7f0e31cf1020" scoped=""/>
+        <function-ref name="setControl" ref="0x7f0e31cf11b0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="58:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc" name="CompareB0" provided="1" ref="0x7f0e31cf0a20">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430TimerC" qname="Msp430TimerC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="CompareB0" ref="0x7f0e31cf0a20" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Compare" qname="Msp430Compare"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="getEvent" ref="0x7f0e31cf0da0" scoped=""/>
+        <function-ref name="setEvent" ref="0x7f0e31cef020" scoped=""/>
+        <function-ref name="setEventFromPrev" ref="0x7f0e31cef1b0" scoped=""/>
+        <function-ref name="setEventFromNow" ref="0x7f0e31cef340" scoped=""/>
+        <function-ref name="fired" ref="0x7f0e31cef4d0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="61:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc" name="CompareB3" provided="1" ref="0x7f0e31ced570">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430TimerC" qname="Msp430TimerC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="CompareB3" ref="0x7f0e31ced570" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Compare" qname="Msp430Compare"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="getEvent" ref="0x7f0e31ced8f0" scoped=""/>
+        <function-ref name="setEvent" ref="0x7f0e31ceda80" scoped=""/>
+        <function-ref name="setEventFromPrev" ref="0x7f0e31cedc10" scoped=""/>
+        <function-ref name="setEventFromNow" ref="0x7f0e31cedda0" scoped=""/>
+        <function-ref name="fired" ref="0x7f0e31cec020" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="55:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc" name="ControlB4" provided="1" ref="0x7f0e31cf4a50">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430TimerC" qname="Msp430TimerC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="ControlB4" ref="0x7f0e31cf4a50" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430TimerControl" qname="Msp430TimerControl"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="setControlAsCapture" ref="0x7f0e31cf4dd0" scoped=""/>
+        <function-ref name="getControl" ref="0x7f0e31cf3020" scoped=""/>
+        <function-ref name="enableEvents" ref="0x7f0e31cf31b0" scoped=""/>
+        <function-ref name="areEventsEnabled" ref="0x7f0e31cf3340" scoped=""/>
+        <function-ref name="setControlAsCompare" ref="0x7f0e31cf34d0" scoped=""/>
+        <function-ref name="disableEvents" ref="0x7f0e31cf3660" scoped=""/>
+        <function-ref name="isInterruptPending" ref="0x7f0e31cf37f0" scoped=""/>
+        <function-ref name="clearPendingInterrupt" ref="0x7f0e31cf3980" scoped=""/>
+        <function-ref name="setControl" ref="0x7f0e31cf3b10" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="53:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc" name="ControlB2" provided="1" ref="0x7f0e31cf7020">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430TimerC" qname="Msp430TimerC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="ControlB2" ref="0x7f0e31cf7020" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430TimerControl" qname="Msp430TimerControl"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="setControlAsCapture" ref="0x7f0e31cf73a0" scoped=""/>
+        <function-ref name="getControl" ref="0x7f0e31cf7530" scoped=""/>
+        <function-ref name="enableEvents" ref="0x7f0e31cf76c0" scoped=""/>
+        <function-ref name="areEventsEnabled" ref="0x7f0e31cf7850" scoped=""/>
+        <function-ref name="setControlAsCompare" ref="0x7f0e31cf79e0" scoped=""/>
+        <function-ref name="disableEvents" ref="0x7f0e31cf7b70" scoped=""/>
+        <function-ref name="isInterruptPending" ref="0x7f0e31cf7d00" scoped=""/>
+        <function-ref name="clearPendingInterrupt" ref="0x7f0e31cf6020" scoped=""/>
+        <function-ref name="setControl" ref="0x7f0e31cf61b0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="60:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc" name="CompareB2" provided="1" ref="0x7f0e31cee700">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430TimerC" qname="Msp430TimerC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="CompareB2" ref="0x7f0e31cee700" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Compare" qname="Msp430Compare"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="getEvent" ref="0x7f0e31ceea80" scoped=""/>
+        <function-ref name="setEvent" ref="0x7f0e31ceec10" scoped=""/>
+        <function-ref name="setEventFromPrev" ref="0x7f0e31ceeda0" scoped=""/>
+        <function-ref name="setEventFromNow" ref="0x7f0e31ced020" scoped=""/>
+        <function-ref name="fired" ref="0x7f0e31ced1b0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="54:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc" name="ControlB3" provided="1" ref="0x7f0e31cf65a0">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430TimerC" qname="Msp430TimerC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="ControlB3" ref="0x7f0e31cf65a0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430TimerControl" qname="Msp430TimerControl"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="setControlAsCapture" ref="0x7f0e31cf6920" scoped=""/>
+        <function-ref name="getControl" ref="0x7f0e31cf6ab0" scoped=""/>
+        <function-ref name="enableEvents" ref="0x7f0e31cf6c40" scoped=""/>
+        <function-ref name="areEventsEnabled" ref="0x7f0e31cf6dd0" scoped=""/>
+        <function-ref name="setControlAsCompare" ref="0x7f0e31cf4020" scoped=""/>
+        <function-ref name="disableEvents" ref="0x7f0e31cf41b0" scoped=""/>
+        <function-ref name="isInterruptPending" ref="0x7f0e31cf4340" scoped=""/>
+        <function-ref name="clearPendingInterrupt" ref="0x7f0e31cf44d0" scoped=""/>
+        <function-ref name="setControl" ref="0x7f0e31cf4660" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="63:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc" name="CompareB5" provided="1" ref="0x7f0e31ceb1f0">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430TimerC" qname="Msp430TimerC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="CompareB5" ref="0x7f0e31ceb1f0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Compare" qname="Msp430Compare"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="getEvent" ref="0x7f0e31ceb570" scoped=""/>
+        <function-ref name="setEvent" ref="0x7f0e31ceb700" scoped=""/>
+        <function-ref name="setEventFromPrev" ref="0x7f0e31ceb890" scoped=""/>
+        <function-ref name="setEventFromNow" ref="0x7f0e31ceba20" scoped=""/>
+        <function-ref name="fired" ref="0x7f0e31cebbb0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="57:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc" name="ControlB6" provided="1" ref="0x7f0e31cf15a0">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430TimerC" qname="Msp430TimerC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="ControlB6" ref="0x7f0e31cf15a0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430TimerControl" qname="Msp430TimerControl"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="setControlAsCapture" ref="0x7f0e31cf1920" scoped=""/>
+        <function-ref name="getControl" ref="0x7f0e31cf1ab0" scoped=""/>
+        <function-ref name="enableEvents" ref="0x7f0e31cf1c40" scoped=""/>
+        <function-ref name="areEventsEnabled" ref="0x7f0e31cf1dd0" scoped=""/>
+        <function-ref name="setControlAsCompare" ref="0x7f0e31cf0020" scoped=""/>
+        <function-ref name="disableEvents" ref="0x7f0e31cf01b0" scoped=""/>
+        <function-ref name="isInterruptPending" ref="0x7f0e31cf0340" scoped=""/>
+        <function-ref name="clearPendingInterrupt" ref="0x7f0e31cf04d0" scoped=""/>
+        <function-ref name="setControl" ref="0x7f0e31cf0660" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="62:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc" name="CompareB4" provided="1" ref="0x7f0e31cec3e0">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430TimerC" qname="Msp430TimerC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="CompareB4" ref="0x7f0e31cec3e0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Compare" qname="Msp430Compare"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="getEvent" ref="0x7f0e31cec760" scoped=""/>
+        <function-ref name="setEvent" ref="0x7f0e31cec8f0" scoped=""/>
+        <function-ref name="setEventFromPrev" ref="0x7f0e31ceca80" scoped=""/>
+        <function-ref name="setEventFromNow" ref="0x7f0e31cecc10" scoped=""/>
+        <function-ref name="fired" ref="0x7f0e31cecda0" scoped=""/>
+      </interface-functions>
+    </interface><component loc="37:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc" nicename="tos.chips.msp430.timer.Msp430TimerC" qname="Msp430TimerC">
+      <documentation loc="33:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+        <short>
+ </short>
+        <long>
+ @author Cory Sharp &lt;cssharp@eecs.berkeley.edu&gt;
+</long>
+      </documentation>
+      <configuration/>
+      <wiring>
+        <wire loc="113:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="ControlA2" ref="0x7f0e31d0ca50" scoped=""/></from>
+          <to><interface-ref name="Control" ref="0x7f0e31c496d0" scoped=""/></to>
+        </wire>
+        <wire loc="126:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="ControlB0" ref="0x7f0e31cfa410" scoped=""/></from>
+          <to><interface-ref name="Control" ref="0x7f0e31c42b30" scoped=""/></to>
+        </wire>
+        <wire loc="108:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="CaptureA1" ref="0x7f0e31d03bb0" scoped=""/></from>
+          <to><interface-ref name="Capture" ref="0x7f0e31c4f160" scoped=""/></to>
+        </wire>
+        <wire loc="149:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="CaptureB3" ref="0x7f0e31ce6020" scoped=""/></from>
+          <to><interface-ref name="Capture" ref="0x7f0e31c28cb0" scoped=""/></to>
+        </wire>
+        <wire loc="107:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="CompareA1" ref="0x7f0e31d08020" scoped=""/></from>
+          <to><interface-ref name="Compare" ref="0x7f0e31c50480" scoped=""/></to>
+        </wire>
+        <wire loc="148:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="CompareB3" ref="0x7f0e31ced570" scoped=""/></from>
+          <to><interface-ref name="Compare" ref="0x7f0e31c28020" scoped=""/></to>
+        </wire>
+        <wire loc="170:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="CaptureB6" ref="0x7f0e31ce3020" scoped=""/></from>
+          <to><interface-ref name="Capture" ref="0x7f0e31c11cb0" scoped=""/></to>
+        </wire>
+        <wire loc="154:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="ControlB4" ref="0x7f0e31cf4a50" scoped=""/></from>
+          <to><interface-ref name="Control" ref="0x7f0e31c22220" scoped=""/></to>
+        </wire>
+        <wire loc="99:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="ControlA0" ref="0x7f0e31d130c0" scoped=""/></from>
+          <to><interface-ref name="Control" ref="0x7f0e31c9f9d0" scoped=""/></to>
+        </wire>
+        <wire loc="135:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="CaptureB1" ref="0x7f0e31ce8020" scoped=""/></from>
+          <to><interface-ref name="Capture" ref="0x7f0e31c372f0" scoped=""/></to>
+        </wire>
+        <wire loc="134:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="CompareB1" ref="0x7f0e31cef890" scoped=""/></from>
+          <to><interface-ref name="Compare" ref="0x7f0e31c38610" scoped=""/></to>
+        </wire>
+        <wire loc="133:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="ControlB1" ref="0x7f0e31cf98c0" scoped=""/></from>
+          <to><interface-ref name="Control" ref="0x7f0e31c39220" scoped=""/></to>
+        </wire>
+        <wire loc="115:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="CaptureA2" ref="0x7f0e31d02bb0" scoped=""/></from>
+          <to><interface-ref name="Capture" ref="0x7f0e31c477a0" scoped=""/></to>
+        </wire>
+        <wire loc="156:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="CaptureB4" ref="0x7f0e31ce5020" scoped=""/></from>
+          <to><interface-ref name="Capture" ref="0x7f0e31c202f0" scoped=""/></to>
+        </wire>
+        <wire loc="140:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="ControlB2" ref="0x7f0e31cf7020" scoped=""/></from>
+          <to><interface-ref name="Control" ref="0x7f0e31c326d0" scoped=""/></to>
+        </wire>
+        <wire loc="114:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="CompareA2" ref="0x7f0e31d08da0" scoped=""/></from>
+          <to><interface-ref name="Compare" ref="0x7f0e31c48ac0" scoped=""/></to>
+        </wire>
+        <wire loc="93:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="TimerA" ref="0x7f0e31d147b0" scoped=""/></from>
+          <to><interface-ref name="Timer" ref="0x7f0e31cad540" scoped=""/></to>
+        </wire>
+        <wire loc="155:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="CompareB4" ref="0x7f0e31cec3e0" scoped=""/></from>
+          <to><interface-ref name="Compare" ref="0x7f0e31c21610" scoped=""/></to>
+        </wire>
+        <wire loc="106:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="ControlA1" ref="0x7f0e31d125a0" scoped=""/></from>
+          <to><interface-ref name="Control" ref="0x7f0e31c51020" scoped=""/></to>
+        </wire>
+        <wire loc="161:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="ControlB5" ref="0x7f0e31cf2020" scoped=""/></from>
+          <to><interface-ref name="Control" ref="0x7f0e31c1a6d0" scoped=""/></to>
+        </wire>
+        <wire loc="101:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="CaptureA0" ref="0x7f0e31cfdb60" scoped=""/></from>
+          <to><interface-ref name="Capture" ref="0x7f0e31c57a90" scoped=""/></to>
+        </wire>
+        <wire loc="142:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="CaptureB2" ref="0x7f0e31ce7020" scoped=""/></from>
+          <to><interface-ref name="Capture" ref="0x7f0e31c307a0" scoped=""/></to>
+        </wire>
+        <wire loc="100:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="CompareA0" ref="0x7f0e31d09140" scoped=""/></from>
+          <to><interface-ref name="Compare" ref="0x7f0e31c58de0" scoped=""/></to>
+        </wire>
+        <wire loc="141:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="CompareB2" ref="0x7f0e31cee700" scoped=""/></from>
+          <to><interface-ref name="Compare" ref="0x7f0e31c31ac0" scoped=""/></to>
+        </wire>
+        <wire loc="163:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="CaptureB5" ref="0x7f0e31ce4020" scoped=""/></from>
+          <to><interface-ref name="Capture" ref="0x7f0e31c187a0" scoped=""/></to>
+        </wire>
+        <wire loc="147:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="ControlB3" ref="0x7f0e31cf65a0" scoped=""/></from>
+          <to><interface-ref name="Control" ref="0x7f0e31c2ab30" scoped=""/></to>
+        </wire>
+        <wire loc="120:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="TimerB" ref="0x7f0e31cfcb70" scoped=""/></from>
+          <to><interface-ref name="Timer" ref="0x7f0e31ca53e0" scoped=""/></to>
+        </wire>
+        <wire loc="162:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="CompareB5" ref="0x7f0e31ceb1f0" scoped=""/></from>
+          <to><interface-ref name="Compare" ref="0x7f0e31c19ac0" scoped=""/></to>
+        </wire>
+        <wire loc="128:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="CaptureB0" ref="0x7f0e31ce9020" scoped=""/></from>
+          <to><interface-ref name="Capture" ref="0x7f0e31c40cb0" scoped=""/></to>
+        </wire>
+        <wire loc="169:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="CompareB6" ref="0x7f0e31cea020" scoped=""/></from>
+          <to><interface-ref name="Compare" ref="0x7f0e31c11020" scoped=""/></to>
+        </wire>
+        <wire loc="127:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="CompareB0" ref="0x7f0e31cf0a20" scoped=""/></from>
+          <to><interface-ref name="Compare" ref="0x7f0e31c40020" scoped=""/></to>
+        </wire>
+        <wire loc="168:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="ControlB6" ref="0x7f0e31cf15a0" scoped=""/></from>
+          <to><interface-ref name="Control" ref="0x7f0e31c13b30" scoped=""/></to>
+        </wire>
+        <wire loc="94:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="Overflow" ref="0x7f0e31cab450" scoped=""/></from>
+          <to><interface-ref name="Event" ref="0x7f0e31cacd80" scoped=""/>
+          <arguments>
+            <value cst="I:5">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </to>
+        </wire>
+        <wire loc="95:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="VectorTimerX0" ref="0x7f0e31cabaa0" scoped=""/></from>
+          <to><interface-ref name="VectorTimerA0" ref="0x7f0e31c0caa0" scoped=""/></to>
+        </wire>
+        <wire loc="96:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="VectorTimerX1" ref="0x7f0e31caa120" scoped=""/></from>
+          <to><interface-ref name="VectorTimerA1" ref="0x7f0e31c08260" scoped=""/></to>
+        </wire>
+        <wire loc="102:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="Timer" ref="0x7f0e31c56930" scoped=""/></from>
+          <to><interface-ref name="Timer" ref="0x7f0e31cad540" scoped=""/></to>
+        </wire>
+        <wire loc="103:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="Event" ref="0x7f0e31c54020" scoped=""/></from>
+          <to><interface-ref name="Event" ref="0x7f0e31cacd80" scoped=""/>
+          <arguments>
+            <value cst="I:0">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </to>
+        </wire>
+        <wire loc="109:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="Timer" ref="0x7f0e31c4e020" scoped=""/></from>
+          <to><interface-ref name="Timer" ref="0x7f0e31cad540" scoped=""/></to>
+        </wire>
+        <wire loc="110:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="Event" ref="0x7f0e31c4c7a0" scoped=""/></from>
+          <to><interface-ref name="Event" ref="0x7f0e31cacd80" scoped=""/>
+          <arguments>
+            <value cst="I:1">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </to>
+        </wire>
+        <wire loc="116:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="Timer" ref="0x7f0e31c46610" scoped=""/></from>
+          <to><interface-ref name="Timer" ref="0x7f0e31cad540" scoped=""/></to>
+        </wire>
+        <wire loc="117:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="Event" ref="0x7f0e31c45c50" scoped=""/></from>
+          <to><interface-ref name="Event" ref="0x7f0e31cacd80" scoped=""/>
+          <arguments>
+            <value cst="I:2">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </to>
+        </wire>
+        <wire loc="121:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="Overflow" ref="0x7f0e31ca32f0" scoped=""/></from>
+          <to><interface-ref name="Event" ref="0x7f0e31ca4bf0" scoped=""/>
+          <arguments>
+            <value cst="I:7">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </to>
+        </wire>
+        <wire loc="122:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="VectorTimerX0" ref="0x7f0e31ca3940" scoped=""/></from>
+          <to><interface-ref name="VectorTimerB0" ref="0x7f0e31c089f0" scoped=""/></to>
+        </wire>
+        <wire loc="123:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="VectorTimerX1" ref="0x7f0e31ca2020" scoped=""/></from>
+          <to><interface-ref name="VectorTimerB1" ref="0x7f0e31c07240" scoped=""/></to>
+        </wire>
+        <wire loc="129:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="Timer" ref="0x7f0e31c3fb40" scoped=""/></from>
+          <to><interface-ref name="Timer" ref="0x7f0e31ca53e0" scoped=""/></to>
+        </wire>
+        <wire loc="130:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="Event" ref="0x7f0e31c3d2f0" scoped=""/></from>
+          <to><interface-ref name="Event" ref="0x7f0e31ca4bf0" scoped=""/>
+          <arguments>
+            <value cst="I:0">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </to>
+        </wire>
+        <wire loc="136:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="Timer" ref="0x7f0e31c36160" scoped=""/></from>
+          <to><interface-ref name="Timer" ref="0x7f0e31ca53e0" scoped=""/></to>
+        </wire>
+        <wire loc="137:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="Event" ref="0x7f0e31c357a0" scoped=""/></from>
+          <to><interface-ref name="Event" ref="0x7f0e31ca4bf0" scoped=""/>
+          <arguments>
+            <value cst="I:1">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </to>
+        </wire>
+        <wire loc="143:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="Timer" ref="0x7f0e31c2f610" scoped=""/></from>
+          <to><interface-ref name="Timer" ref="0x7f0e31ca53e0" scoped=""/></to>
+        </wire>
+        <wire loc="144:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="Event" ref="0x7f0e31c2ec50" scoped=""/></from>
+          <to><interface-ref name="Event" ref="0x7f0e31ca4bf0" scoped=""/>
+          <arguments>
+            <value cst="I:2">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </to>
+        </wire>
+        <wire loc="150:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="Timer" ref="0x7f0e31c27b40" scoped=""/></from>
+          <to><interface-ref name="Timer" ref="0x7f0e31ca53e0" scoped=""/></to>
+        </wire>
+        <wire loc="151:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="Event" ref="0x7f0e31c252f0" scoped=""/></from>
+          <to><interface-ref name="Event" ref="0x7f0e31ca4bf0" scoped=""/>
+          <arguments>
+            <value cst="I:3">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </to>
+        </wire>
+        <wire loc="157:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="Timer" ref="0x7f0e31c1f160" scoped=""/></from>
+          <to><interface-ref name="Timer" ref="0x7f0e31ca53e0" scoped=""/></to>
+        </wire>
+        <wire loc="158:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="Event" ref="0x7f0e31c1e7a0" scoped=""/></from>
+          <to><interface-ref name="Event" ref="0x7f0e31ca4bf0" scoped=""/>
+          <arguments>
+            <value cst="I:4">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </to>
+        </wire>
+        <wire loc="164:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="Timer" ref="0x7f0e31c17610" scoped=""/></from>
+          <to><interface-ref name="Timer" ref="0x7f0e31ca53e0" scoped=""/></to>
+        </wire>
+        <wire loc="165:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="Event" ref="0x7f0e31c16c50" scoped=""/></from>
+          <to><interface-ref name="Event" ref="0x7f0e31ca4bf0" scoped=""/>
+          <arguments>
+            <value cst="I:5">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </to>
+        </wire>
+        <wire loc="171:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="Timer" ref="0x7f0e31c10b40" scoped=""/></from>
+          <to><interface-ref name="Timer" ref="0x7f0e31ca53e0" scoped=""/></to>
+        </wire>
+        <wire loc="172:/home/ezio/tinyos-main-read-only/tos/chips/msp430/timer/Msp430TimerC.nc">
+          <from><interface-ref name="Event" ref="0x7f0e31c0e2f0" scoped=""/></from>
+          <to><interface-ref name="Event" ref="0x7f0e31ca4bf0" scoped=""/>
+          <arguments>
+            <value cst="I:6">
+              <type-int alignment="I:2" cname="int" size="I:2"/>
+            </value>
+          </arguments>
+          </to>
+        </wire>
+      </wiring>
+    </component></referenced></component>

@@ -1,0 +1,208 @@
+Script started on gio 14 lug 2016 17:39:57 CEST
+Setting up for TinyOS 2.1.2 Repository Version
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ motelist
+Reference  Device           Description
+---------- ---------------- ---------------------------------------------
+M4AF8BAC   /dev/ttyUSB0     Moteiv tmote sky
+XBQ6KKP1   /dev/ttyUSB1     XBOW Crossbow Telos Rev.B
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ mak[K[K[Kmotelistshutdown -h now[7Pmotelist[Kmotelistshutdown -h now[K now[7Pmotelist[Kmake telosb isntall[K[K[K[K[K[Knstall,1 bsl,/v[Kdev/ttyUSB1
+mkdir -p build/telosb
+    compiling BlinkToRadioAppC to a telosb binary
+ncc -o build/telosb/main.exe  -Os -fnesc-separator=__ -Wall -Wshadow -Wnesc-all -target=telosb -fnesc-cfile=build/telosb/app.c -board= -DDEFINED_TOS_AM_GROUP=0x22 -DIDENT_APPNAME=\"BlinkToRadioApp\" -DIDENT_USERNAME=\"ezio\" -DIDENT_HOSTNAME=\"ezio-VirtualBox\" -DIDENT_USERHASH=0x30cf1021L -DIDENT_TIMESTAMP=0x5787b2c1L -DIDENT_UIDHASH=0x89359540L  BlinkToRadioAppC.nc -lm 
+/home/ezio/tinyos-main-read-only/tos/chips/cc2420/lpl/DummyLplC.nc:39:2: warning: #warning "*** LOW POWER COMMUNICATIONS DISABLED ***"
+    compiled BlinkToRadioAppC to build/telosb/main.exe
+           14040 bytes in ROM
+             584 bytes in RAM
+msp430-objcopy --output-target=ihex build/telosb/main.exe build/telosb/main.ihex
+    writing TOS image
+tos-set-symbols --objcopy msp430-objcopy --objdump msp430-objdump --target ihex build/telosb/main.ihex build/telosb/main.ihex.out-1 TOS_NODE_ID=1 ActiveMessageAddressC__addr=1
+    installing telosb binary using bsl
+tos-bsl --telosb -c /dev/ttyUSB1 -r -e -I -p build/telosb/main.ihex.out-1
+MSP430 Bootstrap Loader Version: 1.39-goodfet-8
+Mass Erase...
+Transmit default password ...
+Invoking BSL...
+Transmit default password ...
+Current bootstrap loader version: 1.61 (Device ID: f16c)
+Changing baudrate to 38400 ...
+Program ...
+14184 bytes programmed.
+Reset device ...
+rm -f build/telosb/main.exe.out-1 build/telosb/main.ihex.out-1 
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ cd ../../BaseStation
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/BaseStation[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/BaseSStation[00m$ mak[K[K[Kcd ../../BaseStation[C[C[C[C[C[C[C[C[Cmake telosb install,1 bsl,/dev/ttyUSB1
+mkdir -p build/telosb
+    compiling BaseStationC to a telosb binary
+ncc -o build/telosb/main.exe  -Os -fnesc-separator=__ -Wall -Wshadow -Wnesc-all -target=telosb -fnesc-cfile=build/telosb/app.c -board= -DDEFINED_TOS_AM_GROUP=0x22 -DCC2420_NO_ACKNOWLEDGEMENTS -DCC2420_NO_ADDRESS_RECOGNITION -DTASKLET_IS_TASK -DIDENT_APPNAME=\"BaseStationC\" -DIDENT_USERNAME=\"ezio\" -DIDENT_HOSTNAME=\"ezio-VirtualBox\" -DIDENT_USERHASH=0x30cf1021L -DIDENT_TIMESTAMP=0x5787b2d3L -DIDENT_UIDHASH=0xa92c45d5L  BaseStationC.nc -lm 
+/home/ezio/tinyos-main-read-only/tos/chips/cc2420/lpl/DummyLplC.nc:39:2: warning: #warning "*** LOW POWER COMMUNICATIONS DISABLED ***"
+    compiled BaseStationC to build/telosb/main.exe
+           14438 bytes in ROM
+            1818 bytes in RAM
+msp430-objcopy --output-target=ihex build/telosb/main.exe build/telosb/main.ihex
+    writing TOS image
+tos-set-symbols --objcopy msp430-objcopy --objdump msp430-objdump --target ihex build/telosb/main.ihex build/telosb/main.ihex.out-1 TOS_NODE_ID=1 ActiveMessageAddressC__addr=1
+    installing telosb binary using bsl
+tos-bsl --telosb -c /dev/ttyUSB1 -r -e -I -p build/telosb/main.ihex.out-1
+MSP430 Bootstrap Loader Version: 1.39-goodfet-8
+Mass Erase...
+Transmit default password ...
+Invoking BSL...
+Transmit default password ...
+Current bootstrap loader version: 1.61 (Device ID: f16c)
+Changing baudrate to 38400 ...
+Program ...
+14582 bytes programmed.
+Reset device ...
+rm -f build/telosb/main.exe.out-1 build/telosb/main.ihex.out-1 
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/BaseStation[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/BaseSStation[00m$ cd ../tutorials/BlinkToRadio_Mig/
+]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ java [K[K[K[K[Kjava net.tinyos.tools.PrintfClient -comm serial@/dev/tty
+USB1:telosb
+Thread[Thread-1,5,main]serial@/dev/ttyUSB1:115200: resynchronising
+^C]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ java net.tinyos.tools.PrintfClient -comm serial@/dev/tty
+USB1:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm serial@/dev/ttyUS[1PB1:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm serial@/dev/ttyUSB[1P1:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm serial@/dev/ttyUSB1[1P:telosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm serial@/dev/ttyUSB1:[1Ptelosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm serial@/dev/ttyUSB1:t[1Pelosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm serial@/dev/ttyUSB1:te[1Plosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm serial@/dev/ttyUSB1:tel[1Posb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm serial@/dev/ttyUSB1:telo[1Psb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm serial@/dev/ttyUSB1:telos[1Pb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm serial@/dev/ttyUSB1:telosb[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -comm serial@/dev/ttyUSB1:telosb [K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cl -comm serial@/dev/ttyUSB1:telosb[1P
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kjava net.tinyos.tin[K[Kools.Listen -comm serial@/dev/ttyUSB1:t
+elosb
+serial@/dev/ttyUSB1:115200: resynchronising
+00 00 01 00 00 04 22 06 00 00 00 23 
+00 00 01 00 00 04 22 06 00 00 00 24 
+00 00 01 00 00 04 22 06 00 00 00 25 
+00 00 01 00 00 04 22 06 00 00 00 26 
+00 00 01 00 00 04 22 06 00 00 00 27 
+^C]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ java net.tinyos.tools.Listen -comm serial@/dev/ttyUSB1:t
+elosb[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cjava net.tinyos.tin[K[Kools.MsgReader BlinkToRadioMsg.[K -comm se
+rial@/dev/ttu[KySUB[K[K[KUSB1:telosb
+serial@/dev/ttyUSB1:115200: resynchronising
+1468511085856: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x2e]
+
+1468511090733: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x2f]
+
+1468511095613: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x30]
+
+1468511100498: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x31]
+
+1468511105386: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x32]
+
+1468511110273: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x33]
+
+1468511115170: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x34]
+
+1468511120031: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x35]
+
+1468511124907: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x36]
+
+1468511129829: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x37]
+
+1468511134673: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x38]
+
+1468511139613: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x39]
+
+1468511144445: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x3a]
+
+1468511149808: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x3b]
+
+1468511154286: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x3c]
+
+1468511159134: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x3d]
+
+1468511164029: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x3e]
+
+1468511168849: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x3f]
+
+1468511173737: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x40]
+
+1468511178615: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x41]
+
+1468511183502: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x42]
+
+1468511188389: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x43]
+
+1468511193331: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x44]
+
+1468511198150: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x45]
+
+1468511203057: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x46]
+
+1468511207934: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x47]
+
+1468511212796: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x48]
+
+1468511217769: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x49]
+
+1468511222557: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x4a]
+
+1468511227449: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x4b]
+
+1468511232429: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x4c]
+
+1468511237261: Message <BlinkToRadioMsg> 
+  [nodeid=0x0]
+  [counter=0x4d]
+
+^C]0;ezio@ezio-VirtualBox: /media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorials/BlinkToRadio_Mig[01;32mezio@ezio-VirtualBox[00m:[01;34m/media/sf_Ezio/Documents/03_tinyos-main-read-only/apps/tutorrials/BlinkToRadio_Mig[00m$ exit
+exit
+
+Script done on gio 14 lug 2016 17:47:42 CEST
